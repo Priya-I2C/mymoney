@@ -74,28 +74,33 @@ class CreatePinScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 roundContainer(
-                  textNum: "5",
                   colorBox: white,
                   colorBorder: green,
                 ),
+                /*SizedBox(
+                  width: 16,
+                ),
+                roundContainer(
+                  colorBox: white,
+                  colorBorder: green,
+                  // colorBox: gray2,
+                ),
                 SizedBox(
                   width: 16,
                 ),
                 roundContainer(
-                  colorBox: gray2,
+                  colorBox: white,
+                  colorBorder: green,
+                  // colorBox: gray2,
                 ),
                 SizedBox(
                   width: 16,
                 ),
                 roundContainer(
-                  colorBox: gray2,
-                ),
-                SizedBox(
-                  width: 16,
-                ),
-                roundContainer(
-                  colorBox: gray2,
-                ),
+                  colorBox: white,
+                  colorBorder: green,
+                  // colorBox: gray2,
+                ),*/
               ],
             ),
             SizedBox(
@@ -135,6 +140,7 @@ class CreatePinScreen extends StatelessWidget {
                       onTap: () {
                         condition();
                         colorChangeController.isChange1(true);
+                        insertText("1");
                       },
                       child: textForKeypad(
                           "1",
@@ -148,6 +154,7 @@ class CreatePinScreen extends StatelessWidget {
                       onTap: () {
                         condition();
                         colorChangeController.isChange(true);
+                        insertText("2");
                       },
                       child: textForKeypad(
                           "2",
@@ -161,6 +168,7 @@ class CreatePinScreen extends StatelessWidget {
                       onTap: () {
                         condition();
                         colorChangeController.isChange2(true);
+                        insertText("3");
                       },
                       child: textForKeypad(
                         "3",
@@ -183,6 +191,7 @@ class CreatePinScreen extends StatelessWidget {
                       onTap: () {
                         condition();
                         colorChangeController.isChange3(true);
+                        insertText("4");
                       },
                       child: textForKeypad(
                           "4",
@@ -195,11 +204,12 @@ class CreatePinScreen extends StatelessWidget {
                     () => InkWell(
                       onTap: () {
                         condition();
-                        colorChangeController.isChange4(false);
+                        colorChangeController.isChange4(true);
+                        insertText("5");
                       },
                       child: textForKeypad(
                           "5",
-                          colorChangeController.isChange4.isFalse
+                          colorChangeController.isChange4.isTrue
                               ? white
                               : transPrent),
                     ),
@@ -209,6 +219,7 @@ class CreatePinScreen extends StatelessWidget {
                       onTap: () {
                         condition();
                         colorChangeController.isChange5(true);
+                        insertText("6");
                       },
                       child: textForKeypad(
                           "6",
@@ -230,6 +241,7 @@ class CreatePinScreen extends StatelessWidget {
                       onTap: () {
                         condition();
                         colorChangeController.isChange6(true);
+                        insertText("7");
                       },
                       child: textForKeypad(
                           "7",
@@ -243,6 +255,7 @@ class CreatePinScreen extends StatelessWidget {
                       onTap: () {
                         condition();
                         colorChangeController.isChange7(true);
+                        insertText("8");
                       },
                       child: textForKeypad(
                           "8",
@@ -256,6 +269,7 @@ class CreatePinScreen extends StatelessWidget {
                       onTap: () {
                         condition();
                         colorChangeController.isChange8(true);
+                        insertText("9");
                       },
                       child: textForKeypad(
                           "9",
@@ -277,6 +291,7 @@ class CreatePinScreen extends StatelessWidget {
                       onTap: () {
                         condition();
                         colorChangeController.isChange9(true);
+                        insertText(".");
                       },
                       child: Container(
                         height: 62,
@@ -306,6 +321,7 @@ class CreatePinScreen extends StatelessWidget {
                       onTap: () {
                         condition();
                         colorChangeController.isChange10(true);
+                        insertText("0");
                       },
                       child: textForKeypad(
                           "0",
@@ -319,6 +335,7 @@ class CreatePinScreen extends StatelessWidget {
                       onTap: () {
                         condition();
                         colorChangeController.isChange11(true);
+                        backspace();
                       },
                       child: Container(
                         height: 62,

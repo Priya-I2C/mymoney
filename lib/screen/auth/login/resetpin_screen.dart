@@ -302,15 +302,6 @@ class ResetNewPinScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  /*Text(
-                    ".",
-                    style: TextStyle(
-                      color: black,
-                      fontSize: 36,
-                      fontFamily: "NunitoSemiBold",
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),*/
                   Obx(
                     () => InkWell(
                       onTap: () {

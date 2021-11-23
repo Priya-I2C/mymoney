@@ -13,7 +13,7 @@ class ColorChangeController extends GetxController {
   var isChange = false.obs;
   var isChange2 = false.obs;
   var isChange3 = false.obs;
-  var isChange4 = true.obs;
+  var isChange4 = false.obs;
   var isChange5 = false.obs;
   var isChange6 = false.obs;
   var isChange7 = false.obs;
@@ -30,7 +30,7 @@ condition() {
       colorChangeController.isChange.isTrue ||
       colorChangeController.isChange2.isTrue ||
       colorChangeController.isChange3.isTrue ||
-      colorChangeController.isChange4.isFalse ||
+      colorChangeController.isChange4.isTrue ||
       colorChangeController.isChange5.isTrue ||
       colorChangeController.isChange6.isTrue ||
       colorChangeController.isChange7.isTrue ||
@@ -43,7 +43,7 @@ condition() {
     colorChangeController.isChange(false);
     colorChangeController.isChange2(false);
     colorChangeController.isChange3(false);
-    colorChangeController.isChange4(true);
+    colorChangeController.isChange4(false);
     colorChangeController.isChange5(false);
     colorChangeController.isChange6(false);
     colorChangeController.isChange7(false);
