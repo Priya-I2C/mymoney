@@ -77,7 +77,7 @@ class EmailVerificationScreen extends StatelessWidget {
                   colorBox: white,
                   colorBorder: green,
                 ),
-                SizedBox(
+                /*SizedBox(
                   width: 16,
                 ),
                 roundContainer(
@@ -94,7 +94,7 @@ class EmailVerificationScreen extends StatelessWidget {
                 ),
                 roundContainer(
                   colorBox: gray3,
-                ),
+                ),*/
               ],
             ),
             SizedBox(
@@ -162,6 +162,7 @@ class EmailVerificationScreen extends StatelessWidget {
                       onTap: () {
                         condition();
                         colorChangeController.isChange1(true);
+                        insertText("1");
                       },
                       child: textForKeypad(
                           "1",
@@ -175,6 +176,7 @@ class EmailVerificationScreen extends StatelessWidget {
                       onTap: () {
                         condition();
                         colorChangeController.isChange(true);
+                        insertText("2");
                       },
                       child: textForKeypad(
                           "2",
@@ -188,6 +190,7 @@ class EmailVerificationScreen extends StatelessWidget {
                       onTap: () {
                         condition();
                         colorChangeController.isChange2(true);
+                        insertText("3");
                       },
                       child: textForKeypad(
                         "3",
@@ -210,6 +213,7 @@ class EmailVerificationScreen extends StatelessWidget {
                       onTap: () {
                         condition();
                         colorChangeController.isChange3(true);
+                        insertText("4");
                       },
                       child: textForKeypad(
                           "4",
@@ -222,11 +226,12 @@ class EmailVerificationScreen extends StatelessWidget {
                     () => InkWell(
                       onTap: () {
                         condition();
-                        colorChangeController.isChange4(false);
+                        colorChangeController.isChange4(true);
+                        insertText("5");
                       },
                       child: textForKeypad(
                           "5",
-                          colorChangeController.isChange4.isFalse
+                          colorChangeController.isChange4.isTrue
                               ? white
                               : transPrent),
                     ),
@@ -236,6 +241,7 @@ class EmailVerificationScreen extends StatelessWidget {
                       onTap: () {
                         condition();
                         colorChangeController.isChange5(true);
+                        insertText("6");
                       },
                       child: textForKeypad(
                           "6",
@@ -257,6 +263,7 @@ class EmailVerificationScreen extends StatelessWidget {
                       onTap: () {
                         condition();
                         colorChangeController.isChange6(true);
+                        insertText("7");
                       },
                       child: textForKeypad(
                           "7",
@@ -270,6 +277,7 @@ class EmailVerificationScreen extends StatelessWidget {
                       onTap: () {
                         condition();
                         colorChangeController.isChange7(true);
+                        insertText("8");
                       },
                       child: textForKeypad(
                           "8",
@@ -283,6 +291,7 @@ class EmailVerificationScreen extends StatelessWidget {
                       onTap: () {
                         condition();
                         colorChangeController.isChange8(true);
+                        insertText("9");
                       },
                       child: textForKeypad(
                           "9",
@@ -304,6 +313,7 @@ class EmailVerificationScreen extends StatelessWidget {
                       onTap: () {
                         condition();
                         colorChangeController.isChange9(true);
+                        insertText(".");
                       },
                       child: Container(
                         height: 62,
@@ -342,6 +352,7 @@ class EmailVerificationScreen extends StatelessWidget {
                       onTap: () {
                         condition();
                         colorChangeController.isChange10(true);
+                        insertText("0");
                       },
                       child: textForKeypad(
                           "0",
@@ -355,6 +366,7 @@ class EmailVerificationScreen extends StatelessWidget {
                       onTap: () {
                         condition();
                         colorChangeController.isChange11(true);
+                        backspace();
                       },
                       child: Container(
                         height: 62,

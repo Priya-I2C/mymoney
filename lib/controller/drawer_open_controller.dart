@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 class DrawerOpen extends GetxController with SingleGetTickerProviderMixin {
   Rx<double> xOffset = 0.0.obs;
   Rx<double> yOffset = 0.0.obs;
-  int scaleFactor = 1;
+  Rx<double> scaleFactor = 1.0.obs;
   var scaffoldKey = GlobalKey<ScaffoldState>();
   final Duration duration = const Duration(milliseconds: 300);
   var isChange = false.obs;

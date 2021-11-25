@@ -5,6 +5,8 @@ import 'package:get/get.dart';
 import 'package:mymoney/controller/drawer_open_controller.dart';
 import 'package:mymoney/screen/auth/login/login_screen.dart';
 import 'package:mymoney/screen/auth/signup/signup_screen.dart';
+import 'package:mymoney/screen/home/order/order_screen.dart';
+import 'package:mymoney/screen/home/watchlist/watchlist_screen.dart';
 import 'package:mymoney/utils/color.dart';
 import 'package:mymoney/utils/imagenames.dart';
 
@@ -24,6 +26,7 @@ class HomeScreen extends StatelessWidget {
         onTap: () {
           drawerOpen.xOffset.value = 0;
           drawerOpen.yOffset.value = 0;
+          drawerOpen.scaleFactor.value = 1.0;
           drawerOpen.isChange(false);
         },
         child: Container(
@@ -55,8 +58,8 @@ class HomeScreen extends StatelessWidget {
             transform: Matrix4.translationValues(
               drawerOpen.xOffset.value,
               drawerOpen.yOffset.value,
-              800,
-            ),
+              0,
+            )..scale(drawerOpen.scaleFactor.value),
             duration: Duration(
               milliseconds: 250,
             ),
@@ -72,10 +75,10 @@ class HomeScreen extends StatelessWidget {
                     color: black,
                   ),
                   onPressed: () {
-                    drawerOpen.xOffset.value = -230;
-                    drawerOpen.yOffset.value = 150;
+                    drawerOpen.xOffset.value = -150;
+                    drawerOpen.yOffset.value = 120;
                     drawerOpen.isChange(true);
-                    // drawerOpen.scaleFactor.v = 0.6;
+                    drawerOpen.scaleFactor.value = 0.7;
                   },
                 ),
                 title: Container(
@@ -129,32 +132,22 @@ class HomeScreen extends StatelessWidget {
               ),
               body: GetBuilder<ProfileController>(
                 init: ProfileController(),
-                builder: (s) => WillPopScope(
-                  onWillPop: () async {
-                    return !await Navigator.maybePop(
-                        navigatorKeys[s.selectedIndex].currentState.context);
-                  },
-                  child: IndexedStack(
-                    index: s.selectedIndex.toInt(),
-                    children: <Widget>[
-                      // LogInScreen(),
-                      Center(
-                        child: Text("1"),
-                      ),
-                      Center(
-                        child: Text("2"),
-                      ),
-                      Center(
-                        child: Text("3"),
-                      ),
-                      Center(
-                        child: Text("3"),
-                      ),
-                      Center(
-                        child: Text("3"),
-                      ),
-                    ],
-                  ),
+                builder: (s) => IndexedStack(
+                  index: s.selectedIndex.toInt(),
+                  children: <Widget>[
+                    // LogInScreen(),
+                    WatchListScreen(),
+                    OrderScreen(),
+                    Center(
+                      child: Text("3"),
+                    ),
+                    Center(
+                      child: Text("3"),
+                    ),
+                    Center(
+                      child: Text("3"),
+                    ),
+                  ],
                 ),
               ),
               bottomNavigationBar: SuperFaBottomNavigationBar(),
@@ -178,6 +171,7 @@ class SuperFaBottomNavigationBar extends StatelessWidget {
       builder: (s) => Obx(
         () => BottomNavigationBar(
           backgroundColor: gray9B9797,
+          elevation: 0,
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
