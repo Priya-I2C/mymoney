@@ -1,9 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mymoney/utils/color.dart';
 import 'package:mymoney/utils/imagenames.dart';
 
-class PendingOrderScreen extends StatelessWidget {
+class CurrentScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -17,7 +18,7 @@ class PendingOrderScreen extends StatelessWidget {
           "You Have Not Placed Any Orders!",
           style: TextStyle(
             fontSize: 15,
-            color: black2,
+            color: black,
             fontFamily: "NunitoSemiBold",
             fontWeight: FontWeight.w600,
           ),
@@ -28,9 +29,9 @@ class PendingOrderScreen extends StatelessWidget {
             fontSize: 15,
             color: appColor,
             fontFamily: "NunitoBold",
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w700,
           ),
-        ),
+        )
       ],
     );
   }

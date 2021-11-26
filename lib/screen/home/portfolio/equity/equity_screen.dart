@@ -1,0 +1,72 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:mymoney/controller/tabcontroller_screen.dart';
+import 'package:mymoney/screen/home/portfolio/equity/bookedPL.dart';
+import 'package:mymoney/utils/color.dart';
+
+import 'current_screen.dart';
+import 'holding_screen.dart';
+
+class EquityScreen extends StatelessWidget {
+  MyTabController myTabController = Get.find();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: white,
+      appBar: AppBar(
+        elevation: 0,
+        automaticallyImplyLeading: false,
+        backgroundColor: white,
+        bottom: PreferredSize(
+          child: Padding(
+            padding: EdgeInsets.only(right: 12, left: 12, top: 33),
+            child: TabBar(
+              // automaticIndicatorColorAdjustment: false,
+              // labelPadding: EdgeInsets.all(15),
+              // onTap: _onItemTapped,
+              labelColor: appColor,
+              controller: myTabController.controller4,
+              unselectedLabelColor: black,
+              indicatorColor: appColor,
+              indicatorSize: TabBarIndicatorSize.tab,
+              indicatorWeight: 2,
+              isScrollable: false,
+              physics: NeverScrollableScrollPhysics(),
+              // labelPadding: EdgeInsets.only(right: 40),
+              indicator: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    color: Color(0xff40000000).withOpacity(0.1),
+                    offset: Offset(0.5, 3),
+                    blurRadius: 5,
+                    spreadRadius: 0.2,
+                  ),
+                ],
+                borderRadius: BorderRadius.circular(40),
+                color: pageBackGroundC,
+              ),
+              tabs: myTabController.myTabs4,
+              labelStyle: TextStyle(
+                fontSize: 12,
+                color: black2,
+                fontFamily: "PoppinsMedium",
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+          ),
+          preferredSize: Size(0, 30),
+        ),
+      ),
+      body: TabBarView(
+        physics: NeverScrollableScrollPhysics(),
+        controller: myTabController.controller4,
+        children: [
+          CurrentScreen(),
+          HoldingScreen(),
+          BookedPLScreen(),
+        ],
+      ),
+    );
+  }
+}

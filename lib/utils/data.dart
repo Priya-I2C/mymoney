@@ -67,6 +67,24 @@ const List drawerList = [
     "title": "Sign out",
   },
 ];
+const List bottomSheetListBuild = [
+  {
+    "img": rupee,
+    "title": "NSE",
+  },
+  {
+    "img": rupee,
+    "title": "BSE",
+  },
+  {
+    "img": AZ,
+    "title": "Alphabetically",
+  },
+  {
+    "img": arrow,
+    "title": "Last Traded Prise",
+  },
+];
 const List watchListPageBuildDesign = [
   {
     "img": AXISBANK,
@@ -122,20 +140,66 @@ const List watchListPageBuildDesign = [
     "stock2": "-1.00%",
     "color": redEB5757,
   },
-  /*{
-    "img": homeIcon,
-    "title": "Dashboard",
-    "subTitle": homeIcon,
-    "totalRs": "Dashboard",
-    "stock1": "Dashboard",
-    "stock2": "Dashboard",
+];
+const List executedListPageBuildDesign = [
+  {
+    "con1Color": redEB5757,
+    "con1Text": "SELL",
+    "bankName": "AXISBANK",
+    "orderPrice": "2126",
+    "con2Color": green219653,
+    "con2Text": "COMPLETE",
+    "ltp": "2126.20",
   },
   {
-    "img": homeIcon,
-    "title": "Dashboard",
-    "subTitle": homeIcon,
-    "totalRs": "Dashboard",
-    "stock1": "Dashboard",
-    "stock2": "Dashboard",
-  },*/
+    "con1Color": appColor,
+    "con1Text": "BUY",
+    "bankName": "ICICIBANK",
+    "orderPrice": "354",
+    "con2Color": redEB5757,
+    "con2Text": "REJECT",
+    "ltp": "325.20",
+  },
+  {
+    "con1Color": appColor,
+    "con1Text": "BUY",
+    "bankName": "AXISBANK",
+    "orderPrice": "354",
+    "con2Color": green219653,
+    "con2Text": "COMPLETE",
+    "ltp": "325.20",
+  },
+];
+const List holdingListPageBuildDesign = [
+  {
+    "qty": "1",
+    "bankName": "AXISBANK",
+    "avgText": "2095.00",
+    "profileText1": "+217.95",
+    "profileText2": "+2.20%",
+    "profileColor": green219653,
+    "conText": "10200.00",
+    "ltp": "2126.20",
+  },
+  {
+    "qty": "10",
+    "bankName": "CADILA",
+    "avgText": "254.00",
+    "profileText1": "-150.00",
+    "profileText2": "+0.20%",
+    "profileColor": redEB5757,
+    "conText": "20000.00",
+    "ltp": "250.20",
+  },
+];
+const List bookedListPageBuildDesign = [
+  {
+    "qty": "01",
+    "bankName": "AXISBANK",
+    "avgText": "2095.00",
+    "profileText1": "+217.95",
+    "profileText2": "+2.20%",
+    "profileColor": green219653,
+    "ltp": "2126.20",
+  },
 ];

@@ -95,6 +95,9 @@ flutter:
     - family: TitilliumWebSemiBold
       fonts:
         - asset: assets/fonts/TitilliumWeb-SemiBold.ttf
+    - family: PoppinsSemiBold
+      fonts:
+        - asset: assets/fonts/poppins_semibold.ttf
 
 
   #   - family: Schyler
