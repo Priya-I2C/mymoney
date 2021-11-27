@@ -28,8 +28,9 @@ class ColorChangeController extends GetxController {
     false,
     false,
   ].obs;
-
+  var selectionListToggle = [true, false,].obs;
   var buttonCheck1 = false.obs;
+  var buttonCheck2 = false.obs;
 }
 
 condition() {

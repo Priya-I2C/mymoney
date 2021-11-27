@@ -36,18 +36,6 @@ class HomeScreen extends StatelessWidget {
           drawerOpen.isChange(false);
         },
         child: Container(
-          /*decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(
-              Radius.circular(30),
-            ),
-            boxShadow: [
-              BoxShadow(
-                color: Color(0xff40000000),
-                spreadRadius: 2,
-                blurRadius: 9,
-              ),
-            ],
-          ),*/
           child: AnimatedContainer(
             height: Get.height,
             width: Get.width,
@@ -149,7 +137,9 @@ class HomeScreen extends StatelessWidget {
                                               ),
                                             ),
                                             TextButton(
-                                              onPressed: () {},
+                                              onPressed: () {
+                                                Get.back();
+                                              },
                                               child: Text(
                                                 "Done",
                                                 style: TextStyle(
@@ -168,12 +158,44 @@ class HomeScreen extends StatelessWidget {
                                               () => MaterialButton(
                                                 onPressed: () {
                                                   if (colorChangeController
-                                                      .buttonCheck1.isFalse) {
+                                                          .buttonCheck1
+                                                          .isTrue ||
+                                                      colorChangeController
+                                                          .buttonCheck2
+                                                          .isTrue) {
                                                     colorChangeController
-                                                        .buttonCheck1(true);
+                                                        .buttonCheck1(false);
+                                                    colorChangeController
+                                                        .buttonCheck2(false);
                                                   }
                                                   colorChangeController
                                                       .buttonCheck1(true);
+                                                  if (colorChangeController
+                                                      .buttonCheck1.isTrue) {
+                                                    /* colorChangeController
+                                                        .isCheck
+                                                        .forEach(
+                                                      (element) {
+                                                        print("enter");
+                                                        if (element == true) {
+                                                          element = false;
+                                                          print("enter check");
+                                                        } else if (element ==
+                                                            false) {
+                                                          element = true;
+                                                          print("enter check");
+                                                        }
+                                                      },
+                                                    );*/
+                                                    colorChangeController
+                                                        .isCheck[0] = true;
+                                                    colorChangeController
+                                                        .isCheck[1] = true;
+                                                    colorChangeController
+                                                        .isCheck[2] = true;
+                                                    colorChangeController
+                                                        .isCheck[3] = true;
+                                                  }
                                                 },
                                                 elevation: 0,
                                                 height: 32,
@@ -210,18 +232,35 @@ class HomeScreen extends StatelessWidget {
                                               () => MaterialButton(
                                                 onPressed: () {
                                                   if (colorChangeController
-                                                      .buttonCheck1.isFalse) {
+                                                          .buttonCheck2
+                                                          .isTrue ||
+                                                      colorChangeController
+                                                          .buttonCheck1
+                                                          .isTrue) {
                                                     colorChangeController
-                                                        .buttonCheck1(true);
+                                                        .buttonCheck2(false);
+                                                    colorChangeController
+                                                        .buttonCheck1(false);
                                                   }
                                                   colorChangeController
-                                                      .buttonCheck1(true);
+                                                      .buttonCheck2(true);
+                                                  if (colorChangeController
+                                                      .buttonCheck2.isTrue) {
+                                                    colorChangeController
+                                                        .isCheck[0] = false;
+                                                    colorChangeController
+                                                        .isCheck[1] = false;
+                                                    colorChangeController
+                                                        .isCheck[2] = false;
+                                                    colorChangeController
+                                                        .isCheck[3] = false;
+                                                  }
                                                 },
                                                 elevation: 0,
                                                 height: 32,
                                                 minWidth: 81,
                                                 color: colorChangeController
-                                                        .buttonCheck1.isTrue
+                                                        .buttonCheck2.isTrue
                                                     ? pageBackGroundC
                                                     : white,
                                                 shape: RoundedRectangleBorder(
@@ -229,7 +268,7 @@ class HomeScreen extends StatelessWidget {
                                                       BorderRadius.circular(15),
                                                   side: BorderSide(
                                                     color: colorChangeController
-                                                            .buttonCheck1.isTrue
+                                                            .buttonCheck2.isTrue
                                                         ? Color(0xffDFDFDF)
                                                         : transPrent,
                                                   ),
@@ -293,7 +332,7 @@ class HomeScreen extends StatelessWidget {
                                               ),
                                               trailing: colorChangeController
                                                           .isCheck[index] ==
-                                                      false
+                                                      true
                                                   ? Container(
                                                       height: 25,
                                                       width: 25,

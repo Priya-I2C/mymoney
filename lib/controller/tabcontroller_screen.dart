@@ -22,9 +22,16 @@ class MyTabController extends GetxController with SingleGetTickerProviderMixin {
     Tab(text: 'Holding'),
     Tab(text: 'Booked P/L'),
   ];
+  final List<Tab> myTabs5 = <Tab>[
+    Tab(text: 'Day'),
+    Tab(text: 'Week'),
+    Tab(text: 'Month'),
+    Tab(text: 'Year'),
+  ];
   TabController controller;
   TabController controller1;
   TabController controller4;
+  TabController controller5;
 
   @override
   void onInit() {
@@ -32,6 +39,7 @@ class MyTabController extends GetxController with SingleGetTickerProviderMixin {
     controller = TabController(vsync: this, length: myTabs.length);
     controller1 = TabController(vsync: this, length: myTabs2.length);
     controller4 = TabController(vsync: this, length: myTabs4.length);
+    controller5 = TabController(vsync: this, length: myTabs5.length);
   }
 
   @override
