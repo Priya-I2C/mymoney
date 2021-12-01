@@ -3,16 +3,18 @@ import 'package:get/get.dart';
 import 'package:mymoney/controller/tabcontroller_screen.dart';
 import 'package:mymoney/screen/home/order/executed_screen.dart';
 import 'package:mymoney/screen/home/order/pending_screen.dart';
+import 'package:mymoney/screen/home/watchlist/home_screen.dart';
 import 'package:mymoney/utils/color.dart';
 
 class OrderScreen extends StatelessWidget {
-  MyTabController myTabController = Get.find();
+  MyTabController myTabController = Get.put(MyTabController());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: pageBackGroundC,
       resizeToAvoidBottomInset: false,
+      appBar: appBarDesign(),
       body: Column(
         children: [
           Padding(

@@ -37,6 +37,10 @@ class LogInScreen extends StatelessWidget {
                         fontWeight: FontWeight.w700,
                       ),
                     ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 30),
+                      child: SvgPicture.asset(loginBenner),
+                    ),
                   ],
                 ),
               ),

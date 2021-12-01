@@ -23,9 +23,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      home: BuySellScreen(),
+      home: WelcomeScreen(),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        primarySwatch: Colors.red,
         textSelectionTheme: TextSelectionThemeData(
           cursorColor: white,
         ),

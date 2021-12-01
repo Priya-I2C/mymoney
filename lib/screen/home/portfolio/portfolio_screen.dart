@@ -4,6 +4,7 @@ import 'package:mymoney/controller/tabcontroller_screen.dart';
 import 'package:mymoney/screen/home/order/executed_screen.dart';
 import 'package:mymoney/screen/home/order/pending_screen.dart';
 import 'package:mymoney/screen/home/portfolio/equity/equity_screen.dart';
+import 'package:mymoney/screen/home/watchlist/home_screen.dart';
 import 'package:mymoney/utils/color.dart';
 
 class PortFolioScreen extends StatelessWidget {
@@ -14,6 +15,7 @@ class PortFolioScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: pageBackGroundC,
       resizeToAvoidBottomInset: false,
+      appBar: appBarDesign(),
       body: Column(
         children: [
           Padding(

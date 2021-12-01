@@ -43,9 +43,14 @@ class SignUpScreen extends StatelessWidget {
       body: Stack(
         children: [
           Container(
+            alignment: Alignment.topCenter,
             color: pageBackGroundC,
             height: Get.height,
             width: Get.width,
+            child: Padding(
+              padding: const EdgeInsets.only(top: 38),
+              child: SvgPicture.asset(signUPBenner),
+            ),
           ),
           Positioned(
             top: 240,

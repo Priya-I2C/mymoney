@@ -35,7 +35,7 @@ holdScreenListDesign({
 }) {
   return Container(
     padding: EdgeInsets.only(left: 10, right: 5, top: 10, bottom: 12),
-    margin: EdgeInsets.only(left: 12, right: 12, top: 10),
+    margin: EdgeInsets.only(left: 12, right: 12, top: 20),
     height: 75,
     width: Get.width,
     decoration: BoxDecoration(

@@ -28,6 +28,27 @@ class MyTabController extends GetxController with SingleGetTickerProviderMixin {
     Tab(text: 'Month'),
     Tab(text: 'Year'),
   ];
+  final List<String> dropList = [
+    "LIMIT",
+    "SL",
+    "SLM",
+  ].obs;
+  final List<String> dropList1 = [
+    "DAY",
+    "SL",
+    "SLM",
+  ].obs;
+  var selectedValue = "LIMIT".obs;
+  var selectedValue1 = "DAY".obs;
+
+  void setSelected(String value) {
+    selectedValue.value = value;
+  }
+
+  void setSelected1(String value) {
+    selectedValue1.value = value;
+  }
+
   TabController controller;
   TabController controller1;
   TabController controller4;

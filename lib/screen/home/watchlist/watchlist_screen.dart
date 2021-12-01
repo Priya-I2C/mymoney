@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:mymoney/controller/tabcontroller_screen.dart';
+import 'package:mymoney/screen/home/watchlist/all_stocks_screen.dart';
+import 'package:mymoney/screen/home/watchlist/buy_sell_screen.dart';
+import 'package:mymoney/screen/home/watchlist/home_screen.dart';
 import 'package:mymoney/utils/color.dart';
 import 'package:mymoney/utils/data.dart';
 import 'package:mymoney/utils/imagenames.dart';
@@ -16,6 +19,7 @@ class WatchListScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        appBarDesign(),
         Align(
           alignment: Alignment.topRight,
           child: Padding(
@@ -44,7 +48,7 @@ class WatchListScreen extends StatelessWidget {
             right: 40,
             left: 40,
           ),
-          height: 50,
+          height: 60,
           width: Get.width,
           child: BottomAppBar(
             color: pageBackGroundC,
@@ -56,7 +60,7 @@ class WatchListScreen extends StatelessWidget {
               controller: myTabController.controller,
               unselectedLabelColor: black,
               indicatorColor: appColor,
-              // indicatorSize: TabBarIndicatorSize.tab,
+              indicatorSize: TabBarIndicatorSize.label,
               indicatorWeight: 2,
               isScrollable: true,
               indicator: UnderlineTabIndicator(
@@ -74,7 +78,7 @@ class WatchListScreen extends StatelessWidget {
           ),
         ),
         SizedBox(
-          height: 30,
+          height: 20,
         ),
         Container(
           height: 392,
@@ -90,7 +94,7 @@ class WatchListScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 12),
+                padding: const EdgeInsets.only(right: 13, top: 10, left: 13),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -104,7 +108,9 @@ class WatchListScreen extends StatelessWidget {
                       ),
                     ),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/AllStockScreen');
+                      },
                       child: Text(
                         "See All",
                         style: TextStyle(
@@ -125,6 +131,7 @@ class WatchListScreen extends StatelessWidget {
                     shrinkWrap: true,
                     itemCount: watchListPageBuildDesign.length,
                     itemBuilder: (context, index) => listViewItemDesign(
+                      context: context,
                       image: watchListPageBuildDesign[index]["img"],
                       title: watchListPageBuildDesign[index]["title"],
                       subTitle: watchListPageBuildDesign[index]["subTitle"],
@@ -288,159 +295,169 @@ listViewItemDesign(
     String total,
     String stock1,
     String stock2,
+    BuildContext context,
     colorName}) {
-  return Container(
-    margin: EdgeInsets.only(left: 12, right: 12, bottom: 9, top: 9),
-    padding: EdgeInsets.only(
-      left: 6,
-      right: 11,
-      top: 7,
-      bottom: 9,
-    ),
-    height: 60,
-    width: Get.width,
-    decoration: BoxDecoration(
-      color: pageBackGroundC,
-      borderRadius: BorderRadius.circular(12),
-      boxShadow: [
-        BoxShadow(
-          color: Color(0xff26000000).withOpacity(0.1),
-          spreadRadius: 0.1,
-          blurRadius: 3,
-          offset: Offset(0.5, 3),
-        ),
-      ],
-    ),
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Image(
-          image: AssetImage(image),
-        ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              title,
-              style: TextStyle(
-                fontSize: 15,
-                color: black,
-                fontFamily: "NunitoSemiBold",
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-            Text(
-              subTitle,
-              style: TextStyle(
-                fontSize: 13,
-                color: gray4,
-                fontFamily: "Nunito",
-                fontWeight: FontWeight.w400,
-              ),
-            ),
-          ],
-        ),
-        Container(
-          width: 84,
-          height: 29,
-          child: LineChart(
-            LineChartData(
-              minX: 0,
-              maxX: 11,
-              minY: 0,
-              maxY: 6,
-              titlesData: FlTitlesData(show: false),
-              gridData: FlGridData(
-                show: false,
-                drawVerticalLine: false,
-              ),
-              borderData: FlBorderData(
-                show: false,
-              ),
-              lineBarsData: [
-                LineChartBarData(
-                  spots: [
-                    FlSpot(0, 3),
-                    FlSpot(2.6, 2),
-                    FlSpot(4.9, 5),
-                    FlSpot(6.8, 2.5),
-                    FlSpot(8, 6),
-                    FlSpot(9.5, 7),
-                    FlSpot(11, 7),
-                  ],
-                  isCurved: true,
-                  colors: gradientColors,
-                  barWidth: 2,
-                  dotData: FlDotData(show: false),
-                  belowBarData: BarAreaData(
-                    show: true,
-                    colors: [
-                      const Color(0xff73BE8C).withOpacity(0.4),
-                      const Color(0xf73BE8C),
-                    ],
-                  ),
-                ),
-              ],
-            ),
+  return InkWell(
+    onTap: () {
+      Get.to(BuySellScreen());
+    },
+    child: Container(
+      margin: EdgeInsets.only(
+        left: 12,
+        right: 12,
+        bottom: 9,
+      ),
+      padding: EdgeInsets.only(
+        left: 6,
+        right: 11,
+        top: 7,
+        bottom: 9,
+      ),
+      height: 60,
+      width: Get.width,
+      decoration: BoxDecoration(
+        color: pageBackGroundC,
+        borderRadius: BorderRadius.circular(12),
+        boxShadow: [
+          BoxShadow(
+            color: Color(0xff26000000).withOpacity(0.1),
+            spreadRadius: 0.1,
+            blurRadius: 3,
+            offset: Offset(0.5, 3),
           ),
-        ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            Text(
-              total,
-              style: TextStyle(
-                fontSize: 15,
-                color: colorName,
-                fontFamily: "Nunito",
-                fontWeight: FontWeight.w400,
+        ],
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Image(
+            image: AssetImage(image),
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                title,
+                style: TextStyle(
+                  fontSize: 15,
+                  color: black,
+                  fontFamily: "NunitoSemiBold",
+                  fontWeight: FontWeight.w600,
+                ),
               ),
-            ),
-            RichText(
-              text: TextSpan(
-                children: [
-                  TextSpan(
-                    text: stock1,
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: black,
-                      fontFamily: "Nunito",
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                  TextSpan(
-                    text: "(",
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: black,
-                      fontFamily: "Nunito",
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                  TextSpan(
-                    text: stock2,
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: colorName,
-                      fontFamily: "Nunito",
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                  TextSpan(
-                    text: ")",
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: black,
-                      fontFamily: "Nunito",
-                      fontWeight: FontWeight.w400,
+              Text(
+                subTitle,
+                style: TextStyle(
+                  fontSize: 13,
+                  color: gray4,
+                  fontFamily: "Nunito",
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+            ],
+          ),
+          Container(
+            width: 84,
+            height: 29,
+            child: LineChart(
+              LineChartData(
+                minX: 0,
+                maxX: 11,
+                minY: 0,
+                maxY: 6,
+                titlesData: FlTitlesData(show: false),
+                gridData: FlGridData(
+                  show: false,
+                  drawVerticalLine: false,
+                ),
+                borderData: FlBorderData(
+                  show: false,
+                ),
+                lineBarsData: [
+                  LineChartBarData(
+                    spots: [
+                      FlSpot(0, 3),
+                      FlSpot(2.6, 2),
+                      FlSpot(4.9, 5),
+                      FlSpot(6.8, 2.5),
+                      FlSpot(8, 6),
+                      FlSpot(9.5, 7),
+                      FlSpot(11, 7),
+                    ],
+                    isCurved: true,
+                    colors: gradientColors,
+                    barWidth: 2,
+                    dotData: FlDotData(show: false),
+                    belowBarData: BarAreaData(
+                      show: true,
+                      colors: [
+                        const Color(0xff73BE8C).withOpacity(0.4),
+                        const Color(0xf73BE8C),
+                      ],
                     ),
                   ),
                 ],
               ),
             ),
-          ],
-        ),
-      ],
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Text(
+                total,
+                style: TextStyle(
+                  fontSize: 15,
+                  color: colorName,
+                  fontFamily: "Nunito",
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+              RichText(
+                text: TextSpan(
+                  children: [
+                    TextSpan(
+                      text: stock1,
+                      style: TextStyle(
+                        fontSize: 15,
+                        color: black,
+                        fontFamily: "Nunito",
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                    TextSpan(
+                      text: "(",
+                      style: TextStyle(
+                        fontSize: 15,
+                        color: black,
+                        fontFamily: "Nunito",
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                    TextSpan(
+                      text: stock2,
+                      style: TextStyle(
+                        fontSize: 15,
+                        color: colorName,
+                        fontFamily: "Nunito",
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                    TextSpan(
+                      text: ")",
+                      style: TextStyle(
+                        fontSize: 15,
+                        color: black,
+                        fontFamily: "Nunito",
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
     ),
   );
 }

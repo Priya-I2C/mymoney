@@ -21,7 +21,8 @@ class ColorChangeController extends GetxController {
   var isChange9 = false.obs;
   var isChange10 = false.obs;
   var isChange11 = false.obs;
-
+  var lights = false.obs;
+  var lights1 = false.obs;
   var isCheck = [
     false,
     false,

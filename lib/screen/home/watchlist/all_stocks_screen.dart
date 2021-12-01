@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mymoney/screen/home/watchlist/home_screen.dart';
 import 'package:mymoney/screen/home/watchlist/watchlist_screen.dart';
 import 'package:mymoney/utils/color.dart';
 import 'package:mymoney/utils/data.dart';
@@ -9,9 +10,10 @@ class AllStockScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: appBarDesign(),
       backgroundColor: pageBackGroundC,
       body: Padding(
-        padding: const EdgeInsets.only(top: 100),
+        padding: const EdgeInsets.only(top: 50),
         child: Container(
           height: Get.height,
           width: Get.width,
@@ -31,7 +33,7 @@ class AllStockScreen extends StatelessWidget {
               // mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(left: 12),
+                  padding: const EdgeInsets.only(left: 12, bottom: 18),
                   child: Text(
                     "All Stocks",
                     style: TextStyle(

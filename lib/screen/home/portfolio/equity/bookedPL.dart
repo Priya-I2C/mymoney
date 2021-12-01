@@ -6,20 +6,17 @@ import 'package:mymoney/utils/data.dart';
 class BookedPLScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 20),
-      child: ListView.builder(
-        shrinkWrap: true,
-        itemCount: bookedListPageBuildDesign.length,
-        itemBuilder: (context, index) => bookedListDesign(
-          ltp: bookedListPageBuildDesign[index]["ltp"],
-          bankName: bookedListPageBuildDesign[index]["bankName"],
-          avgText: bookedListPageBuildDesign[index]["avgText"],
-          profileColor: bookedListPageBuildDesign[index]["profileColor"],
-          profileText1: bookedListPageBuildDesign[index]["profileText1"],
-          profileText2: bookedListPageBuildDesign[index]["profileText2"],
-          qty: bookedListPageBuildDesign[index]["qty"],
-        ),
+    return ListView.builder(
+      shrinkWrap: true,
+      itemCount: bookedListPageBuildDesign.length,
+      itemBuilder: (context, index) => bookedListDesign(
+        ltp: bookedListPageBuildDesign[index]["ltp"],
+        bankName: bookedListPageBuildDesign[index]["bankName"],
+        avgText: bookedListPageBuildDesign[index]["avgText"],
+        profileColor: bookedListPageBuildDesign[index]["profileColor"],
+        profileText1: bookedListPageBuildDesign[index]["profileText1"],
+        profileText2: bookedListPageBuildDesign[index]["profileText2"],
+        qty: bookedListPageBuildDesign[index]["qty"],
       ),
     );
   }
@@ -36,7 +33,7 @@ bookedListDesign({
 }) {
   return Container(
     padding: EdgeInsets.only(left: 10, right: 5, top: 10, bottom: 12),
-    margin: EdgeInsets.only(left: 12, right: 12, top: 10),
+    margin: EdgeInsets.only(left: 12, right: 12, top: 20),
     height: 75,
     width: Get.width,
     decoration: BoxDecoration(

@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:mymoney/utils/buttons_widget.dart';
 import 'package:mymoney/utils/color.dart';
+import 'package:mymoney/utils/imagenames.dart';
 import 'package:mymoney/utils/textformfild.dart';
 
 import 'email_verification.dart';
@@ -62,6 +64,10 @@ class ForGetPassword extends StatelessWidget {
                       fontFamily: "Nunito",
                       fontWeight: FontWeight.w400,
                     ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 20),
+                    child: SvgPicture.asset(forgetPinBenner),
                   ),
                 ],
               ),

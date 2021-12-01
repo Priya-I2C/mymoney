@@ -94,9 +94,7 @@ class ConfirmPinScreen extends StatelessWidget {
             ),
             InkWell(
               onTap: () {
-                Get.to(
-                  DrawerOpenScreen(),
-                );
+                Get.toNamed("/drawer");
               },
               child: Container(
                 height: 50,

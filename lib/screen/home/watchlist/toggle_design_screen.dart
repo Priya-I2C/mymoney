@@ -36,6 +36,10 @@ import 'package:get/get.dart';
 import 'package:mymoney/utils/color.dart';
 
 class ToggleScreen extends StatelessWidget {
+  Color buttonColor;
+
+  ToggleScreen(this.buttonColor);
+
   ToggleController toggleController = Get.put(
     ToggleController(),
   );
@@ -62,7 +66,7 @@ class ToggleScreen extends StatelessWidget {
                   width: 34.94,
                   height: 18,
                   decoration: BoxDecoration(
-                    color: green219653,
+                    color: this.buttonColor,
                     borderRadius: BorderRadius.all(
                       Radius.circular(57.0),
                     ),
