@@ -8,6 +8,8 @@ import 'package:mymoney/utils/color.dart';
 import 'package:mymoney/utils/imagenames.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
+import 'verify_pin_screen_account.dart';
+
 class PhoneVerifyScreen extends StatelessWidget {
   FocusNode _focusNode = new FocusNode();
   CheckBoxController checkBoxController = Get.find();
@@ -64,7 +66,7 @@ class PhoneVerifyScreen extends StatelessWidget {
                           lineHeight: 5.0,
                           // animationDuration: 1000,
                           percent: checkBoxController.isSelected.isTrue == true
-                              ? 0.4
+                              ? 0.5
                               : 0.2,
                           linearStrokeCap: LinearStrokeCap.roundAll,
                           progressColor: appColor,
@@ -244,6 +246,7 @@ class PhoneVerifyScreen extends StatelessWidget {
                                     minWidth: 201,
                                     onPressed: () {
                                       checkBoxController.isSelected(true);
+                                      Get.to(VerifyPinScreenInAccount());
                                     },
                                     color: white,
                                     elevation: 0,

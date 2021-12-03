@@ -3,20 +3,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:mymoney/controller/conteiner_color_change_keypade.dart';
-import 'package:mymoney/screen/auth/login/login_screen.dart';
-import 'package:mymoney/screen/home/drawer_open_.dart';
-import '../../home/watchlist/home_screen.dart';
+import 'package:mymoney/screen/auth/signup/creatpin_screen.dart';
 import 'package:mymoney/utils/color.dart';
 import 'package:mymoney/utils/imagenames.dart';
 import 'package:mymoney/utils/round_container.dart';
 import 'package:mymoney/utils/textformfild.dart';
 
-class ConfirmPinScreen extends StatelessWidget {
-  ColorChangeController colorChangeController =
-      Get.put(ColorChangeController());
+import '../forgetpassword/change_password_screen.dart';
 
+class EmailVerificationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    ColorChangeController colorChangeController =
+        Get.put(ColorChangeController());
+
     return Scaffold(
       backgroundColor: pageBackGroundC,
       resizeToAvoidBottomInset: false,
@@ -25,10 +25,10 @@ class ConfirmPinScreen extends StatelessWidget {
         backgroundColor: pageBackGroundC,
         centerTitle: true,
         title: Text(
-          "Confirm PIN",
+          "Email Verification",
           style: TextStyle(
             fontSize: 26,
-            color: black2,
+            color: black,
             fontFamily: "NunitoBold",
             fontWeight: FontWeight.w700,
           ),
@@ -48,10 +48,19 @@ class ConfirmPinScreen extends StatelessWidget {
           // mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Text(
-              "Repeat a PIN code to continue",
+              "Enter your registrated email address to receive",
               style: TextStyle(
                 fontSize: 15,
-                color: black2.withOpacity(0.6),
+                color: black2,
+                fontFamily: "Nunito",
+                fontWeight: FontWeight.w400,
+              ),
+            ),
+            Text(
+              "test001@gmail.com",
+              style: TextStyle(
+                fontSize: 15,
+                color: black2,
                 fontFamily: "Nunito",
                 fontWeight: FontWeight.w400,
               ),
@@ -63,28 +72,27 @@ class ConfirmPinScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 roundContainer(
-                  textNum: "5",
-                  colorBox: green,
+                  textNum: "6",
+                  colorBox: white,
                   colorBorder: green,
-                  textColor: transPrent,
                 ),
-                /* SizedBox(
+                /*SizedBox(
                   width: 16,
                 ),
                 roundContainer(
-                  colorBox: gray2.withOpacity(0.5),
+                  colorBox: gray3,
                 ),
                 SizedBox(
                   width: 16,
                 ),
                 roundContainer(
-                  colorBox: gray2.withOpacity(0.5),
+                  colorBox: gray3,
                 ),
                 SizedBox(
                   width: 16,
                 ),
                 roundContainer(
-                  colorBox: gray2.withOpacity(0.5),
+                  colorBox: gray3,
                 ),*/
               ],
             ),
@@ -93,8 +101,8 @@ class ConfirmPinScreen extends StatelessWidget {
             ),
             InkWell(
               onTap: () {
-                Get.off(
-                  LogInScreen(),
+                Get.to(
+                  CreatePinScreen(),
                 );
               },
               child: Container(
@@ -112,7 +120,36 @@ class ConfirmPinScreen extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: Get.height / 13.92,
+              height: Get.height / 26.21,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "If You Didn’t Received Code?",
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontFamily: "NunitoSemiBold",
+                    color: black,
+                  ),
+                ),
+                InkWell(
+                  onTap: () {
+                    print("Sign Up");
+                  },
+                  child: Text(
+                    "Resend Code",
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: appColor,
+                      fontFamily: "NunitoBold",
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: Get.height / 29.71,
             ),
             Padding(
               padding: EdgeInsets.symmetric(
@@ -304,6 +341,15 @@ class ConfirmPinScreen extends StatelessWidget {
                       ),
                     ),
                   ),
+                  /*Text(
+                    ".",
+                    style: TextStyle(
+                      color: black,
+                      fontSize: 36,
+                      fontFamily: "NunitoSemiBold",
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),*/
                   Obx(
                     () => InkWell(
                       onTap: () {

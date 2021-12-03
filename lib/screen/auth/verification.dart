@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:mymoney/controller/conteiner_color_change_keypade.dart';
-import 'package:mymoney/screen/auth/login/resetpin_email_screen.dart';
+import 'package:mymoney/screen/auth/login/resetpin_login_screen.dart';
 import 'package:mymoney/screen/auth/login/resetpin_screen.dart';
 import 'package:mymoney/screen/home/drawer_open_.dart';
 import '../home/watchlist/home_screen.dart';
@@ -24,16 +24,14 @@ class VerificationScreen extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: pageBackGroundC,
-        title: Padding(
-          padding: EdgeInsets.only(left: 30),
-          child: Text(
-            "Verification PIN",
-            style: TextStyle(
-              fontSize: 26,
-              color: black,
-              fontFamily: "NunitoBold",
-              fontWeight: FontWeight.w700,
-            ),
+        centerTitle: true,
+        title: Text(
+          "Verification PIN",
+          style: TextStyle(
+            fontSize: 26,
+            color: black,
+            fontFamily: "NunitoBold",
+            fontWeight: FontWeight.w700,
           ),
         ),
         leading: IconButton(
@@ -60,7 +58,7 @@ class VerificationScreen extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 76,
+              height: Get.height / 11.72,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -91,17 +89,20 @@ class VerificationScreen extends StatelessWidget {
               ],
             ),
             SizedBox(
-              height: 37,
+              height: Get.height / 24.09,
             ),
             InkWell(
               onTap: () {
-                Get.to(
-                  DrawerOpenScreen(),
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => DrawerOpenScreen(),
+                  ),
                 );
               },
               child: Container(
-                height: 50,
-                width: 50,
+                height: Get.height / 17.82,
+                width: Get.width / 8.22,
                 decoration: BoxDecoration(
                   color: green,
                   shape: BoxShape.circle,
@@ -109,12 +110,12 @@ class VerificationScreen extends StatelessWidget {
                 child: Icon(
                   Icons.arrow_forward,
                   color: white,
-                  size: 30,
+                  size: Get.height / 29.71,
                 ),
               ),
             ),
             SizedBox(
-              height: 34,
+              height: Get.height / 26.21,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -144,10 +145,11 @@ class VerificationScreen extends StatelessWidget {
               ],
             ),
             SizedBox(
-              height: 30,
+              height: Get.height / 29.714,
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 54, vertical: 17.5),
+              padding: EdgeInsets.symmetric(
+                  horizontal: Get.width / 7.61, vertical: Get.height / 50.93),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -198,7 +200,8 @@ class VerificationScreen extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 54, vertical: 17.5),
+              padding: EdgeInsets.symmetric(
+                  horizontal: Get.width / 7.61, vertical: Get.height / 50.93),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -248,7 +251,8 @@ class VerificationScreen extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 54, vertical: 17.5),
+              padding: EdgeInsets.symmetric(
+                  horizontal: Get.width / 7.61, vertical: Get.height / 50.93),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -310,8 +314,8 @@ class VerificationScreen extends StatelessWidget {
                         insertText(".");
                       },
                       child: Container(
-                        height: 62,
-                        width: 62,
+                        height: Get.height / 14.37,
+                        width: Get.width / 6.63,
                         decoration: BoxDecoration(
                           color: colorChangeController.isChange9.isTrue
                               ? white
@@ -354,8 +358,8 @@ class VerificationScreen extends StatelessWidget {
                         backspace();
                       },
                       child: Container(
-                        height: 62,
-                        width: 62,
+                        height: Get.height / 14.37,
+                        width: Get.width / 6.63,
                         decoration: BoxDecoration(
                           color: colorChangeController.isChange11.isTrue
                               ? white

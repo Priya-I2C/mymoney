@@ -18,7 +18,6 @@ class LogInScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: pageBackGroundC,
-      resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
           Container(
@@ -38,16 +37,19 @@ class LogInScreen extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 30),
-                      child: SvgPicture.asset(loginBenner),
+                      padding: EdgeInsets.only(top: Get.height / 29.714),
+                      child: SvgPicture.asset(
+                        loginBenner,
+                        height: Get.height / 3.56,
+                      ),
                     ),
                   ],
                 ),
               ),
             ),
           ),
-          Positioned(
-            bottom: 0,
+          Padding(
+            padding: EdgeInsets.only(top: Get.height / 2.20),
             child: Container(
               height: Get.height / 1.7,
               width: Get.width,
@@ -58,15 +60,15 @@ class LogInScreen extends StatelessWidget {
                   topRight: Radius.circular(20),
                 ),
               ),
-              child: Center(
-                child: Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: Get.width / 15.23,
-                  ),
+              child: Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: Get.width / 15.23,
+                ),
+                child: SingleChildScrollView(
                   child: Column(
                     children: [
                       SizedBox(
-                        height: Get.height / 18.96,
+                        height: Get.height / 17.47,
                       ),
                       textFromFieldDesign(
                         hint: "Email",

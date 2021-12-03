@@ -101,8 +101,8 @@ textFromFieldDesign2({String hint, iconWidget, iconWidget1}) {
 
 textForKeypad(String textNum, colorBackGround) {
   return Container(
-    height: 62,
-    width: 62,
+    height: Get.height / 14.37,
+    width: Get.width / 6.63,
     decoration: BoxDecoration(
       color: colorBackGround,
       shape: BoxShape.circle,
@@ -115,6 +115,44 @@ textForKeypad(String textNum, colorBackGround) {
           fontSize: 36,
           fontFamily: "NunitoSemiBold",
           fontWeight: FontWeight.w400,
+        ),
+      ),
+    ),
+  );
+}
+
+textFromFieldDesign3({String label, iconWidget, iconWidget1}) {
+  return Padding(
+    padding: const EdgeInsets.only(bottom: 20),
+    child: TextFormField(
+      cursorColor: appColor,
+      obscureText: true,
+      obscuringCharacter: '●',
+      style: TextStyle(
+        fontSize: 12,
+        color: black0D1F3C.withOpacity(0.3),
+      ),
+      decoration: InputDecoration(
+        labelText: label,
+        labelStyle: TextStyle(
+          color: gray2,
+          fontSize: 19,
+          fontFamily: "Nunito",
+          fontWeight: FontWeight.w400,
+        ),
+        prefixIcon: iconWidget,
+        suffixIcon: iconWidget1,
+        /*Icon(
+          Icons.email_outlined,
+          color: gray,
+        ),*/
+        border: UnderlineInputBorder(
+          borderSide: BorderSide(
+            color: gray,
+          ),
+        ),
+        focusedBorder: UnderlineInputBorder(
+          borderSide: BorderSide(color: appColor, width: 1.5),
         ),
       ),
     ),

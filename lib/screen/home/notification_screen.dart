@@ -15,6 +15,15 @@ class NotificationScreen extends StatelessWidget {
       appBar: AppBar(
         elevation: 5,
         backgroundColor: pageBackGroundC,
+        leading: IconButton(
+          onPressed: () {
+            Get.back();
+          },
+          icon: Icon(
+            Icons.arrow_back,
+            color: black,
+          ),
+        ),
         title: Center(
           child: Text(
             "Notification",

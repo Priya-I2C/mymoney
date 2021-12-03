@@ -26,7 +26,6 @@ class MyApp extends StatelessWidget {
       home: WelcomeScreen(),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.red,
         textSelectionTheme: TextSelectionThemeData(
           cursorColor: white,
         ),

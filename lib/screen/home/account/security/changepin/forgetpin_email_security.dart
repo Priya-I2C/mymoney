@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:mymoney/utils/buttons_widget.dart';
@@ -7,10 +7,9 @@ import 'package:mymoney/utils/color.dart';
 import 'package:mymoney/utils/imagenames.dart';
 import 'package:mymoney/utils/textformfild.dart';
 
-import '../login/email_verification_resetpin.dart';
-import 'email_verification_forgetpassword.dart';
+import 'email_verification_security.dart';
 
-class ForGetPassword extends StatelessWidget {
+class RestPinEmailSecurityScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,14 +18,16 @@ class ForGetPassword extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: pageBackGroundC,
-        centerTitle: true,
-        title: Text(
-          "Forgot Password",
-          style: TextStyle(
-            fontSize: 26,
-            color: black,
-            fontFamily: "NunitoBold",
-            fontWeight: FontWeight.w700,
+        title: Padding(
+          padding: EdgeInsets.only(left: 30),
+          child: Text(
+            "Forgot Pin",
+            style: TextStyle(
+              fontSize: 26,
+              color: black2,
+              fontFamily: "NunitoBold",
+              fontWeight: FontWeight.w700,
+            ),
           ),
         ),
         leading: IconButton(
@@ -65,18 +66,15 @@ class ForGetPassword extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(top: Get.height / 44.57),
-                    child: SvgPicture.asset(
-                      forgetPinBenner,
-                      height: Get.height / 3.87,
-                    ),
+                    padding: const EdgeInsets.only(top: 20),
+                    child: SvgPicture.asset(forgetPinBenner),
                   ),
                 ],
               ),
             ),
           ),
-          Padding(
-            padding: EdgeInsets.only(top: Get.height / 3),
+          Positioned(
+            bottom: 0,
             child: Container(
               height: Get.height / 1.7,
               width: Get.width,
@@ -111,13 +109,11 @@ class ForGetPassword extends StatelessWidget {
                       SizedBox(
                         height: Get.height / 5.94,
                       ),
-                      resetButton(
+                      signUpButton(
                         onTapButton: () {
-                          Get.to(
-                            EmailVerificationForgetScreen(),
-                          );
+                          Get.to(EmailVerificationSecurityScreen());
                         },
-                        textLabel: "Reset Password",
+                        textLabel: "Reset Pin",
                       ),
                       SizedBox(
                         height: Get.height / 74.28,

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mymoney/screen/home/account/personal_information.dart';
-import 'package:mymoney/screen/home/account/phone_verify_screen.dart';
+import 'personal/personal_information.dart';
+import 'phoneverify/phone_verify_screen.dart';
 import 'package:mymoney/utils/color.dart';
 import 'package:mymoney/utils/imagenames.dart';
+
+import 'security/security_screen.dart';
 
 class AccountScreen extends StatelessWidget {
   @override
@@ -88,7 +90,9 @@ class AccountScreen extends StatelessWidget {
                       height: 7,
                     ),
                     InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Get.to(SecurityScreen());
+                      },
                       child: design1Profile(
                         labelText: "Security",
                       ),

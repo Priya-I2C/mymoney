@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:mymoney/screen/auth/login/resetpin_screen.dart';
+import 'email_verification_resetpin.dart';
 import 'package:mymoney/utils/buttons_widget.dart';
 import 'package:mymoney/utils/color.dart';
 import 'package:mymoney/utils/imagenames.dart';
@@ -17,16 +17,14 @@ class RestPinEmailScreen extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: pageBackGroundC,
-        title: Padding(
-          padding: EdgeInsets.only(left: 30),
-          child: Text(
-            "Forgot Pin",
-            style: TextStyle(
-              fontSize: 26,
-              color: black2,
-              fontFamily: "NunitoBold",
-              fontWeight: FontWeight.w700,
-            ),
+        centerTitle: true,
+        title: Text(
+          "Forgot Pin",
+          style: TextStyle(
+            fontSize: 26,
+            color: black2,
+            fontFamily: "NunitoBold",
+            fontWeight: FontWeight.w700,
           ),
         ),
         leading: IconButton(
@@ -65,8 +63,11 @@ class RestPinEmailScreen extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 20),
-                    child: SvgPicture.asset(forgetPinBenner),
+                    padding: EdgeInsets.only(top: Get.height / 44.57),
+                    child: SvgPicture.asset(
+                      forgetPinBenner,
+                      height: Get.height /3.87,
+                    ),
                   ),
                 ],
               ),
@@ -111,7 +112,7 @@ class RestPinEmailScreen extends StatelessWidget {
                       signUpButton(
                         onTapButton: () {
                           Get.to(
-                            ResetNewPinScreen(),
+                            EmailVerificationScreen(),
                           );
                         },
                         textLabel: "Reset Pin",

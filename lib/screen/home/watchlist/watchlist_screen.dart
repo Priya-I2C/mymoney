@@ -12,6 +12,8 @@ import 'package:mymoney/utils/data.dart';
 import 'package:mymoney/utils/imagenames.dart';
 import 'package:mymoney/utils/utils_text.dart';
 
+import '../notification_screen.dart';
+
 class WatchListScreen extends StatelessWidget {
   final MyTabController myTabController = Get.put(MyTabController());
 
@@ -24,8 +26,13 @@ class WatchListScreen extends StatelessWidget {
           alignment: Alignment.topRight,
           child: Padding(
             padding: const EdgeInsets.only(right: 20, top: 5),
-            child: SvgPicture.asset(
-              bellhome,
+            child: InkWell(
+              onTap: () {
+                Get.to(NotificationScreen());
+              },
+              child: SvgPicture.asset(
+                bellhome,
+              ),
             ),
           ),
         ),
@@ -109,7 +116,7 @@ class WatchListScreen extends StatelessWidget {
                     ),
                     TextButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, '/AllStockScreen');
+                        Navigator.pushNamed(context, "/AllStockScreen");
                       },
                       child: Text(
                         "See All",

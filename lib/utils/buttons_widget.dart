@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:mymoney/utils/imagenames.dart';
 
 import 'color.dart';
@@ -20,8 +21,8 @@ loginButton({String textLabel, onTapButton}) {
       ),
     ),
     child: MaterialButton(
-      height: 46,
-      minWidth: 200,
+      height: Get.height / 19.37,
+      minWidth: Get.width / 2.057,
       onPressed: onTapButton,
       color: appColor,
       // elevation: 4,
@@ -58,8 +59,8 @@ changePasswordButton({String textLabel, onTapButton}) {
       ),
     ),
     child: MaterialButton(
-      height: 46,
-      minWidth: 200,
+      height: Get.height / 19.37,
+      minWidth: Get.width / 2.057,
       onPressed: onTapButton,
       color: appColor,
       // elevation: 4,
@@ -96,8 +97,8 @@ resetButton({String textLabel, onTapButton}) {
       ),
     ),
     child: MaterialButton(
-      height: 49,
-      minWidth: 201,
+      height: Get.height / 18.19,
+      minWidth: Get.width / 2.046,
       onPressed: onTapButton,
       color: appColor,
       // elevation: 4,
@@ -135,8 +136,8 @@ signUpButton({String textLabel, onTapButton}) {
       ),
     ),
     child: MaterialButton(
-      height: 49,
-      minWidth: 201,
+      height: Get.height / 18.19,
+      minWidth: Get.width / 2.046,
       onPressed: onTapButton,
       color: appColor,
       // elevation: 4,
@@ -174,8 +175,8 @@ buyDropDownButton({String textLabel, onTapButton}) {
       ),
     ),
     child: MaterialButton(
-      height: 49,
-      minWidth: 201,
+      height: Get.height / 18.19,
+      minWidth: Get.width / 2.046,
       onPressed: onTapButton,
       color: appColor,
       // elevation: 4,
@@ -213,8 +214,8 @@ sellDropDownButton({String textLabel, onTapButton}) {
       ),
     ),
     child: MaterialButton(
-      height: 49,
-      minWidth: 201,
+      height: Get.height / 18.19,
+      minWidth: Get.width / 2.046,
       onPressed: onTapButton,
       color: redEB5757,
       // elevation: 4,
@@ -252,8 +253,8 @@ addFundButton({String textLabel, onTapButton}) {
       ),
     ),
     child: MaterialButton(
-      height: 49,
-      minWidth: 153,
+      height: Get.height / 18.19,
+      minWidth: Get.width / 2.68,
       onPressed: onTapButton,
       color: green219653,
       elevation: 0,
@@ -302,8 +303,8 @@ withFundButton({String textLabel, onTapButton}) {
       ),
     ),
     child: MaterialButton(
-      height: 49,
-      minWidth: 153,
+      height: Get.height / 18.19,
+      minWidth: Get.width / 2.68,
       onPressed: onTapButton,
       color: appColor,
       elevation: 0,
@@ -349,8 +350,8 @@ buyButton({String textLabel, onTapButton}) {
       ),
     ),
     child: MaterialButton(
-      height: 42,
-      minWidth: 144,
+      height: Get.height / 21.22,
+      minWidth: Get.width / 2.85,
       onPressed: onTapButton,
       color: appColor,
       elevation: 0,
@@ -388,8 +389,8 @@ sellButton({String textLabel, onTapButton}) {
       ),
     ),
     child: MaterialButton(
-      height: 42,
-      minWidth: 144,
+      height: Get.height / 21.22,
+      minWidth: Get.width / 2.85,
       onPressed: onTapButton,
       color: redEB5757,
       elevation: 0,

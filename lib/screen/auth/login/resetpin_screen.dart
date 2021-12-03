@@ -21,16 +21,14 @@ class ResetNewPinScreen extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: pageBackGroundC,
-        title: Padding(
-          padding: EdgeInsets.only(left: 30),
-          child: Text(
-            "Enter PIN",
-            style: TextStyle(
-              fontSize: 26,
-              color: black,
-              fontFamily: "NunitoBold",
-              fontWeight: FontWeight.w700,
-            ),
+        centerTitle: true,
+        title: Text(
+          "Enter PIN",
+          style: TextStyle(
+            fontSize: 26,
+            color: black,
+            fontFamily: "NunitoBold",
+            fontWeight: FontWeight.w700,
           ),
         ),
         leading: IconButton(
@@ -77,7 +75,7 @@ class ResetNewPinScreen extends StatelessWidget {
                   colorBox: white,
                   colorBorder: green,
                 ),
-                SizedBox(
+               /* SizedBox(
                   width: 16,
                 ),
                 roundContainer(
@@ -94,7 +92,7 @@ class ResetNewPinScreen extends StatelessWidget {
                 ),
                 roundContainer(
                   colorBox: gray2,
-                ),
+                ),*/
               ],
             ),
             SizedBox(
@@ -196,11 +194,11 @@ class ResetNewPinScreen extends StatelessWidget {
                     () => InkWell(
                       onTap: () {
                         condition();
-                        colorChangeController.isChange4(false);
+                        colorChangeController.isChange4(true);
                       },
                       child: textForKeypad(
                           "5",
-                          colorChangeController.isChange4.isFalse
+                          colorChangeController.isChange4.isTrue
                               ? white
                               : transPrent),
                     ),

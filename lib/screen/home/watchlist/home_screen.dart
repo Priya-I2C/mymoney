@@ -17,14 +17,18 @@ import 'package:mymoney/utils/color.dart';
 import 'package:mymoney/utils/data.dart';
 import 'package:mymoney/utils/imagenames.dart';
 
+Map<int, GlobalKey<NavigatorState>> navigatorKeys = {
+  0: GlobalKey(),
+  1: GlobalKey(),
+  2: GlobalKey(),
+  3: GlobalKey(),
+  4: GlobalKey(),
+};
+
 class HomeScreen extends StatelessWidget {
   ProfileController profileController = Get.put(ProfileController());
 
   DrawerOpen drawerOpen = Get.put(DrawerOpen());
-
-  List<GlobalKey<NavigatorState>> navigatorKeys = [
-    watchListRouteScreen,
-  ];
 
   Future<bool> systemBackButtonPressed() {
     if (navigatorKeys[profileController.selectedIndex.value]
@@ -71,14 +75,19 @@ class HomeScreen extends StatelessWidget {
               milliseconds: 250,
             ),
             child: WillPopScope(
-              onWillPop: systemBackButtonPressed,
+              onWillPop: () async {
+                return !await Navigator.maybePop(
+                    navigatorKeys[profileController.selectedIndex.value]
+                        .currentState
+                        .context);
+              },
               child: Scaffold(
                 backgroundColor: pageBackGroundC,
                 resizeToAvoidBottomInset: false,
                 body: GetBuilder<ProfileController>(
                   init: ProfileController(),
                   builder: (s) => IndexedStack(
-                    index: s.selectedIndex.toInt(),
+                    index: s.selectedIndex.value,
                     children: <Widget>[
                       // LogInScreen(),
                       WatchListRouteScreen(),
@@ -403,9 +412,7 @@ appBarDesign() {
 }
 
 class SuperFaBottomNavigationBar extends StatelessWidget {
-  const SuperFaBottomNavigationBar({
-    Key key,
-  }) : super(key: key);
+  ProfileController profileController = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -419,8 +426,9 @@ class SuperFaBottomNavigationBar extends StatelessWidget {
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
                 watchList,
-                color:
-                    s.selectedIndex.value == 0 ? Color(0xff2F80ED) : gray9B9797,
+                color: s.selectedIndex.value == 0
+                    ? Color(0xff2F80ED)
+                    : gray9B9797,
               ),
               /* Icon(Icons.home)*/
               title: Text(
@@ -438,8 +446,9 @@ class SuperFaBottomNavigationBar extends StatelessWidget {
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
                 oders,
-                color:
-                    s.selectedIndex.value == 1 ? Color(0xff2F80ED) : gray9B9797,
+                color: s.selectedIndex.value == 1
+                    ? Color(0xff2F80ED)
+                    : gray9B9797,
               ),
               title: Text(
                 'Order',
@@ -456,8 +465,9 @@ class SuperFaBottomNavigationBar extends StatelessWidget {
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
                 portFolio,
-                color:
-                    s.selectedIndex.value == 2 ? Color(0xff2F80ED) : gray9B9797,
+                color: s.selectedIndex.value == 2
+                    ? Color(0xff2F80ED)
+                    : gray9B9797,
               ),
               title: Text(
                 'PortFolio',
@@ -474,8 +484,9 @@ class SuperFaBottomNavigationBar extends StatelessWidget {
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
                 fund,
-                color:
-                    s.selectedIndex.value == 3 ? Color(0xff2F80ED) : gray9B9797,
+                color: s.selectedIndex.value == 3
+                    ? Color(0xff2F80ED)
+                    : gray9B9797,
               ),
               title: Text(
                 'Fund',
@@ -492,8 +503,9 @@ class SuperFaBottomNavigationBar extends StatelessWidget {
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
                 user,
-                color:
-                    s.selectedIndex.value == 4 ? Color(0xff2F80ED) : gray9B9797,
+                color: s.selectedIndex.value == 4
+                    ? Color(0xff2F80ED)
+                    : gray9B9797,
               ),
               title: Text(
                 'Account',

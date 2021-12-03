@@ -3,15 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:mymoney/controller/conteiner_color_change_keypade.dart';
-import 'package:mymoney/screen/auth/login/login_screen.dart';
-import 'package:mymoney/screen/home/drawer_open_.dart';
-import '../../home/watchlist/home_screen.dart';
 import 'package:mymoney/utils/color.dart';
 import 'package:mymoney/utils/imagenames.dart';
 import 'package:mymoney/utils/round_container.dart';
 import 'package:mymoney/utils/textformfild.dart';
 
-class ConfirmPinScreen extends StatelessWidget {
+import 'confirm_pin_security.dart';
+
+class EnterNewPin extends StatelessWidget {
   ColorChangeController colorChangeController =
       Get.put(ColorChangeController());
 
@@ -23,14 +22,16 @@ class ConfirmPinScreen extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: pageBackGroundC,
-        centerTitle: true,
-        title: Text(
-          "Confirm PIN",
-          style: TextStyle(
-            fontSize: 26,
-            color: black2,
-            fontFamily: "NunitoBold",
-            fontWeight: FontWeight.w700,
+        title: Padding(
+          padding: EdgeInsets.only(left: 30),
+          child: Text(
+            "Enter New Pin",
+            style: TextStyle(
+              fontSize: 26,
+              color: black2,
+              fontFamily: "NunitoBold",
+              fontWeight: FontWeight.w700,
+            ),
           ),
         ),
         leading: IconButton(
@@ -48,7 +49,16 @@ class ConfirmPinScreen extends StatelessWidget {
           // mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Text(
-              "Repeat a PIN code to continue",
+              "Enhance the security of your account by ",
+              style: TextStyle(
+                fontSize: 15,
+                color: black2.withOpacity(0.6),
+                fontFamily: "Nunito",
+                fontWeight: FontWeight.w400,
+              ),
+            ),
+            Text(
+              "creating a PIN code",
               style: TextStyle(
                 fontSize: 15,
                 color: black2.withOpacity(0.6),
@@ -57,49 +67,51 @@ class ConfirmPinScreen extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: Get.height / 11.72,
+              height: 76,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 roundContainer(
-                  textNum: "5",
-                  colorBox: green,
+                  colorBox: white,
                   colorBorder: green,
-                  textColor: transPrent,
                 ),
-                /* SizedBox(
+                /*SizedBox(
                   width: 16,
                 ),
                 roundContainer(
-                  colorBox: gray2.withOpacity(0.5),
+                  colorBox: white,
+                  colorBorder: green,
+                  // colorBox: gray2,
                 ),
                 SizedBox(
                   width: 16,
                 ),
                 roundContainer(
-                  colorBox: gray2.withOpacity(0.5),
+                  colorBox: white,
+                  colorBorder: green,
+                  // colorBox: gray2,
                 ),
                 SizedBox(
                   width: 16,
                 ),
                 roundContainer(
-                  colorBox: gray2.withOpacity(0.5),
+                  colorBox: white,
+                  colorBorder: green,
+                  // colorBox: gray2,
                 ),*/
               ],
             ),
             SizedBox(
-              height: Get.height / 24.09,
+              height: 37,
             ),
             InkWell(
               onTap: () {
-                Get.off(
-                  LogInScreen(),
-                );
+                Get.to(EnterNewPinConfirmScreen());
               },
               child: Container(
-                height: Get.height / 17.82,
-                width: Get.width / 8.22,
+                height: 50,
+                width: 50,
                 decoration: BoxDecoration(
                   color: green,
                   shape: BoxShape.circle,
@@ -107,16 +119,16 @@ class ConfirmPinScreen extends StatelessWidget {
                 child: Icon(
                   Icons.arrow_forward,
                   color: white,
-                  size: Get.height / 29.71,
+                  size: 30,
                 ),
               ),
             ),
             SizedBox(
-              height: Get.height / 13.92,
+              height: 64,
             ),
+
             Padding(
-              padding: EdgeInsets.symmetric(
-                  horizontal: Get.width / 7.61, vertical: Get.height / 50.93),
+              padding: EdgeInsets.symmetric(horizontal: 54, vertical: 17.5),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -167,8 +179,7 @@ class ConfirmPinScreen extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(
-                  horizontal: Get.width / 7.61, vertical: Get.height / 50.93),
+              padding: EdgeInsets.symmetric(horizontal: 54, vertical: 17.5),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -218,8 +229,7 @@ class ConfirmPinScreen extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(
-                  horizontal: Get.width / 7.61, vertical: Get.height / 50.93),
+              padding: EdgeInsets.symmetric(horizontal: 54, vertical: 17.5),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -269,8 +279,7 @@ class ConfirmPinScreen extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(
-                  horizontal: Get.width / 7.61, vertical: Get.height / 50.93),
+              padding: EdgeInsets.symmetric(horizontal: 54, vertical: 17.5),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -282,8 +291,8 @@ class ConfirmPinScreen extends StatelessWidget {
                         insertText(".");
                       },
                       child: Container(
-                        height: Get.height / 14.37,
-                        width: Get.width / 6.63,
+                        height: 62,
+                        width: 62,
                         decoration: BoxDecoration(
                           color: colorChangeController.isChange9.isTrue
                               ? white
@@ -326,8 +335,8 @@ class ConfirmPinScreen extends StatelessWidget {
                         backspace();
                       },
                       child: Container(
-                        height: Get.height / 14.37,
-                        width: Get.width / 6.63,
+                        height: 62,
+                        width: 62,
                         decoration: BoxDecoration(
                           color: colorChangeController.isChange11.isTrue
                               ? white

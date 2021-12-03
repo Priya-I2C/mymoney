@@ -4,8 +4,12 @@ const String personImage = "assets/image/comman/personImage.png";
 const String bg = "assets/image/comman/bg.svg";
 const String bg1 = "assets/image/comman/bg1.png";
 const String profilePic = "assets/image/comman/profilePic.png";
-const String phoneVerifyBenner= "assets/image/comman/phoneVerifyBenner.png";
-const String smartphone= "assets/image/comman/smartphone.svg";
+const String phoneVerifyBenner = "assets/image/comman/phoneVerifyBenner.png";
+const String smartphone = "assets/image/comman/smartphone.svg";
+const String wellDoneBenner = "assets/image/comman/wellDoneBenner.svg";
+const String securityBenner = "assets/image/comman/securityBenner.svg";
+const String changePasswordBenner =
+    "assets/image/comman/changePasswordBenner.svg";
 const String lockIcon = "assets/image/login/lockicon.svg";
 const String loginBenner = "assets/image/login/loginBenner.svg";
 const String forgetPinBenner = "assets/image/login/forgetPinBenner.svg";

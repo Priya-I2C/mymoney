@@ -15,16 +15,14 @@ class ChangePasswordScreen extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: pageBackGroundC,
-        title: Padding(
-          padding: EdgeInsets.only(left: 30),
-          child: Text(
-            "Change Password",
-            style: TextStyle(
-              fontSize: 26,
-              color: black1,
-              fontFamily: "NunitoBold",
-              fontWeight: FontWeight.w600,
-            ),
+        centerTitle: true,
+        title: Text(
+          "Change Password",
+          style: TextStyle(
+            fontSize: 26,
+            color: black1,
+            fontFamily: "NunitoBold",
+            fontWeight: FontWeight.w600,
           ),
         ),
         leading: IconButton(
@@ -38,9 +36,9 @@ class ChangePasswordScreen extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: EdgeInsets.only(top: 50),
+        padding: EdgeInsets.only(top: Get.height / 17.82),
         child: Container(
-          height: 760,
+          height: Get.height / 1.17,
           width: Get.width,
           decoration: BoxDecoration(
             color: white,
@@ -51,7 +49,8 @@ class ChangePasswordScreen extends StatelessWidget {
           ),
           child: Center(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 35),
+              padding: EdgeInsets.symmetric(
+                  horizontal: Get.width / 17.14, vertical: Get.height / 25.46),
               child: Column(
                 children: [
                   textFromFieldDesign1(
@@ -62,7 +61,7 @@ class ChangePasswordScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: 40,
+                    height: Get.height / 22.28,
                   ),
                   textFromFieldDesign1(
                     hint: "Repeat password",
@@ -72,7 +71,7 @@ class ChangePasswordScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: 70,
+                    height: Get.height / 12.73,
                   ),
                   resetButton(
                     textLabel: "Change Password",

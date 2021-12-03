@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 import 'package:mymoney/utils/color.dart';
 
 roundContainer(
     {String textNum, Color colorBox, Color colorBorder, Color textColor}) {
   return Container(
-    height: 60,
-    width: 200,
+    height: Get.height / 14.85,
+    width: Get.width / 2.05,
     decoration: BoxDecoration(
       color: colorBox,
       borderRadius: BorderRadius.all(

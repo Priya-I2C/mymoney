@@ -18,16 +18,14 @@ class SignUpScreen extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: pageBackGroundC,
-        title: Padding(
-          padding: EdgeInsets.only(left: 30),
-          child: Text(
-            "Create Account",
-            style: TextStyle(
-              fontSize: 26,
-              color: black2,
-              fontFamily: "NunitoBold",
-              fontWeight: FontWeight.w700,
-            ),
+        centerTitle: true,
+        title: Text(
+          "Create Account",
+          style: TextStyle(
+            fontSize: 26,
+            color: black2,
+            fontFamily: "NunitoBold",
+            fontWeight: FontWeight.w700,
           ),
         ),
         leading: IconButton(
@@ -48,15 +46,15 @@ class SignUpScreen extends StatelessWidget {
             height: Get.height,
             width: Get.width,
             child: Padding(
-              padding: const EdgeInsets.only(top: 38),
-              child: SvgPicture.asset(signUPBenner),
+              padding: EdgeInsets.only(top: Get.height / 23.45),
+              child: SvgPicture.asset(signUPBenner, height: Get.height / 4.43),
             ),
           ),
           Positioned(
-            top: 240,
+            top: Get.height / 3.71,
             bottom: 0.0,
             child: Container(
-              height: 560,
+              height: Get.height / 1.59,
               width: Get.width,
               decoration: BoxDecoration(
                 color: white,
@@ -66,8 +64,9 @@ class SignUpScreen extends StatelessWidget {
                 ),
               ),
               child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 24, vertical: 40),
+                padding: EdgeInsets.symmetric(
+                    horizontal: Get.width / 17.14,
+                    vertical: Get.height / 22.28),
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
@@ -86,7 +85,7 @@ class SignUpScreen extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                        height: 28,
+                        height: Get.height / 31.83,
                       ),
                       textFromFieldDesign1(
                         hint: "Last Name",
@@ -103,7 +102,7 @@ class SignUpScreen extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                        height: 28,
+                        height: Get.height / 31.83,
                       ),
                       textFromFieldDesign1(
                         hint: "Email",
@@ -118,7 +117,7 @@ class SignUpScreen extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                        height: 28,
+                        height: Get.height / 31.83,
                       ),
                       textFromFieldDesign1(
                         hint: "Password",
@@ -135,7 +134,7 @@ class SignUpScreen extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                        height: 50,
+                        height: Get.height / 17.82,
                       ),
                       signUpButton(
                         textLabel: "Sign Up",
@@ -146,7 +145,7 @@ class SignUpScreen extends StatelessWidget {
                         },
                       ),
                       SizedBox(
-                        height: 16,
+                        height: Get.height / 55.71,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
