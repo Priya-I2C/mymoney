@@ -29,7 +29,7 @@ class PortFolioScreen extends StatelessWidget {
                   // labelPadding: EdgeInsets.all(15),
                   // onTap: _onItemTapped,
                   labelColor: appColor,
-                  controller: myTabController.controller1,
+                  controller: myTabController.controller2,
                   unselectedLabelColor: black,
                   indicatorColor: appColor,
                   indicatorSize: TabBarIndicatorSize.label,
@@ -51,10 +51,10 @@ class PortFolioScreen extends StatelessWidget {
             ),
           ),
           Container(
-            height: 679,
+            height: Get.height > 891 ? Get.height / 1.312 : 601,
             color: white,
             child: TabBarView(
-              controller: myTabController.controller1,
+              controller: myTabController.controller2,
               children: [
                 EquityScreen(),
                 Text("2"),

@@ -9,19 +9,13 @@ class DrawerOpenScreen extends StatelessWidget {
   ProfileController profileController = Get.put(ProfileController());
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async {
-        return !await Navigator.maybePop(
-            navigatorKeys[profileController.selectedIndex.value].currentState.context);
-      },
-      child: Scaffold(
-        resizeToAvoidBottomInset: false,
-        body: Stack(
-          children: [
-            DrawerScreen(),
-            HomeScreen(),
-          ],
-        ),
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      body: Stack(
+        children: [
+          DrawerScreen(),
+          HomeScreen(),
+        ],
       ),
     );
   }

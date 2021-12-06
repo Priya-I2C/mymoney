@@ -25,7 +25,8 @@ class WatchListScreen extends StatelessWidget {
         Align(
           alignment: Alignment.topRight,
           child: Padding(
-            padding: const EdgeInsets.only(right: 20, top: 5),
+            padding: EdgeInsets.only(
+                right: Get.width / 20.57, top: Get.height / 178.28),
             child: InkWell(
               onTap: () {
                 Get.to(NotificationScreen());
@@ -37,31 +38,27 @@ class WatchListScreen extends StatelessWidget {
           ),
         ),
         Expanded(
-          child: Container(
-            child: TabBarView(
-              controller: myTabController.controller,
-              children: [
-                tabView1(),
-                Text("cj"),
-                Text("cj"),
-                Text("cj"),
-                Text("cj"),
-              ],
-            ),
+          child: TabBarView(
+            controller: myTabController.controller,
+            children: [
+              tabView1(),
+              Text(Get.height.toString()),
+              Text("cj"),
+              Text("cj"),
+              Text("cj"),
+            ],
           ),
         ),
         Container(
-          padding: EdgeInsets.only(
-            right: 40,
-            left: 40,
-          ),
-          height: 60,
+          height: Get.height / 13.42,
           width: Get.width,
           child: BottomAppBar(
+            // notchMargin: 0,
+            notchMargin: 5.0,
             color: pageBackGroundC,
             elevation: 0,
             child: TabBar(
-              // labelPadding: EdgeInsets.all(15),
+              // labelPadding: EdgeInsets.all(0),
               // onTap: _onItemTapped,
               labelColor: appColor,
               controller: myTabController.controller,
@@ -69,7 +66,7 @@ class WatchListScreen extends StatelessWidget {
               indicatorColor: appColor,
               indicatorSize: TabBarIndicatorSize.label,
               indicatorWeight: 2,
-              isScrollable: true,
+              isScrollable: false,
               indicator: UnderlineTabIndicator(
                 borderSide: BorderSide(color: appColor, width: 2),
                 // insets: EdgeInsets.only(bottom: 52),
@@ -85,10 +82,10 @@ class WatchListScreen extends StatelessWidget {
           ),
         ),
         SizedBox(
-          height: 20,
+          height: Get.height / 44.57,
         ),
         Container(
-          height: 392,
+          height: (Get.height > 891) ? 375: 275,
           width: Get.width,
           decoration: BoxDecoration(
             color: white,
@@ -101,7 +98,10 @@ class WatchListScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.only(right: 13, top: 10, left: 13),
+                padding: EdgeInsets.only(
+                    right: Get.width / 31.64,
+                    top: Get.height / 89.14,
+                    left: Get.width / 31.64),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -116,7 +116,12 @@ class WatchListScreen extends StatelessWidget {
                     ),
                     TextButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, "/AllStockScreen");
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => AllStockScreen(),
+                          ),
+                        );
                       },
                       child: Text(
                         "See All",
@@ -135,6 +140,7 @@ class WatchListScreen extends StatelessWidget {
                 child: ScrollConfiguration(
                   behavior: MyBehavior(),
                   child: ListView.builder(
+                    padding: EdgeInsets.only(top: 10),
                     shrinkWrap: true,
                     itemCount: watchListPageBuildDesign.length,
                     itemBuilder: (context, index) => listViewItemDesign(
@@ -164,134 +170,131 @@ final List<Color> gradientColors = [
 ];
 
 tabView1() {
-  return Container(
-    child: Column(
-      children: [
-        Text(
-          "NIFTY 50",
-          style: TextStyle(
-            fontSize: 28,
-            color: black,
-            fontFamily: "NunitoSemiBold",
-            fontWeight: FontWeight.w400,
-          ),
+  return Column(
+    children: [
+      Text(
+        "NIFTY 50",
+        style: TextStyle(
+          fontSize: 28,
+          color: black,
+          fontFamily: "NunitoSemiBold",
+          fontWeight: FontWeight.w400,
         ),
-        Text(
-          "24,825.90",
-          style: TextStyle(
-            fontSize: 28,
-            color: green219653,
-            fontFamily: "NunitoBold",
-            fontWeight: FontWeight.w400,
-          ),
+      ),
+      Text(
+        "24,825.90",
+        style: TextStyle(
+          fontSize: 28,
+          color: green219653,
+          fontFamily: "NunitoBold",
+          fontWeight: FontWeight.w400,
         ),
-        RichText(
-          text: TextSpan(
-            children: [
-              TextSpan(
-                text: "+13.00",
-                style: TextStyle(
-                  fontSize: 15,
-                  color: black,
-                  fontFamily: "Nunito",
-                  fontWeight: FontWeight.w400,
-                ),
+      ),
+      RichText(
+        text: TextSpan(
+          children: [
+            TextSpan(
+              text: "+13.00",
+              style: TextStyle(
+                fontSize: 15,
+                color: black,
+                fontFamily: "Nunito",
+                fontWeight: FontWeight.w400,
               ),
-              TextSpan(
-                text: "(",
-                style: TextStyle(
-                  fontSize: 15,
-                  color: black,
-                  fontFamily: "Nunito",
-                  fontWeight: FontWeight.w400,
-                ),
+            ),
+            TextSpan(
+              text: "(",
+              style: TextStyle(
+                fontSize: 15,
+                color: black,
+                fontFamily: "Nunito",
+                fontWeight: FontWeight.w400,
               ),
-              TextSpan(
-                text: "+0.14%",
-                style: TextStyle(
-                  fontSize: 15,
-                  color: green219653,
-                  fontFamily: "Nunito",
-                  fontWeight: FontWeight.w400,
-                ),
+            ),
+            TextSpan(
+              text: "+0.14%",
+              style: TextStyle(
+                fontSize: 15,
+                color: green219653,
+                fontFamily: "Nunito",
+                fontWeight: FontWeight.w400,
               ),
-              TextSpan(
-                text: ")",
-                style: TextStyle(
-                  fontSize: 15,
-                  color: black,
-                  fontFamily: "Nunito",
-                  fontWeight: FontWeight.w400,
-                ),
+            ),
+            TextSpan(
+              text: ")",
+              style: TextStyle(
+                fontSize: 15,
+                color: black,
+                fontFamily: "Nunito",
+                fontWeight: FontWeight.w400,
               ),
-            ],
-          ),
+            ),
+          ],
         ),
-        Padding(
-          padding: const EdgeInsets.only(top: 0),
-          child: Container(
-            height: 150,
-            // width: ,
-            child: LineChart(
-              LineChartData(
-                minX: 0,
-                maxX: 11,
-                minY: 0,
-                maxY: 6,
-                titlesData: FlTitlesData(show: false),
+      ),
+      Padding(
+        padding: const EdgeInsets.only(top: 0),
+        child: SizedBox(
+          height: Get.height / 5.57,
+          child: LineChart(
+            LineChartData(
+              minX: 0,
+              maxX: 11,
+              minY: 0,
+              maxY: 6,
+              titlesData: FlTitlesData(show: false),
 
-                // showingTooltipIndicators: true,
-                // titlesData: LineTitles.getTitleData(),
-                gridData: FlGridData(
-                  show: false,
-                  // getDrawingHorizontalLine: (value) {
-                  //   return FlLine(
-                  //     color: transPrent,
-                  //     strokeWidth: 1,
-                  //   );
-                  // },
-                  drawVerticalLine: false,
-                  // getDrawingVerticalLine: (value) {
-                  //   return FlLine(
-                  //     color: transPrent,
-                  //     strokeWidth: 1,
-                  //   );
-                  // },
-                ),
-                borderData: FlBorderData(
-                  show: false,
-                  // border: Border.all(color: transPrent, width: 1),
-                ),
-                lineBarsData: [
-                  LineChartBarData(
-                    spots: [
-                      FlSpot(0, 3),
-                      FlSpot(2.6, 2),
-                      FlSpot(4.9, 5),
-                      FlSpot(6.8, 2.5),
-                      FlSpot(8, 4),
-                      FlSpot(9.5, 3),
-                      FlSpot(11, 4),
-                    ],
-                    isCurved: true,
-                    colors: gradientColors,
-                    barWidth: 2,
-                    dotData: FlDotData(show: false),
-
-                    // belowBarData: BarAreaData(
-                    //     // show: true,
-                    //     // colors: gradientColors
-                    //     //     .map((color) => color.withOpacity(0.3))
-                    //     //     .toList(),
-                    //     ),
-                  ),
-                ],
+              // showingTooltipIndicators: true,
+              // titlesData: LineTitles.getTitleData(),
+              gridData: FlGridData(
+                show: false,
+                // getDrawingHorizontalLine: (value) {
+                //   return FlLine(
+                //     color: transPrent,
+                //     strokeWidth: 1,
+                //   );
+                // },
+                drawVerticalLine: false,
+                // getDrawingVerticalLine: (value) {
+                //   return FlLine(
+                //     color: transPrent,
+                //     strokeWidth: 1,
+                //   );
+                // },
               ),
+              borderData: FlBorderData(
+                show: false,
+                // border: Border.all(color: transPrent, width: 1),
+              ),
+              lineBarsData: [
+                LineChartBarData(
+                  spots: [
+                    FlSpot(0, 3),
+                    FlSpot(2.6, 2),
+                    FlSpot(4.9, 5),
+                    FlSpot(6.8, 2.5),
+                    FlSpot(8, 4),
+                    FlSpot(9.5, 3),
+                    FlSpot(11, 4),
+                  ],
+                  isCurved: true,
+                  colors: gradientColors,
+                  barWidth: 2,
+                  dotData: FlDotData(show: false),
+
+                  // belowBarData: BarAreaData(
+                  //     // show: true,
+                  //     // colors: gradientColors
+                  //     //     .map((color) => color.withOpacity(0.3))
+                  //     //     .toList(),
+                  //     ),
+                ),
+              ],
             ),
           ),
         ),
-      ],
-    ),
+      ),
+    ],
   );
 }
 
@@ -310,15 +313,15 @@ listViewItemDesign(
     },
     child: Container(
       margin: EdgeInsets.only(
-        left: 12,
-        right: 12,
-        bottom: 9,
+        left: Get.width / 34.28,
+        right: Get.width / 34.28,
+        bottom: Get.height / 99.04,
       ),
       padding: EdgeInsets.only(
-        left: 6,
-        right: 11,
-        top: 7,
-        bottom: 9,
+        left: Get.width / 68.57,
+        right: Get.width / 37.40,
+        top: Get.height / 127.34,
+        bottom: Get.height / 99.04,
       ),
       height: 60,
       width: Get.width,

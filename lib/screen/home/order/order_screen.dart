@@ -50,7 +50,7 @@ class OrderScreen extends StatelessWidget {
             ),
           ),
           Container(
-            height: 679,
+            height: Get.height > 891 ? Get.height / 1.312 :601,
             color: white,
             child: TabBarView(
               controller: myTabController.controller1,

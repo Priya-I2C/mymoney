@@ -51,6 +51,7 @@ class MyTabController extends GetxController with SingleGetTickerProviderMixin {
 
   TabController controller;
   TabController controller1;
+  TabController controller2;
   TabController controller4;
   TabController controller5;
 
@@ -59,6 +60,7 @@ class MyTabController extends GetxController with SingleGetTickerProviderMixin {
     super.onInit();
     controller = TabController(vsync: this, length: myTabs.length);
     controller1 = TabController(vsync: this, length: myTabs2.length);
+    controller2 = TabController(vsync: this, length: myTabs3.length);
     controller4 = TabController(vsync: this, length: myTabs4.length);
     controller5 = TabController(vsync: this, length: myTabs5.length);
   }

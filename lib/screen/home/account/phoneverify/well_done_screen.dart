@@ -28,11 +28,11 @@ class WellDoneScreen extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 32),
+        padding: EdgeInsets.symmetric(horizontal: Get.width / 12.85),
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 8),
+              padding: EdgeInsets.only(top: 8),
               child: Container(
                 height: 48,
                 width: Get.width,
@@ -49,11 +49,11 @@ class WellDoneScreen extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 144,
+              height: Get.height / 6.19,
             ),
             SvgPicture.asset(wellDoneBenner),
             SizedBox(
-              height: 186,
+              height: Get.height / 4.79,
             ),
             Container(
               decoration: BoxDecoration(
@@ -73,9 +73,7 @@ class WellDoneScreen extends StatelessWidget {
                 height: 46,
                 minWidth: 200,
                 onPressed: () {
-                  Get.to(
-                   DrawerOpenScreen()
-                  );
+                  Get.to(DrawerOpenScreen());
                 },
                 color: appColor,
                 // elevation: 4,

@@ -28,27 +28,28 @@ class SecurityScreen extends StatelessWidget {
         ),
         elevation: 0,
         backgroundColor: pageBackGroundC,
-        title: Padding(
-          padding: const EdgeInsets.only(left: 60),
-          child: Text(
-            "Security",
-            style: TextStyle(
-              fontSize: 26,
-              color: black2,
-              fontFamily: "NunitoBold",
-              fontWeight: FontWeight.w700,
-            ),
+        centerTitle: true,
+        title: Text(
+          "Security",
+          style: TextStyle(
+            fontSize: 26,
+            color: black2,
+            fontFamily: "NunitoBold",
+            fontWeight: FontWeight.w700,
           ),
         ),
       ),
       body: Center(
         child: Padding(
-          padding: const EdgeInsets.only(top: 83),
+          padding: EdgeInsets.only(top: Get.height / 10.74),
           child: Column(
             children: [
-              SvgPicture.asset(securityBenner),
+              SvgPicture.asset(
+                securityBenner,
+                height: Get.height / 3.84,
+              ),
               Container(
-                height: 487,
+                height: Get.height / 1.83,
                 width: Get.width,
                 decoration: BoxDecoration(
                   color: white,

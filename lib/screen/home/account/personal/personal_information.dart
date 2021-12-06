@@ -21,6 +21,7 @@ class PersonalInformation extends StatelessWidget {
           ),
         ),
         elevation: 0,
+        centerTitle: true,
         backgroundColor: pageBackGroundC,
         title: Text(
           "Personal Information",
@@ -39,10 +40,10 @@ class PersonalInformation extends StatelessWidget {
             width: Get.width,
             color: pageBackGroundC,
             child: Padding(
-              padding: const EdgeInsets.only(
-                  right: 29, left: 29, bottom: 46, top: 9),
+              padding: EdgeInsets.only(
+                  right: 29, left: 29, bottom: Get.height / 19.37, top: 9),
               child: Container(
-                height: 57,
+                height: Get.height / 15.63,
                 width: Get.width,
                 child: Text(
                   "We get your personal information from the verification process. If you want to make changes on your personal information, contact our support.",
@@ -59,9 +60,9 @@ class PersonalInformation extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 150),
+            padding:  EdgeInsets.only(top:  Get.height /5.94),
             child: Container(
-              height: 660,
+              height: Get.height /1.35,
               width: Get.width,
               decoration: BoxDecoration(
                 color: white,
@@ -102,7 +103,7 @@ class PersonalInformation extends StatelessWidget {
                     ),*/
 
                       Padding(
-                        padding: EdgeInsets.only(top: 39),
+                        padding: EdgeInsets.only(top: 39,bottom: 20),
                         child: buyDropDownButton(
                           textLabel: "Save",
                           onTapButton: () {

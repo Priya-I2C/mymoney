@@ -27,7 +27,7 @@ class AccountScreen extends StatelessWidget {
             bottom: 0,
             child: Container(
               width: Get.width,
-              height: 670,
+              height: Get.height / 1.33,
               decoration: BoxDecoration(
                 color: white,
                 borderRadius: BorderRadius.only(
@@ -36,10 +36,10 @@ class AccountScreen extends StatelessWidget {
                 ),
               ),
               child: Padding(
-                padding: const EdgeInsets.only(
-                  top: 65,
-                  left: 24,
-                  right: 24,
+                padding: EdgeInsets.only(
+                  top: Get.height / 13.71,
+                  left: Get.width / 17.14,
+                  right: Get.width / 17.14,
                 ),
                 child: Column(
                   children: [
@@ -53,7 +53,7 @@ class AccountScreen extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      height: 24,
+                      height: Get.height / 37.14,
                     ),
                     InkWell(
                       onTap: () {
@@ -72,7 +72,7 @@ class AccountScreen extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 23),
+                      padding: EdgeInsets.only(top: Get.height / 38.75),
                       child: Align(
                         alignment: Alignment.topLeft,
                         child: Text(
@@ -87,7 +87,7 @@ class AccountScreen extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      height: 7,
+                      height: Get.height / 127.34,
                     ),
                     InkWell(
                       onTap: () {
@@ -115,13 +115,13 @@ class AccountScreen extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: 30,
-            left: 156,
+            top: Get.height > 750 ? Get.height / 29.71 : 10,
+            left: Get.width / 2.63,
             child: Stack(
               children: [
                 Container(
-                  height: 80,
-                  width: 80,
+                  height: Get.height / 11.14,
+                  width: Get.width / 5.14,
                   decoration: BoxDecoration(
                     color: white,
                     shape: BoxShape.circle,
@@ -143,8 +143,8 @@ class AccountScreen extends StatelessWidget {
                   right: 0,
                   // bottom: ,
                   child: Container(
-                    height: 25,
-                    width: 25,
+                    height: Get.height / 35.65,
+                    width: Get.width / 16.45,
                     decoration: BoxDecoration(
                       color: white,
                       shape: BoxShape.circle,

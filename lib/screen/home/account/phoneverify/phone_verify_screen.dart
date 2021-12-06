@@ -31,16 +31,14 @@ class PhoneVerifyScreen extends StatelessWidget {
         ),
         elevation: 0,
         backgroundColor: pageBackGroundC,
-        title: Padding(
-          padding: const EdgeInsets.only(left: 40),
-          child: Text(
-            "Verify Number",
-            style: TextStyle(
-              fontSize: 26,
-              color: black2,
-              fontFamily: "NunitoBold",
-              fontWeight: FontWeight.w700,
-            ),
+        centerTitle: true,
+        title: Text(
+          "Verify Number",
+          style: TextStyle(
+            fontSize: 26,
+            color: black2,
+            fontFamily: "NunitoBold",
+            fontWeight: FontWeight.w700,
           ),
         ),
       ),
@@ -51,7 +49,7 @@ class PhoneVerifyScreen extends StatelessWidget {
             width: Get.width,
             color: pageBackGroundC,
             child: Padding(
-              padding: const EdgeInsets.only(top: 26),
+              padding: EdgeInsets.only(top: Get.height / 34.28),
               child: Column(
                 // mainAxisAlignment: MainAxisAlignment.center,
                 // crossAxisAlignment: CrossAxisAlignment.center,
@@ -80,7 +78,7 @@ class PhoneVerifyScreen extends StatelessWidget {
                         const EdgeInsets.only(left: 24, right: 24, top: 20),
                     child: Container(
                       height: 48,
-                      width: Get.width,
+                      width: 327,
                       child: Text(
                         "Please enter your country and your phone number to receive a verification code",
                         textAlign: TextAlign.center,
@@ -94,15 +92,18 @@ class PhoneVerifyScreen extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 40),
-                    child: Image.asset(phoneVerifyBenner),
+                    padding: EdgeInsets.only(top: Get.height / 40),
+                    child: Image.asset(
+                      phoneVerifyBenner,
+                      height: Get.height > 750 ? Get.height / 3.44 : 200,
+                    ),
                   ),
                 ],
               ),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 360),
+            padding: EdgeInsets.only(top: Get.height > 750 ? 360 : 315),
             child: Container(
               height: 440,
               width: Get.width,

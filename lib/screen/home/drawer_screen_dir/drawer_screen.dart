@@ -14,7 +14,8 @@ class DrawerScreen extends StatelessWidget {
       width: Get.width,
       color: white,
       child: Padding(
-        padding: const EdgeInsets.only(top: 94, left: 40),
+        padding:
+            EdgeInsets.only(top: Get.height / 9.48, left: Get.width / 10.28),
         child: Column(
           // crossAxisAlignment: CrossAxisAlignment.end,
           mainAxisSize: MainAxisSize.min,
@@ -26,11 +27,11 @@ class DrawerScreen extends StatelessWidget {
               backgroundColor: white,
             ),
             SizedBox(
-              height: 15,
+              height: Get.height / 59.42,
             ),
             Container(
-              width: 90,
-              height: 70,
+              width: Get.width / 4.57,
+              height: Get.height / 12.73,
               child: Text(
                 "Mattie Hardwick",
                 style: TextStyle(
@@ -41,25 +42,30 @@ class DrawerScreen extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
-              height: 20,
-            ),
+            /* SizedBox(
+              height: 10
+            ),*/
             Padding(
-              padding: const EdgeInsets.only(left: 125),
-              child: ListView.builder(
-                shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                itemCount: drawerList.length,
-                itemBuilder: (context, index) => ListTile(
-                  leading: SvgPicture.asset(drawerList[index]["img"]),
-                  minLeadingWidth: 20,
-                  title: Text(
-                    drawerList[index]["title"],
-                    style: TextStyle(
-                      fontSize: 19,
-                      color: black0D1F3C,
-                      fontFamily: "NunitoSemiBold",
-                      fontWeight: FontWeight.w600,
+              padding: EdgeInsets.only(left: Get.width / 3.29),
+              child: Container(
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  itemCount: drawerList.length,
+                  itemBuilder: (context, index) => ListTile(
+                    leading: SvgPicture.asset(
+                      drawerList[index]["img"],
+                      height: Get.height / 44.571,
+                    ),
+                    minLeadingWidth: Get.width / 20.57,
+                    title: Text(
+                      drawerList[index]["title"],
+                      style: TextStyle(
+                        fontSize: Get.width / 21.65,
+                        color: black0D1F3C,
+                        fontFamily: "NunitoSemiBold",
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                   ),
                 ),

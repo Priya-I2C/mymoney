@@ -15,34 +15,37 @@ class FundScreen extends StatelessWidget {
             width: Get.width,
             height: Get.height,
             color: pageBackGroundC,
-            child: Column(
-              children: [
-                Text(
-                  "Funds",
-                  style: TextStyle(
-                    fontSize: 26,
-                    color: black2,
-                    fontFamily: "NunitoBold",
-                    fontWeight: FontWeight.w700,
+            child: Padding(
+              padding: EdgeInsets.only(top: Get.height / 14.85),
+              child: Column(
+                children: [
+                  Text(
+                    "Funds",
+                    style: TextStyle(
+                      fontSize: 26,
+                      color: black2,
+                      fontFamily: "NunitoBold",
+                      fontWeight: FontWeight.w700,
+                    ),
                   ),
-                ),
-                Text(
-                  "( Cash + Collateral )",
-                  style: TextStyle(
-                    fontSize: 15,
-                    color: black485068,
-                    fontFamily: "Nunito",
-                    fontWeight: FontWeight.w400,
+                  Text(
+                    "( Cash + Collateral )",
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: black485068,
+                      fontFamily: "Nunito",
+                      fontWeight: FontWeight.w400,
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
           Positioned(
             bottom: 0,
             child: Container(
               width: Get.width,
-              height: 670,
+              height: Get.height / 1.33,
               decoration: BoxDecoration(
                 color: white,
                 borderRadius: BorderRadius.only(
@@ -55,8 +58,8 @@ class FundScreen extends StatelessWidget {
                 ),*/
               ),
               child: Padding(
-                padding: const EdgeInsets.only(
-                  top: 12,
+                padding: EdgeInsets.only(
+                  top: Get.height / 74.285,
                 ),
                 child: Column(
                   children: [
@@ -79,10 +82,10 @@ class FundScreen extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(
-                        top: 9.15,
-                        left: 16,
-                        right: 10,
+                      padding: EdgeInsets.only(
+                        top: Get.height / 97.42,
+                        left: Get.width / 25.71,
+                        right: Get.width / 41.14,
                       ),
                       child: Divider(
                         color: gray,
@@ -105,13 +108,14 @@ class FundScreen extends StatelessWidget {
                     design1(text1: "Total Collateral", text2: "0.00"),
                     Padding(
                       padding:
-                          const EdgeInsets.only(top: 30, left: 33, right: 26),
+                          const EdgeInsets.only(top: 30, left: 33, right: 33),
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           addFundButton(
                               onTapButton: () {}, textLabel: "Add Funds"),
                           SizedBox(
-                            width: 10,
+                            width:Get.width/41.14,
                           ),
                           withFundButton(
                               onTapButton: () {}, textLabel: "Withdraw"),
@@ -131,13 +135,13 @@ class FundScreen extends StatelessWidget {
 
 design1({String text1, String text2}) {
   return Padding(
-    padding: const EdgeInsets.only(
-      left: 23.93,
-      right: 18.18,
-      top: 10,
+    padding: EdgeInsets.only(
+      left: Get.width / 17.19,
+      right: Get.width / 22.63,
+      top: Get.height / 89.14,
     ),
     child: Container(
-      height: 59.78,
+      height: Get.height / 14.91,
       width: Get.width,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

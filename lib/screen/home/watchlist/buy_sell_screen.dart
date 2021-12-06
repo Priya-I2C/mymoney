@@ -48,203 +48,206 @@ class BuySellScreen extends StatelessWidget {
           ),
         ),
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 21, left: 13, right: 18),
-            child: Container(
-              width: Get.width,
-              height: 56,
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 21, left: 13, right: 18),
+              child: Container(
+                width: Get.width,
+                height: 56,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "₹2126.20",
+                          style: TextStyle(
+                            fontSize: 18,
+                            color: green219653,
+                            fontFamily: "NunitoBold",
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                        ToggleScreen(green219653),
+                      ],
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Text(
+                          "+30.00",
+                          style: TextStyle(
+                            fontSize: 18,
+                            color: black,
+                            fontFamily: "Nunito",
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                        RichText(
+                          text: TextSpan(
+                            children: [
+                              TextSpan(
+                                text: "(",
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  color: black,
+                                  fontFamily: "Nunito",
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                              TextSpan(
+                                text: "+0.72%",
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  color: green219653,
+                                  fontFamily: "Nunito",
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                              TextSpan(
+                                text: ")",
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  color: black,
+                                  fontFamily: "Nunito",
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 22,
+            ),
+            Divider(
+              thickness: 3,
+              color: grayF2F2F2,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(
+                left: 14,
+              ),
+              child: Text(
+                "Chart",
+                style: TextStyle(
+                  fontSize: 18,
+                  color: black,
+                  fontFamily: "NunitoBold",
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(right: 19),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "₹2126.20",
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: green219653,
-                          fontFamily: "NunitoBold",
-                          fontWeight: FontWeight.w700,
-                        ),
+                  BottomAppBar(
+                    elevation: 0,
+                    child: TabBar(
+                      // labelPadding: EdgeInsets.all(15),
+                      // onTap: _onItemTapped,
+                      labelColor: appColor,
+                      controller: myTabController.controller5,
+                      unselectedLabelColor: black,
+                      indicatorColor: appColor,
+                      indicatorSize: TabBarIndicatorSize.label,
+                      indicatorWeight: 2,
+                      isScrollable: true,
+                      indicator: UnderlineTabIndicator(
+                        borderSide: BorderSide(color: transPrent, width: 2),
+                        // insets: EdgeInsets.only(bottom: 52),
                       ),
-                      ToggleScreen(green219653),
-                    ],
+                      tabs: myTabController.myTabs5,
+                      labelStyle: TextStyle(
+                        fontSize: 15,
+                        color: black,
+                        fontFamily: "NunitoSemiBold",
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
                   ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Text(
-                        "+30.00",
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: black,
-                          fontFamily: "Nunito",
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
-                      RichText(
-                        text: TextSpan(
-                          children: [
-                            TextSpan(
-                              text: "(",
-                              style: TextStyle(
-                                fontSize: 18,
-                                color: black,
-                                fontFamily: "Nunito",
-                                fontWeight: FontWeight.w400,
-                              ),
-                            ),
-                            TextSpan(
-                              text: "+0.72%",
-                              style: TextStyle(
-                                fontSize: 18,
-                                color: green219653,
-                                fontFamily: "Nunito",
-                                fontWeight: FontWeight.w400,
-                              ),
-                            ),
-                            TextSpan(
-                              text: ")",
-                              style: TextStyle(
-                                fontSize: 18,
-                                color: black,
-                                fontFamily: "Nunito",
-                                fontWeight: FontWeight.w400,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
+                  SvgPicture.asset(graph1),
+                  SvgPicture.asset(graph2),
+                  SvgPicture.asset(graph3),
+                ],
+              ),
+            ),
+            Container(
+              height: 280,
+              child: TabBarView(
+                controller: myTabController.controller5,
+                children: [
+                  Container(
+                    padding: EdgeInsets.all(8.0),
+                    width: Get.width,
+                    height: 280,
+                    child: lineGraph(),
+                  ),
+                  Text("c sdnc"),
+                  Text("c sdnc"),
+                  Text("c sdnc"),
+                ],
+              ),
+            ),
+            Divider(
+              thickness: 3,
+              color: grayF2F2F2,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(
+                left: 14,
+              ),
+              child: Text(
+                "Market Depth",
+                style: TextStyle(
+                  color: black2,
+                  fontWeight: FontWeight.w700,
+                  fontFamily: "NunitoBold",
+                  fontSize: 18,
+                ),
+              ),
+            ),
+            tableView(),
+            Divider(
+              thickness: 3,
+              color: grayF2F2F2,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(
+                  top: 16, left: 33, right: 33, bottom: 16),
+              child: Row(
+                // crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  buyButton(
+                    textLabel: "BUY",
+                    onTapButton: () {
+                      buyDialog();
+                    },
+                  ),
+                  sellButton(
+                    textLabel: "SELL",
+                    onTapButton: () {
+                      sellDialog();
+                    },
                   ),
                 ],
               ),
             ),
-          ),
-          SizedBox(
-            height: 22,
-          ),
-          Divider(
-            thickness: 3,
-            color: grayF2F2F2,
-          ),
-          Padding(
-            padding: const EdgeInsets.only(
-              left: 14,
-            ),
-            child: Text(
-              "Chart",
-              style: TextStyle(
-                fontSize: 18,
-                color: black,
-                fontFamily: "NunitoBold",
-                fontWeight: FontWeight.w700,
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(right: 19),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                BottomAppBar(
-                  elevation: 0,
-                  child: TabBar(
-                    // labelPadding: EdgeInsets.all(15),
-                    // onTap: _onItemTapped,
-                    labelColor: appColor,
-                    controller: myTabController.controller5,
-                    unselectedLabelColor: black,
-                    indicatorColor: appColor,
-                    indicatorSize: TabBarIndicatorSize.label,
-                    indicatorWeight: 2,
-                    isScrollable: true,
-                    indicator: UnderlineTabIndicator(
-                      borderSide: BorderSide(color: transPrent, width: 2),
-                      // insets: EdgeInsets.only(bottom: 52),
-                    ),
-                    tabs: myTabController.myTabs5,
-                    labelStyle: TextStyle(
-                      fontSize: 15,
-                      color: black,
-                      fontFamily: "NunitoSemiBold",
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                ),
-                SvgPicture.asset(graph1),
-                SvgPicture.asset(graph2),
-                SvgPicture.asset(graph3),
-              ],
-            ),
-          ),
-          Container(
-            height: 280,
-            child: TabBarView(
-              controller: myTabController.controller5,
-              children: [
-                Container(
-                  padding: EdgeInsets.all(8.0),
-                  width: Get.width,
-                  height: 280,
-                  child: lineGraph(),
-                ),
-                Text("c sdnc"),
-                Text("c sdnc"),
-                Text("c sdnc"),
-              ],
-            ),
-          ),
-          Divider(
-            thickness: 3,
-            color: grayF2F2F2,
-          ),
-          Padding(
-            padding: const EdgeInsets.only(
-              left: 14,
-            ),
-            child: Text(
-              "Market Depth",
-              style: TextStyle(
-                color: black2,
-                fontWeight: FontWeight.w700,
-                fontFamily: "NunitoBold",
-                fontSize: 18,
-              ),
-            ),
-          ),
-          tableView(),
-          Divider(
-            thickness: 3,
-            color: grayF2F2F2,
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 16, left: 33, right: 33),
-            child: Row(
-              // crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                buyButton(
-                  textLabel: "BUY",
-                  onTapButton: () {
-                    buyDialog();
-                  },
-                ),
-                sellButton(
-                  textLabel: "SELL",
-                  onTapButton: () {
-                    sellDialog();
-                  },
-                ),
-              ],
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

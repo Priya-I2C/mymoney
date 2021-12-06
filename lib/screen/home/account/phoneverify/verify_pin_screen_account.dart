@@ -45,7 +45,7 @@ class VerifyPinScreenInAccount extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.only(top: 24),
+        padding: EdgeInsets.only(top: Get.height / 37.14),
         child: Column(
           children: [
             Row(
@@ -64,7 +64,7 @@ class VerifyPinScreenInAccount extends StatelessWidget {
               ],
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 20),
+              padding: EdgeInsets.only(top: Get.height / 44.57),
               child: Text(
                 "Please enter your PIN to Proceed",
                 style: TextStyle(
@@ -76,7 +76,7 @@ class VerifyPinScreenInAccount extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 59,
+              height: Get.height / 15.10,
             ),
             roundContainer(
               textNum: "5",
@@ -84,15 +84,15 @@ class VerifyPinScreenInAccount extends StatelessWidget {
               colorBorder: green,
             ),
             SizedBox(
-              height: 37,
+              height: Get.height / 26.21,
             ),
             InkWell(
               onTap: () {
                 Get.to(WellDoneScreen());
               },
               child: Container(
-                height: 50,
-                width: 50,
+                height: Get.height / 17.82,
+                width: Get.width / 8.22,
                 decoration: BoxDecoration(
                   color: green,
                   shape: BoxShape.circle,
@@ -100,15 +100,15 @@ class VerifyPinScreenInAccount extends StatelessWidget {
                 child: Icon(
                   Icons.arrow_forward,
                   color: white,
-                  size: 30,
+                  size: Get.height / 29.714,
                 ),
               ),
             ),
             SizedBox(
-              height: 34,
+              height: Get.height / 26.21,
             ),
             Padding(
-              padding: const EdgeInsets.only(bottom: 20),
+              padding: EdgeInsets.only(bottom: Get.height / 44.57),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -122,7 +122,7 @@ class VerifyPinScreenInAccount extends StatelessWidget {
                   ),
                   InkWell(
                     onTap: () {
-                      Get.to(RestPinEmailScreen());
+                      Get.to(WellDoneScreen());
                       print("Sign Up");
                     },
                     child: Text(
@@ -138,7 +138,8 @@ class VerifyPinScreenInAccount extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 54, vertical: 17.5),
+              padding: EdgeInsets.symmetric(
+                  horizontal: Get.width / 7.61, vertical: Get.height / 50.93),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [

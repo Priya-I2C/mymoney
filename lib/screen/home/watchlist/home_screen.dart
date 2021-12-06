@@ -17,15 +17,14 @@ import 'package:mymoney/utils/color.dart';
 import 'package:mymoney/utils/data.dart';
 import 'package:mymoney/utils/imagenames.dart';
 
-Map<int, GlobalKey<NavigatorState>> navigatorKeys = {
-  0: GlobalKey(),
-  1: GlobalKey(),
-  2: GlobalKey(),
-  3: GlobalKey(),
-  4: GlobalKey(),
-};
-
 class HomeScreen extends StatelessWidget {
+  Map<int, GlobalKey<NavigatorState>> navigatorKeys = {
+    0: GlobalKey(),
+    1: GlobalKey(),
+    2: GlobalKey(),
+    3: GlobalKey(),
+    4: GlobalKey(),
+  };
   ProfileController profileController = Get.put(ProfileController());
 
   DrawerOpen drawerOpen = Get.put(DrawerOpen());
@@ -75,12 +74,7 @@ class HomeScreen extends StatelessWidget {
               milliseconds: 250,
             ),
             child: WillPopScope(
-              onWillPop: () async {
-                return !await Navigator.maybePop(
-                    navigatorKeys[profileController.selectedIndex.value]
-                        .currentState
-                        .context);
-              },
+              onWillPop:systemBackButtonPressed,
               child: Scaffold(
                 backgroundColor: pageBackGroundC,
                 resizeToAvoidBottomInset: false,
@@ -90,11 +84,31 @@ class HomeScreen extends StatelessWidget {
                     index: s.selectedIndex.value,
                     children: <Widget>[
                       // LogInScreen(),
-                      WatchListRouteScreen(),
-                      OrderScreen(),
-                      PortFolioScreen(),
-                      FundScreen(),
-                      AccountScreen(),
+                      NavigatorPage(
+                        child: WatchListScreen(),
+                        title: "Watch",
+                        navigatorKey: navigatorKeys[0],
+                      ),
+                      NavigatorPage(
+                        child: OrderScreen(),
+                        title: "order",
+                        navigatorKey: navigatorKeys[1],
+                      ),
+                      NavigatorPage(
+                        child: PortFolioScreen(),
+                        title: "port",
+                        navigatorKey: navigatorKeys[2],
+                      ),
+                      NavigatorPage(
+                        child: FundScreen(),
+                        title: "fund",
+                        navigatorKey: navigatorKeys[3],
+                      ),
+                      NavigatorPage(
+                        child: AccountScreen(),
+                        title: "account",
+                        navigatorKey: navigatorKeys[4],
+                      ),
                     ],
                   ),
                 ),
@@ -426,9 +440,8 @@ class SuperFaBottomNavigationBar extends StatelessWidget {
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
                 watchList,
-                color: s.selectedIndex.value == 0
-                    ? Color(0xff2F80ED)
-                    : gray9B9797,
+                color:
+                    s.selectedIndex.value == 0 ? Color(0xff2F80ED) : gray9B9797,
               ),
               /* Icon(Icons.home)*/
               title: Text(
@@ -446,9 +459,8 @@ class SuperFaBottomNavigationBar extends StatelessWidget {
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
                 oders,
-                color: s.selectedIndex.value == 1
-                    ? Color(0xff2F80ED)
-                    : gray9B9797,
+                color:
+                    s.selectedIndex.value == 1 ? Color(0xff2F80ED) : gray9B9797,
               ),
               title: Text(
                 'Order',
@@ -465,9 +477,8 @@ class SuperFaBottomNavigationBar extends StatelessWidget {
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
                 portFolio,
-                color: s.selectedIndex.value == 2
-                    ? Color(0xff2F80ED)
-                    : gray9B9797,
+                color:
+                    s.selectedIndex.value == 2 ? Color(0xff2F80ED) : gray9B9797,
               ),
               title: Text(
                 'PortFolio',
@@ -484,9 +495,8 @@ class SuperFaBottomNavigationBar extends StatelessWidget {
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
                 fund,
-                color: s.selectedIndex.value == 3
-                    ? Color(0xff2F80ED)
-                    : gray9B9797,
+                color:
+                    s.selectedIndex.value == 3 ? Color(0xff2F80ED) : gray9B9797,
               ),
               title: Text(
                 'Fund',
@@ -503,9 +513,8 @@ class SuperFaBottomNavigationBar extends StatelessWidget {
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
                 user,
-                color: s.selectedIndex.value == 4
-                    ? Color(0xff2F80ED)
-                    : gray9B9797,
+                color:
+                    s.selectedIndex.value == 4 ? Color(0xff2F80ED) : gray9B9797,
               ),
               title: Text(
                 'Account',
@@ -525,6 +534,33 @@ class SuperFaBottomNavigationBar extends StatelessWidget {
           onTap: (index) => s.changeTabIndex(index),
         ),
       ),
+    );
+  }
+}
+
+class NavigatorPage extends StatelessWidget {
+  final String title;
+  final Widget child;
+  final GlobalKey navigatorKey;
+
+  NavigatorPage({this.navigatorKey, this.child, this.title});
+
+  @override
+  Widget build(BuildContext context) {
+    return Navigator(
+      key: navigatorKey,
+      onGenerateRoute: (RouteSettings settings) {
+        return GetPageRoute(
+          settings: settings,
+          maintainState: false,
+          fullscreenDialog: false,
+          page: () => child,
+
+          // page: ()=>Scaffold(
+          //   body: child,
+          // ),
+        );
+      },
     );
   }
 }

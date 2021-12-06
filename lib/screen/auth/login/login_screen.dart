@@ -124,7 +124,7 @@ class LogInScreen extends StatelessWidget {
                             ),
                           ),
                           SizedBox(
-                            width: Get.width / 13.71,
+                            width: Get.width / 8,
                           ),
                           TextButton(
                             onPressed: () {
