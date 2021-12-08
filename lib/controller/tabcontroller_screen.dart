@@ -17,10 +17,15 @@ class MyTabController extends GetxController with SingleGetTickerProviderMixin {
     Tab(text: 'EQUITY'),
     Tab(text: 'COMMODITY'),
   ];
-  final List<Tab> myTabs4 = <Tab>[
-    Tab(text: 'Current'),
-    Tab(text: 'Holding'),
-    Tab(text: 'Booked P/L'),
+  final List<Container> myTabs4 = <Container>[
+    Container(
+        height: 30, alignment: Alignment.center, child: Tab(text: 'Current')),
+    Container(
+        height: 30, alignment: Alignment.center, child: Tab(text: 'Holding')),
+    Container(
+        height: 30,
+        alignment: Alignment.center,
+        child: Tab(text: 'Booked P/L')),
   ];
   final List<Tab> myTabs5 = <Tab>[
     Tab(text: 'Day'),

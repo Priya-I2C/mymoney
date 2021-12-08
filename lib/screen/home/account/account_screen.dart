@@ -169,7 +169,7 @@ design1Profile({String labelText}) {
     height: 54,
     width: Get.width,
     margin: EdgeInsets.only(top: 16),
-    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 15),
+    padding: EdgeInsets.symmetric(horizontal: 16, vertical:Get.height/59.42),
     decoration: BoxDecoration(
       color: pageBackGroundC,
       borderRadius: BorderRadius.circular(10),

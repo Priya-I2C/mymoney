@@ -22,7 +22,7 @@ class SignUpScreen extends StatelessWidget {
         title: Text(
           "Create Account",
           style: TextStyle(
-            fontSize: 26,
+            fontSize: 25,
             color: black2,
             fontFamily: "NunitoBold",
             fontWeight: FontWeight.w700,

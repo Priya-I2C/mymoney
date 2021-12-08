@@ -27,7 +27,7 @@ class CreatePinScreen extends StatelessWidget {
         title: Text(
           "Create a PIN",
           style: TextStyle(
-            fontSize: 26,
+            fontSize: 25,
             color: black2,
             fontFamily: "NunitoBold",
             fontWeight: FontWeight.w700,

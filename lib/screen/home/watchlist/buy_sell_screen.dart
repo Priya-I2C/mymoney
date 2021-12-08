@@ -6,11 +6,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:mymoney/controller/conteiner_color_change_keypade.dart';
+import 'package:mymoney/controller/drawer_open_controller.dart';
 import 'package:mymoney/controller/tabcontroller_screen.dart';
+import 'package:mymoney/screen/home/order/order_screen.dart';
+import 'package:mymoney/screen/home/watchlist/candel_chart.dart';
 import 'package:mymoney/screen/home/watchlist/toggle_design_screen.dart';
 import 'package:mymoney/utils/buttons_widget.dart';
 import 'package:mymoney/utils/color.dart';
 import 'package:mymoney/utils/imagenames.dart';
+
+import '../drawer_open_.dart';
+import 'package:syncfusion_flutter_charts/charts.dart';
+import 'package:intl/intl.dart';
 
 final MyTabController myTabController = Get.put(MyTabController());
 ColorChangeController colorChangeController = Get.put(
@@ -149,37 +156,69 @@ class BuySellScreen extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(right: 19),
+              padding: const EdgeInsets.only(right: 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  BottomAppBar(
-                    elevation: 0,
-                    child: TabBar(
-                      // labelPadding: EdgeInsets.all(15),
-                      // onTap: _onItemTapped,
-                      labelColor: appColor,
-                      controller: myTabController.controller5,
-                      unselectedLabelColor: black,
-                      indicatorColor: appColor,
-                      indicatorSize: TabBarIndicatorSize.label,
-                      indicatorWeight: 2,
-                      isScrollable: true,
-                      indicator: UnderlineTabIndicator(
-                        borderSide: BorderSide(color: transPrent, width: 2),
-                        // insets: EdgeInsets.only(bottom: 52),
-                      ),
-                      tabs: myTabController.myTabs5,
-                      labelStyle: TextStyle(
-                        fontSize: 15,
-                        color: black,
-                        fontFamily: "NunitoSemiBold",
-                        fontWeight: FontWeight.w600,
+                  Container(
+                    width: Get.width / 1.41,
+                    child: BottomAppBar(
+                      elevation: 0,
+                      child: TabBar(
+                        labelColor: appColor,
+                        controller: myTabController.controller5,
+                        unselectedLabelColor: black,
+                        indicatorColor: appColor,
+                        indicatorSize: TabBarIndicatorSize.label,
+                        indicatorWeight: 2,
+                        isScrollable: true,
+                        indicator: UnderlineTabIndicator(
+                          borderSide: BorderSide(color: transPrent, width: 2),
+                          // insets: EdgeInsets.only(bottom: 52),
+                        ),
+                        tabs: myTabController.myTabs5,
+                        labelStyle: TextStyle(
+                          fontSize: 15,
+                          color: black,
+                          fontFamily: "NunitoSemiBold",
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
                     ),
                   ),
-                  SvgPicture.asset(graph1),
-                  SvgPicture.asset(graph2),
+                  Obx(
+                    () => InkWell(
+                      onTap: () {
+                        if (colorChangeController.graphLine.isTrue ||
+                            colorChangeController.graphCandle.isTrue) {
+                          colorChangeController.graphLine(false);
+                          colorChangeController.graphCandle(false);
+                        }
+                        colorChangeController.graphLine(true);
+                      },
+                      child: SvgPicture.asset(
+                        colorChangeController.graphLine.isTrue
+                            ? graph1
+                            : graph1Dark,
+                      ),
+                    ),
+                  ),
+                  Obx(
+                    () => InkWell(
+                      onTap: () {
+                        if (colorChangeController.graphLine.isTrue ||
+                            colorChangeController.graphCandle.isTrue) {
+                          colorChangeController.graphLine(false);
+                          colorChangeController.graphCandle(false);
+                        }
+                        colorChangeController.graphCandle(true);
+                      },
+                      child: SvgPicture.asset(
+                          colorChangeController.graphCandle.isTrue
+                              ? graph2Light
+                              : graph2),
+                    ),
+                  ),
                   SvgPicture.asset(graph3),
                 ],
               ),
@@ -189,11 +228,15 @@ class BuySellScreen extends StatelessWidget {
               child: TabBarView(
                 controller: myTabController.controller5,
                 children: [
-                  Container(
-                    padding: EdgeInsets.all(8.0),
-                    width: Get.width,
-                    height: 280,
-                    child: lineGraph(),
+                  Obx(
+                    () => Container(
+                      padding: EdgeInsets.all(8.0),
+                      width: Get.width,
+                      // height: 280,
+                      child: colorChangeController.graphLine.isTrue
+                          ? lineGraph()
+                          : MyHomePage(),
+                    ),
                   ),
                   Text("c sdnc"),
                   Text("c sdnc"),
@@ -234,7 +277,7 @@ class BuySellScreen extends StatelessWidget {
                   buyButton(
                     textLabel: "BUY",
                     onTapButton: () {
-                      buyDialog();
+                      buyDialog(context);
                     },
                   ),
                   sellButton(
@@ -253,7 +296,8 @@ class BuySellScreen extends StatelessWidget {
   }
 }
 
-buyDialog() {
+buyDialog(context) {
+  ProfileController profileController = Get.find();
   return Get.defaultDialog(
     // barrierDismissible: true,
     barrierDismissible: true,
@@ -267,19 +311,17 @@ buyDialog() {
         children: [
           Padding(
             padding: const EdgeInsets.all(0.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                IconButton(
-                  onPressed: () {
-                    Get.back();
-                  },
-                  icon: Icon(CupertinoIcons.clear),
-                ),
-              ],
+            child: Align(
+              alignment: Alignment.topRight,
+              child: IconButton(
+                onPressed: () {
+                  Get.back();
+                },
+                icon: Icon(CupertinoIcons.clear),
+              ),
             ),
           ),
-          design1(color1: appColor2F80ED),
+          design1Buy(color1: appColor2F80ED),
           Divider(
             thickness: 3,
             color: grayF2F2F2,
@@ -360,7 +402,15 @@ buyDialog() {
             padding: EdgeInsets.only(top: 39, bottom: 16),
             child: buyDropDownButton(
               textLabel: "BUY",
-              onTapButton: () {},
+              onTapButton: () {
+                profileController.selectedIndex.value = 1;
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => DrawerOpenScreen(),
+                  ),
+                );
+              },
             ),
           ),
         ],
@@ -395,7 +445,7 @@ sellDialog() {
               ],
             ),
           ),
-          design1(color1: redEB5757),
+          design1Sell(color1: redEB5757),
           Divider(
             thickness: 3,
             color: grayF2F2F2,
@@ -1172,7 +1222,7 @@ design1({color1}) {
     padding: const EdgeInsets.only(left: 17, right: 17, bottom: 17),
     child: Container(
       width: Get.width,
-      height: 56,
+      height: /*Get.height/ 15.91*/ 56,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -1193,6 +1243,183 @@ design1({color1}) {
             ],
           ),
           Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Text(
+                "₹2126.20",
+                style: TextStyle(
+                  fontSize: 18,
+                  color: color1,
+                  fontFamily: "NunitoBold",
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+              RichText(
+                text: TextSpan(
+                  children: [
+                    TextSpan(
+                      text: "+30.00",
+                      style: TextStyle(
+                        fontSize: 13,
+                        color: black,
+                        fontFamily: "Nunito",
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                    TextSpan(
+                      text: "(",
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: black,
+                        fontFamily: "Nunito",
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                    TextSpan(
+                      text: "+0.72%",
+                      style: TextStyle(
+                        fontSize: 13,
+                        color: color1,
+                        fontFamily: "Nunito",
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                    TextSpan(
+                      text: ")",
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: black,
+                        fontFamily: "Nunito",
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    ),
+  );
+}
+
+design1Buy({color1}) {
+  return Padding(
+    padding: const EdgeInsets.only(left: 17, right: 17, bottom: 17),
+    child: Container(
+      width: Get.width,
+      height: /*Get.height/ 15.91*/ 56,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                "AXISBANK",
+                style: TextStyle(
+                  fontSize: 18,
+                  color: black2,
+                  fontFamily: "NunitoBold",
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+              ToggleScreenBuy(color1),
+            ],
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Text(
+                "₹2126.20",
+                style: TextStyle(
+                  fontSize: 18,
+                  color: color1,
+                  fontFamily: "NunitoBold",
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+              RichText(
+                text: TextSpan(
+                  children: [
+                    TextSpan(
+                      text: "+30.00",
+                      style: TextStyle(
+                        fontSize: 13,
+                        color: black,
+                        fontFamily: "Nunito",
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                    TextSpan(
+                      text: "(",
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: black,
+                        fontFamily: "Nunito",
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                    TextSpan(
+                      text: "+0.72%",
+                      style: TextStyle(
+                        fontSize: 13,
+                        color: color1,
+                        fontFamily: "Nunito",
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                    TextSpan(
+                      text: ")",
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: black,
+                        fontFamily: "Nunito",
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    ),
+  );
+}
+
+design1Sell({color1}) {
+  return Padding(
+    padding: const EdgeInsets.only(left: 17, right: 17, bottom: 17),
+    child: Container(
+      width: Get.width,
+      height: /*Get.height/ 15.91*/ 56,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                "AXISBANK",
+                style: TextStyle(
+                  fontSize: 18,
+                  color: black2,
+                  fontFamily: "NunitoBold",
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+              ToggleScreenSell(color1),
+            ],
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Text(
@@ -1256,7 +1483,10 @@ design1({color1}) {
 
 design2({color2}) {
   return Padding(
-    padding: const EdgeInsets.only(left: 17, right: 17, top: 17),
+    padding: EdgeInsets.only(
+        left: Get.width / 24.20 /* 17*/,
+        right: Get.width / 24.20 /*17*/,
+        top: 17),
     child: Container(
       height: 60,
       child: Row(
@@ -1277,7 +1507,7 @@ design2({color2}) {
               ),
               Container(
                 height: 31,
-                width: 94,
+                width: Get.width / 4.37 /*94*/,
                 padding: EdgeInsets.only(left: 10),
                 decoration: BoxDecoration(
                   color: white,
@@ -1312,7 +1542,7 @@ design2({color2}) {
               ),
               Container(
                 height: 31,
-                width: 94,
+                width: Get.width / 4.37 /* 94*/,
                 padding: EdgeInsets.only(left: 10),
                 decoration: BoxDecoration(
                   color: white,
@@ -1351,7 +1581,7 @@ design2({color2}) {
               ),
               Container(
                 height: 31,
-                width: 94,
+                width: Get.width / 4.37 /*94*/,
                 padding: EdgeInsets.only(left: 10),
                 decoration: BoxDecoration(
                   color: color2,
@@ -1411,7 +1641,11 @@ design2({color2}) {
 
 design3({color2}) {
   return Padding(
-    padding: const EdgeInsets.only(left: 17, right: 17, top: 17, bottom: 20),
+    padding: EdgeInsets.only(
+        left: Get.width / 24.20 /*17*/,
+        right: Get.width / 24.20 /*17*/,
+        top: 17,
+        bottom: 20),
     child: Container(
       height: 60,
       child: Row(
@@ -1432,7 +1666,7 @@ design3({color2}) {
               ),
               Container(
                 height: 31,
-                width: 94,
+                width: Get.width / 4.37 /*94*/,
                 padding: EdgeInsets.only(left: 10),
                 decoration: BoxDecoration(
                   color: pageBackGroundC,
@@ -1465,7 +1699,7 @@ design3({color2}) {
             children: [
               Container(
                 height: 31,
-                width: 94,
+                width: Get.width / 4.37 /*94*/,
                 padding: EdgeInsets.only(left: 10),
                 decoration: BoxDecoration(
                   color: white,
@@ -1504,7 +1738,7 @@ design3({color2}) {
               ),
               Container(
                 height: 31,
-                width: 94,
+                width: Get.width / 4.37 /*94*/,
                 padding: EdgeInsets.only(left: 10),
                 decoration: BoxDecoration(
                   color: color2,
@@ -1564,7 +1798,11 @@ design3({color2}) {
 
 design3Sell({color2}) {
   return Padding(
-    padding: const EdgeInsets.only(left: 17, right: 17, top: 17, bottom: 20),
+    padding: EdgeInsets.only(
+        left: Get.width / 24.20 /*17*/,
+        right: Get.width / 24.20 /*17*/,
+        top: 17,
+        bottom: 20),
     child: Container(
       height: 60,
       child: Row(
@@ -1585,7 +1823,7 @@ design3Sell({color2}) {
               ),
               Container(
                 height: 31,
-                width: 94,
+                width: Get.width / 4.37 /*94*/,
                 padding: EdgeInsets.only(left: 10),
                 decoration: BoxDecoration(
                   color: white,
@@ -1615,7 +1853,7 @@ design3Sell({color2}) {
             children: [
               Container(
                 height: 31,
-                width: 94,
+                width: Get.width / 4.37 /*94*/,
                 padding: EdgeInsets.only(left: 10),
                 decoration: BoxDecoration(
                   color: white,
@@ -1654,7 +1892,7 @@ design3Sell({color2}) {
               ),
               Container(
                 height: 31,
-                width: 94,
+                width: Get.width / 4.37 /*94*/,
                 padding: EdgeInsets.only(left: 10),
                 decoration: BoxDecoration(
                   color: color2,

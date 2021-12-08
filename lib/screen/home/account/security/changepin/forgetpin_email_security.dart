@@ -18,16 +18,14 @@ class RestPinEmailSecurityScreen extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: pageBackGroundC,
-        title: Padding(
-          padding: EdgeInsets.only(left: 30),
-          child: Text(
-            "Forgot Pin",
-            style: TextStyle(
-              fontSize: 26,
-              color: black2,
-              fontFamily: "NunitoBold",
-              fontWeight: FontWeight.w700,
-            ),
+        centerTitle: true,
+        title: Text(
+          "Forgot Pin",
+          style: TextStyle(
+            fontSize: 25,
+            color: black2,
+            fontFamily: "NunitoBold",
+            fontWeight: FontWeight.w700,
           ),
         ),
         leading: IconButton(

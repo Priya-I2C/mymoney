@@ -11,36 +11,40 @@ class WellDoneScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: pageBackGroundC,
-      appBar: AppBar(
+      /* appBar: AppBar(
         automaticallyImplyLeading: false,
         backgroundColor: pageBackGroundC,
         elevation: 0,
         title: Center(
-          child: Text(
-            "Well Done!",
-            style: TextStyle(
-              fontSize: 26,
-              color: black2,
-              fontFamily: "NunitoBold",
-              fontWeight: FontWeight.w700,
-            ),
-          ),
+          child:
         ),
-      ),
+      ),*/
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: Get.width / 12.85),
+        padding: EdgeInsets.only(
+            left: Get.width / 12.85,
+            right: Get.width / 12.85,
+            top: Get.height / 11.14 /*80*/),
         child: Column(
           children: [
+            Text(
+              "Well Done!",
+              style: TextStyle(
+                fontSize: 25,
+                color: black2,
+                fontFamily: "NunitoBold",
+                fontWeight: FontWeight.w700,
+              ),
+            ),
             Padding(
               padding: EdgeInsets.only(top: 8),
               child: Container(
-                height: 48,
+                height: Get.height / 18.57 /*48*/,
                 width: Get.width,
                 child: Text(
                   "Your Phonw number is now being reviewed. You can expect it to finish in the next 24 hours",
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: 15,
+                    fontSize: 14,
                     color: black2,
                     fontFamily: "Nunito",
                     fontWeight: FontWeight.w400,
@@ -51,9 +55,12 @@ class WellDoneScreen extends StatelessWidget {
             SizedBox(
               height: Get.height / 6.19,
             ),
-            SvgPicture.asset(wellDoneBenner),
+            SvgPicture.asset(
+              wellDoneBenner,
+              height: 227.81,
+            ),
             SizedBox(
-              height: Get.height / 4.79,
+              height: Get.height / 4.79 /*186*/,
             ),
             Container(
               decoration: BoxDecoration(

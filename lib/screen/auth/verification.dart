@@ -28,7 +28,7 @@ class VerificationScreen extends StatelessWidget {
         title: Text(
           "Verification PIN",
           style: TextStyle(
-            fontSize: 26,
+            fontSize: 25,
             color: black,
             fontFamily: "NunitoBold",
             fontWeight: FontWeight.w700,

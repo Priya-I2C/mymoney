@@ -26,7 +26,7 @@ roundContainer(
           return value.length <= 4 ? null : null;
         },
         readOnly: true,
-        style: TextStyle(fontSize: 24),
+        style: TextStyle(fontSize: 24, color: textColor),
         autofocus: true,
         showCursor: true,
         focusNode: _focusNode,

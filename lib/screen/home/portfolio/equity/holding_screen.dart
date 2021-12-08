@@ -6,19 +6,151 @@ import 'package:mymoney/utils/data.dart';
 class HoldingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      shrinkWrap: true,
-      itemCount: holdingListPageBuildDesign.length,
-      itemBuilder: (context, index) => holdScreenListDesign(
-        ltp: holdingListPageBuildDesign[index]["ltp"],
-        bankName: holdingListPageBuildDesign[index]["bankName"],
-        avgText: holdingListPageBuildDesign[index]["avgText"],
-        conText: holdingListPageBuildDesign[index]["conText"],
-        profileColor: holdingListPageBuildDesign[index]["profileColor"],
-        profileText1: holdingListPageBuildDesign[index]["profileText1"],
-        profileText2: holdingListPageBuildDesign[index]["profileText2"],
-        qty: holdingListPageBuildDesign[index]["qty"],
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Expanded(
+          child: ListView.builder(
+            shrinkWrap: true,
+            itemCount: holdingListPageBuildDesign.length,
+            itemBuilder: (context, index) => holdScreenListDesign(
+              ltp: holdingListPageBuildDesign[index]["ltp"],
+              bankName: holdingListPageBuildDesign[index]["bankName"],
+              avgText: holdingListPageBuildDesign[index]["avgText"],
+              conText: holdingListPageBuildDesign[index]["conText"],
+              profileColor: holdingListPageBuildDesign[index]["profileColor"],
+              profileText1: holdingListPageBuildDesign[index]["profileText1"],
+              profileText2: holdingListPageBuildDesign[index]["profileText2"],
+              qty: holdingListPageBuildDesign[index]["qty"],
+            ),
+          ),
+        ),
+        Container(
+          height: 90,
+          width: Get.width,
+          decoration: BoxDecoration(
+            color: white,
+            boxShadow: [
+              BoxShadow(
+                color: Color(0xff40000000),
+                spreadRadius: 1,
+                blurRadius: 3,
+                offset: Offset(0, 0),
+              ),
+            ],
+          ),
+          child: Column(
+            children: [
+              Container(
+                margin:
+                    EdgeInsets.only(left: 19, right: 19, bottom: 10, top: 10),
+                height: 37,
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "Invested",
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: black2.withOpacity(0.6),
+                            fontFamily: "NunitoSemiBold",
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        Text(
+                          "Current",
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: black2.withOpacity(0.6),
+                            fontFamily: "NunitoSemiBold",
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "30200.00",
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: black2,
+                            fontFamily: "NunitoSemiBold",
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        Text(
+                          "+30700.05",
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: green219653,
+                            fontFamily: "NunitoSemiBold",
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(
+                  left: 19,
+                  right: 19,
+                ),
+                child: Divider(
+                  height: 1,
+                  thickness: 1,
+                  color: gray4.withOpacity(0.2),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 19, right: 19, top: 7),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Today P&L",
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: black2.withOpacity(0.6),
+                        fontFamily: "NunitoSemiBold",
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    Container(
+                        child: Row(
+                      children: [
+                        Text(
+                          "+217.95 ",
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: green219653,
+                            fontFamily: "Nunito",
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                        Text(
+                          " +2.20%",
+                          style: TextStyle(
+                            fontSize: 9,
+                            color: green219653,
+                            fontFamily: "Nunito",
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                      ],
+                    )),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }
@@ -39,7 +171,7 @@ holdScreenListDesign({
     height: 75,
     width: Get.width,
     decoration: BoxDecoration(
-      color: pageBackGroundC,
+      color: Color(0xffF4F7FB),
       borderRadius: BorderRadius.circular(12),
       boxShadow: [
         BoxShadow(

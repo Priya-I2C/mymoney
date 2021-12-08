@@ -122,7 +122,7 @@ const List watchListPageBuildDesign = [
     "stock2": "+1.00%",
     "color": green,
   },
-  {
+  /*{
     "img": RELIANCE,
     "title": "AXISBANK",
     "subTitle": "NSE",
@@ -148,7 +148,72 @@ const List watchListPageBuildDesign = [
     "stock1": "-15.00",
     "stock2": "-1.00%",
     "color": redEB5757,
+  },*/
+];
+const List watchListPageBuildDesignMostStock = [
+  {
+    "img": arrowDownRight,
+    "title": "RELIANCE",
+    "subTitle": "NSE",
+    "totalRs": "2510.20",
+    "stock1": "+15.00",
+    "stock2": "+1.00%",
+    "color": green,
   },
+  {
+    "img": downIcon,
+    "title": "CADILA",
+    "subTitle": "NSE",
+    "totalRs": "252.02",
+    "stock1": "-45.10",
+    "stock2": "-2.48%",
+    "color": redEB5757,
+  },
+  {
+    "img": arrowDownRight,
+    "title": "HDFC BANK",
+    "subTitle": "NSE",
+    "totalRs": "2510.20",
+    "stock1": "+15.65",
+    "stock2": "+1.00%",
+    "color": green,
+  },
+  {
+    "img": arrowDownRight,
+    "title": "ICICI BANK",
+    "subTitle": "NSE",
+    "totalRs": "451.20",
+    "stock1": "+59.20",
+    "stock2": "+2.50%",
+    "color": green,
+  },
+  {
+    "img": downIcon,
+    "title": "TCS",
+    "subTitle": "NSE",
+    "totalRs": "1458.02",
+    "stock1": "-35.10",
+    "stock2": "-1.48%",
+    "color": redEB5757,
+  },
+  /*{
+    "img": Sunpharma,
+    "title": "YESBANK",
+    "subTitle": "NSE",
+    "totalRs": "245.20",
+    "stock1": "-15.00",
+    "stock2": "-1.00%",
+    "color": redEB5757,
+  },
+  {
+    "img": ICICIBANK,
+    "title": "YESBANK",
+    "subTitle": "NSE",
+    "totalRs": "245.20",
+    "stock1": "-15.00",
+    "stock2": "-1.00%",
+    "color": redEB5757,
+  },*/
 ];
 const List allStockScreenList = [
   {

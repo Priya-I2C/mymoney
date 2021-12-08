@@ -19,7 +19,7 @@ class ChangePasswordScreen extends StatelessWidget {
         title: Text(
           "Change Password",
           style: TextStyle(
-            fontSize: 26,
+            fontSize: 25,
             color: black1,
             fontFamily: "NunitoBold",
             fontWeight: FontWeight.w600,

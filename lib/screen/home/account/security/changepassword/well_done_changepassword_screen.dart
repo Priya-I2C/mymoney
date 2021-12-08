@@ -23,7 +23,7 @@ class ChangePasswordWellDone extends StatelessWidget {
               "Well Done!",
               style: TextStyle(
                 color: black2,
-                fontSize: 26,
+                fontSize: 25,
                 fontFamily: "NunitoBold",
                 fontWeight: FontWeight.w700,
               ),
@@ -41,11 +41,11 @@ class ChangePasswordWellDone extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 150,
+              height: Get.height / 5.94 /*150*/,
             ),
             SvgPicture.asset(changePasswordBenner),
             SizedBox(
-              height: 186,
+              height: Get.height / 4.79 /*186*/,
             ),
             loginButton(
               onTapButton: () {

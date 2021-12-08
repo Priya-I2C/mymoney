@@ -107,15 +107,14 @@ class FundScreen extends StatelessWidget {
                     ),
                     design1(text1: "Total Collateral", text2: "0.00"),
                     Padding(
-                      padding:
-                          const EdgeInsets.only(top: 30, left: 33, right: 33),
+                      padding: const EdgeInsets.only(top: 30),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           addFundButton(
                               onTapButton: () {}, textLabel: "Add Funds"),
                           SizedBox(
-                            width:Get.width/41.14,
+                            width: Get.width / 41.14,
                           ),
                           withFundButton(
                               onTapButton: () {}, textLabel: "Withdraw"),

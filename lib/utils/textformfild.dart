@@ -23,12 +23,18 @@ textFromFieldDesign({String hint, iconWidget, iconWidget1}) {
       ),*/
       border: UnderlineInputBorder(
         borderSide: BorderSide(
-          color: gray,
+          color: Color(0xffE7E8EB),
+          width: 1,
         ),
       ),
       focusedBorder: UnderlineInputBorder(
         borderSide: BorderSide(
-          color: gray,
+          color: Color(0xffE7E8EB),
+        ),
+      ),
+      enabledBorder: UnderlineInputBorder(
+        borderSide: BorderSide(
+          color: Color(0xffE7E8EB),
         ),
       ),
     ),
@@ -54,12 +60,17 @@ textFromFieldDesign1({String hint, iconWidget, iconWidget1}) {
       ),*/
       border: UnderlineInputBorder(
         borderSide: BorderSide(
-          color: gray,
+          color: Color(0xffE7E8EB),
         ),
       ),
       focusedBorder: UnderlineInputBorder(
         borderSide: BorderSide(
-          color: gray,
+          color: Color(0xffE7E8EB),
+        ),
+      ),
+      enabledBorder: UnderlineInputBorder(
+        borderSide: BorderSide(
+          color: Color(0xffE7E8EB),
         ),
       ),
     ),
@@ -91,8 +102,12 @@ textFromFieldDesign2({String hint, iconWidget, iconWidget1}) {
       ),
       focusedBorder: UnderlineInputBorder(
         borderSide: BorderSide(
-          color: gray1,
-          width: 1,
+          color: Color(0xffE7E8EB),
+        ),
+      ),
+      enabledBorder: UnderlineInputBorder(
+        borderSide: BorderSide(
+          color: Color(0xffE7E8EB),
         ),
       ),
     ),
@@ -148,11 +163,18 @@ textFromFieldDesign3({String label, iconWidget, iconWidget1}) {
         ),*/
         border: UnderlineInputBorder(
           borderSide: BorderSide(
-            color: gray,
+            color: Color(0xffE7E8EB),
           ),
         ),
         focusedBorder: UnderlineInputBorder(
-          borderSide: BorderSide(color: appColor, width: 1.5),
+          borderSide: BorderSide(
+            color: Color(0xffE7E8EB),
+          ),
+        ),
+        enabledBorder: UnderlineInputBorder(
+          borderSide: BorderSide(
+            color: Color(0xffE7E8EB),
+          ),
         ),
       ),
     ),

@@ -26,7 +26,7 @@ class PersonalInformation extends StatelessWidget {
         title: Text(
           "Personal Information",
           style: TextStyle(
-            fontSize: 26,
+            fontSize: 25,
             color: black2,
             fontFamily: "NunitoBold",
             fontWeight: FontWeight.w700,
@@ -60,9 +60,9 @@ class PersonalInformation extends StatelessWidget {
             ),
           ),
           Padding(
-            padding:  EdgeInsets.only(top:  Get.height /5.94),
+            padding: EdgeInsets.only(top: Get.height / 7),
             child: Container(
-              height: Get.height /1.35,
+              height: Get.height / 1.35,
               width: Get.width,
               decoration: BoxDecoration(
                 color: white,
@@ -103,7 +103,7 @@ class PersonalInformation extends StatelessWidget {
                     ),*/
 
                       Padding(
-                        padding: EdgeInsets.only(top: 39,bottom: 20),
+                        padding: EdgeInsets.only(top: 39, bottom: 20),
                         child: buyDropDownButton(
                           textLabel: "Save",
                           onTapButton: () {
@@ -153,12 +153,17 @@ personalDesign1({String textLabel, String hintText}) {
               ),
               border: UnderlineInputBorder(
                 borderSide: BorderSide(
-                  color: gray,
+                  color: Color(0xffE7E8EB),
                 ),
               ),
               focusedBorder: UnderlineInputBorder(
                 borderSide: BorderSide(
-                  color: gray,
+                  color: Color(0xffE7E8EB),
+                ),
+              ),
+              enabledBorder: UnderlineInputBorder(
+                borderSide: BorderSide(
+                  color: Color(0xffE7E8EB),
                 ),
               ),
             ),

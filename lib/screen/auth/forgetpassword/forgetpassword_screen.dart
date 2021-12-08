@@ -23,7 +23,7 @@ class ForGetPassword extends StatelessWidget {
         title: Text(
           "Forgot Password",
           style: TextStyle(
-            fontSize: 26,
+            fontSize: 25,
             color: black,
             fontFamily: "NunitoBold",
             fontWeight: FontWeight.w700,
@@ -104,7 +104,7 @@ class ForGetPassword extends StatelessWidget {
                           color: gray,
                         ),
                         iconWidget1: Icon(
-                          Icons.visibility,
+                          Icons.visibility_outlined,
                           color: gray,
                         ),
                       ),

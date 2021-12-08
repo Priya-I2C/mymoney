@@ -27,7 +27,7 @@ class ConfirmPinScreen extends StatelessWidget {
         title: Text(
           "Confirm PIN",
           style: TextStyle(
-            fontSize: 26,
+            fontSize: 25,
             color: black2,
             fontFamily: "NunitoBold",
             fontWeight: FontWeight.w700,
@@ -66,7 +66,7 @@ class ConfirmPinScreen extends StatelessWidget {
                   textNum: "5",
                   colorBox: green,
                   colorBorder: green,
-                  textColor: transPrent,
+                  textColor: white,
                 ),
                 /* SizedBox(
                   width: 16,

@@ -44,76 +44,74 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     print("Xscale:}");
     return Obx(
-      () => InkWell(
-        onTap: () {
-          drawerOpen.xOffset.value = 0;
-          drawerOpen.yOffset.value = 0;
-          drawerOpen.scaleFactor.value = 1.0;
-          drawerOpen.isChange(false);
-        },
-        child: Container(
-          child: AnimatedContainer(
-            height: Get.height,
-            width: Get.width,
-            curve: Curves.bounceOut,
-            decoration: BoxDecoration(
-              boxShadow: [
-                BoxShadow(
-                  color: Color(0xff40000000),
-                  spreadRadius: 0.5,
-                  blurRadius: 20,
-                ),
-              ],
+      () => AnimatedContainer(
+        height: Get.height,
+        width: Get.width,
+        curve: Curves.bounceOut,
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: Color(0xff40000000),
+              spreadRadius: 0.5,
+              blurRadius: 20,
             ),
-            transform: Matrix4.translationValues(
-              drawerOpen.xOffset.value,
-              drawerOpen.yOffset.value,
-              0,
-            )..scale(drawerOpen.scaleFactor.value),
-            duration: Duration(
-              milliseconds: 250,
-            ),
-            child: WillPopScope(
-              onWillPop:systemBackButtonPressed,
-              child: Scaffold(
-                backgroundColor: pageBackGroundC,
-                resizeToAvoidBottomInset: false,
-                body: GetBuilder<ProfileController>(
-                  init: ProfileController(),
-                  builder: (s) => IndexedStack(
-                    index: s.selectedIndex.value,
-                    children: <Widget>[
-                      // LogInScreen(),
-                      NavigatorPage(
-                        child: WatchListScreen(),
-                        title: "Watch",
-                        navigatorKey: navigatorKeys[0],
-                      ),
-                      NavigatorPage(
-                        child: OrderScreen(),
-                        title: "order",
-                        navigatorKey: navigatorKeys[1],
-                      ),
-                      NavigatorPage(
-                        child: PortFolioScreen(),
-                        title: "port",
-                        navigatorKey: navigatorKeys[2],
-                      ),
-                      NavigatorPage(
-                        child: FundScreen(),
-                        title: "fund",
-                        navigatorKey: navigatorKeys[3],
-                      ),
-                      NavigatorPage(
-                        child: AccountScreen(),
-                        title: "account",
-                        navigatorKey: navigatorKeys[4],
-                      ),
-                    ],
-                  ),
+          ],
+        ),
+        transform: Matrix4.translationValues(
+          drawerOpen.xOffset.value,
+          drawerOpen.yOffset.value,
+          0,
+        )..scale(drawerOpen.scaleFactor.value),
+        duration: Duration(
+          milliseconds: 250,
+        ),
+        child: WillPopScope(
+          onWillPop: systemBackButtonPressed,
+          child: InkWell(
+            onTap: () {
+              drawerOpen.xOffset.value = 0;
+              drawerOpen.yOffset.value = 0;
+              drawerOpen.scaleFactor.value = 1.0;
+              drawerOpen.isChange(false);
+            },
+            child: Scaffold(
+              backgroundColor: pageBackGroundC,
+              resizeToAvoidBottomInset: false,
+              body: GetBuilder<ProfileController>(
+                init: ProfileController(),
+                builder: (s) => IndexedStack(
+                  index: s.selectedIndex.value,
+                  children: <Widget>[
+                    // LogInScreen(),
+                    NavigatorPage(
+                      child: WatchListScreen(),
+                      title: "Watch",
+                      navigatorKey: navigatorKeys[0],
+                    ),
+                    NavigatorPage(
+                      child: OrderScreen(),
+                      title: "order",
+                      navigatorKey: navigatorKeys[1],
+                    ),
+                    NavigatorPage(
+                      child: PortFolioScreen(),
+                      title: "port",
+                      navigatorKey: navigatorKeys[2],
+                    ),
+                    NavigatorPage(
+                      child: FundScreen(),
+                      title: "fund",
+                      navigatorKey: navigatorKeys[3],
+                    ),
+                    NavigatorPage(
+                      child: AccountScreen(),
+                      title: "account",
+                      navigatorKey: navigatorKeys[4],
+                    ),
+                  ],
                 ),
-                bottomNavigationBar: SuperFaBottomNavigationBar(),
               ),
+              bottomNavigationBar: SuperFaBottomNavigationBar(),
             ),
           ),
         ),
@@ -128,8 +126,11 @@ appBarDesign() {
   FocusNode _focusNode = new FocusNode();
   return AppBar(
     backgroundColor: pageBackGroundC,
+    leadingWidth: 30,
     elevation: 0,
+    centerTitle: true,
     leading: IconButton(
+      padding: EdgeInsets.only(left: 10),
       icon: SvgPicture.asset(
         drawerIcon,
         color: black,
@@ -143,7 +144,7 @@ appBarDesign() {
     ),
     title: Container(
       height: 40,
-      width: 500,
+      // width: 700,
       decoration: BoxDecoration(
         color: white,
         borderRadius: BorderRadius.all(
@@ -185,11 +186,12 @@ appBarDesign() {
                     Padding(
                       padding:
                           const EdgeInsets.only(top: 29, left: 30, right: 30),
-                      child: Expanded(
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Row(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 10),
+                            child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
@@ -217,189 +219,180 @@ appBarDesign() {
                                 ),
                               ],
                             ),
-                            Row(
-                              children: [
-                                Obx(
-                                  () => MaterialButton(
-                                    onPressed: () {
-                                      if (colorChangeController
-                                              .buttonCheck1.isTrue ||
-                                          colorChangeController
-                                              .buttonCheck2.isTrue) {
+                          ),
+                          Row(
+                            children: [
+                              Obx(
+                                () => MaterialButton(
+                                  onPressed: () {
+                                    if (colorChangeController
+                                            .buttonCheck1.isTrue ||
                                         colorChangeController
-                                            .buttonCheck1(false);
-                                        colorChangeController
-                                            .buttonCheck2(false);
-                                      }
-                                      colorChangeController.buttonCheck1(true);
-                                      if (colorChangeController
-                                          .buttonCheck1.isTrue) {
-                                        /* colorChangeController
-                                                          .isCheck
-                                                          .forEach(
-                                                        (element) {
-                                                          print("enter");
-                                                          if (element == true) {
-                                                            element = false;
-                                                            print("enter check");
-                                                          } else if (element ==
-                                                              false) {
-                                                            element = true;
-                                                            print("enter check");
-                                                          }
-                                                        },
-                                                      );*/
-                                        colorChangeController.isCheck[0] = true;
-                                        colorChangeController.isCheck[1] = true;
-                                        colorChangeController.isCheck[2] = true;
-                                        colorChangeController.isCheck[3] = true;
-                                      }
-                                    },
-                                    elevation: 0,
-                                    height: 32,
-                                    minWidth: 88,
-                                    color: colorChangeController
-                                            .buttonCheck1.isTrue
-                                        ? pageBackGroundC
-                                        : white,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(15),
-                                      side: BorderSide(
-                                        color: colorChangeController
-                                                .buttonCheck1.isTrue
-                                            ? Color(0xffDFDFDF)
-                                            : transPrent,
-                                      ),
-                                    ),
-                                    child: Text(
-                                      "Select All",
-                                      style: TextStyle(
-                                        fontSize: 15,
-                                        color: appColor,
-                                        fontFamily: "PoppinsMedium",
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: 12,
-                                ),
-                                Obx(
-                                  () => MaterialButton(
-                                    onPressed: () {
-                                      if (colorChangeController
-                                              .buttonCheck2.isTrue ||
-                                          colorChangeController
-                                              .buttonCheck1.isTrue) {
-                                        colorChangeController
-                                            .buttonCheck2(false);
-                                        colorChangeController
-                                            .buttonCheck1(false);
-                                      }
-                                      colorChangeController.buttonCheck2(true);
-                                      if (colorChangeController
-                                          .buttonCheck2.isTrue) {
-                                        colorChangeController.isCheck[0] =
-                                            false;
-                                        colorChangeController.isCheck[1] =
-                                            false;
-                                        colorChangeController.isCheck[2] =
-                                            false;
-                                        colorChangeController.isCheck[3] =
-                                            false;
-                                      }
-                                    },
-                                    elevation: 0,
-                                    height: 32,
-                                    minWidth: 81,
-                                    color: colorChangeController
-                                            .buttonCheck2.isTrue
-                                        ? pageBackGroundC
-                                        : white,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(15),
-                                      side: BorderSide(
-                                        color: colorChangeController
-                                                .buttonCheck2.isTrue
-                                            ? Color(0xffDFDFDF)
-                                            : transPrent,
-                                      ),
-                                    ),
-                                    child: Text(
-                                      "Clear All",
-                                      style: TextStyle(
-                                        fontSize: 15,
-                                        color: appColor,
-                                        fontFamily: "PoppinsMedium",
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              height: 20,
-                            ),
-                            ListView.builder(
-                              shrinkWrap: true,
-                              physics: NeverScrollableScrollPhysics(),
-                              itemCount: bottomSheetListBuild.length,
-                              itemBuilder: (context, index) => Obx(
-                                () => ListTile(
-                                  onTap: () {
-                                    colorChangeController.isCheck[index] =
-                                        !colorChangeController.isCheck[index];
+                                            .buttonCheck2.isTrue) {
+                                      colorChangeController.buttonCheck1(false);
+                                      colorChangeController.buttonCheck2(false);
+                                    }
+                                    colorChangeController.buttonCheck1(true);
+                                    if (colorChangeController
+                                        .buttonCheck1.isTrue) {
+                                      /* colorChangeController
+                                                        .isCheck
+                                                        .forEach(
+                                                      (element) {
+                                                        print("enter");
+                                                        if (element == true) {
+                                                          element = false;
+                                                          print("enter check");
+                                                        } else if (element ==
+                                                            false) {
+                                                          element = true;
+                                                          print("enter check");
+                                                        }
+                                                      },
+                                                    );*/
+                                      colorChangeController.isCheck[0] = true;
+                                      colorChangeController.isCheck[1] = true;
+                                      colorChangeController.isCheck[2] = true;
+                                      colorChangeController.isCheck[3] = true;
+                                    }
                                   },
-                                  contentPadding: EdgeInsets.all(0),
-                                  leading: Container(
-                                    width: 40,
-                                    height: 40,
-                                    decoration: BoxDecoration(
-                                      color: pageBackGroundC,
-                                      borderRadius: BorderRadius.circular(12),
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(10.0),
-                                      child: SvgPicture.asset(
-                                          bottomSheetListBuild[index]["img"]),
+                                  elevation: 0,
+                                  height: 32,
+                                  minWidth: 88,
+                                  color:
+                                      colorChangeController.buttonCheck1.isTrue
+                                          ? pageBackGroundC
+                                          : white,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(15),
+                                    side: BorderSide(
+                                      color: colorChangeController
+                                              .buttonCheck1.isTrue
+                                          ? transPrent
+                                          : Color(0xffDFDFDF),
                                     ),
                                   ),
-                                  title: Text(
-                                    bottomSheetListBuild[index]["title"],
+                                  child: Text(
+                                    "Select All",
                                     style: TextStyle(
-                                      color: black0D1F3C,
+                                      fontSize: 15,
+                                      color: appColor,
                                       fontFamily: "PoppinsMedium",
                                       fontWeight: FontWeight.w500,
-                                      fontSize: 19,
                                     ),
                                   ),
-                                  trailing:
-                                      colorChangeController.isCheck[index] ==
-                                              true
-                                          ? Container(
-                                              height: 25,
-                                              width: 25,
-                                              decoration: BoxDecoration(
-                                                shape: BoxShape.circle,
-                                                color: appColor,
-                                              ),
-                                              child: Icon(
-                                                Icons.check,
-                                                color: white,
-                                                size: 12,
-                                              ),
-                                            )
-                                          : SizedBox.shrink(),
                                 ),
                               ),
+                              SizedBox(
+                                width: 12,
+                              ),
+                              Obx(
+                                () => MaterialButton(
+                                  onPressed: () {
+                                    if (colorChangeController
+                                            .buttonCheck2.isTrue ||
+                                        colorChangeController
+                                            .buttonCheck1.isTrue) {
+                                      colorChangeController.buttonCheck2(false);
+                                      colorChangeController.buttonCheck1(false);
+                                    }
+                                    colorChangeController.buttonCheck2(true);
+                                    if (colorChangeController
+                                        .buttonCheck2.isTrue) {
+                                      colorChangeController.isCheck[0] = false;
+                                      colorChangeController.isCheck[1] = false;
+                                      colorChangeController.isCheck[2] = false;
+                                      colorChangeController.isCheck[3] = false;
+                                    }
+                                  },
+                                  elevation: 0,
+                                  height: 32,
+                                  minWidth: 81,
+                                  color:
+                                      colorChangeController.buttonCheck2.isTrue
+                                          ? pageBackGroundC
+                                          : white,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(15),
+                                    side: BorderSide(
+                                      color: colorChangeController
+                                              .buttonCheck2.isTrue
+                                          ? transPrent
+                                          : Color(0xffDFDFDF),
+                                    ),
+                                  ),
+                                  child: Text(
+                                    "Clear All",
+                                    style: TextStyle(
+                                      fontSize: 15,
+                                      color: appColor,
+                                      fontFamily: "PoppinsMedium",
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          ListView.builder(
+                            shrinkWrap: true,
+                            physics: NeverScrollableScrollPhysics(),
+                            itemCount: bottomSheetListBuild.length,
+                            itemBuilder: (context, index) => Obx(
+                              () => ListTile(
+                                onTap: () {
+                                  colorChangeController.isCheck[index] =
+                                      !colorChangeController.isCheck[index];
+                                },
+                                contentPadding: EdgeInsets.all(0),
+                                leading: Container(
+                                  width: 40,
+                                  height: 40,
+                                  decoration: BoxDecoration(
+                                    color: pageBackGroundC,
+                                    borderRadius: BorderRadius.circular(12),
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(10.0),
+                                    child: SvgPicture.asset(
+                                        bottomSheetListBuild[index]["img"]),
+                                  ),
+                                ),
+                                title: Text(
+                                  bottomSheetListBuild[index]["title"],
+                                  style: TextStyle(
+                                    color: black0D1F3C,
+                                    fontFamily: "PoppinsMedium",
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 19,
+                                  ),
+                                ),
+                                trailing:
+                                    colorChangeController.isCheck[index] == true
+                                        ? Container(
+                                            height: 25,
+                                            width: 25,
+                                            decoration: BoxDecoration(
+                                              shape: BoxShape.circle,
+                                              color: appColor,
+                                            ),
+                                            child: Icon(
+                                              Icons.check,
+                                              color: white,
+                                              size: 12,
+                                            ),
+                                          )
+                                        : SizedBox.shrink(),
+                              ),
                             ),
-                            SizedBox(
-                              height: 30,
-                            ),
-                          ],
-                        ),
+                          ),
+                          SizedBox(
+                            height: 30,
+                          ),
+                        ],
                       ),
                     ),
                     backgroundColor: white,
@@ -477,8 +470,9 @@ class SuperFaBottomNavigationBar extends StatelessWidget {
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
                 portFolio,
-                color:
-                    s.selectedIndex.value == 2 ? Color(0xff2F80ED) : gray9B9797,
+                color: s.selectedIndex.value == 2
+                    ? Color(0xff2F80ED)
+                    : black.withOpacity(0.7),
               ),
               title: Text(
                 'PortFolio',
@@ -495,8 +489,9 @@ class SuperFaBottomNavigationBar extends StatelessWidget {
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
                 fund,
-                color:
-                    s.selectedIndex.value == 3 ? Color(0xff2F80ED) : gray9B9797,
+                color: s.selectedIndex.value == 3
+                    ? Color(0xff2F80ED)
+                    : black.withOpacity(0.7),
               ),
               title: Text(
                 'Fund',
@@ -531,6 +526,7 @@ class SuperFaBottomNavigationBar extends StatelessWidget {
           ],
           currentIndex: s.selectedIndex.toInt(),
           selectedItemColor: Colors.amber[800],
+          // unselectedItemColor: black.withOpacity(0.6),
           onTap: (index) => s.changeTabIndex(index),
         ),
       ),

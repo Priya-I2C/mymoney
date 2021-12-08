@@ -24,7 +24,7 @@ class LogInScreen extends StatelessWidget {
             color: pageBackGroundC,
             child: Center(
               child: Padding(
-                padding: EdgeInsets.only(top: Get.height / 21.74),
+                padding: EdgeInsets.only(top: Get.height / 14),
                 child: Column(
                   children: [
                     Text(
@@ -98,9 +98,6 @@ class LogInScreen extends StatelessWidget {
                           color: gray,
                         ),
                       ),
-                      SizedBox(
-                        height: Get.height / 55.71,
-                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
@@ -124,7 +121,7 @@ class LogInScreen extends StatelessWidget {
                             ),
                           ),
                           SizedBox(
-                            width: Get.width / 8,
+                            width:30/*tablet:110*/,
                           ),
                           TextButton(
                             onPressed: () {

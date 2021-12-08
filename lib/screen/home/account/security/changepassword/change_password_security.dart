@@ -30,16 +30,14 @@ class ChangePasswordSecurity extends StatelessWidget {
         ),
         elevation: 0,
         backgroundColor: pageBackGroundC,
-        title: Padding(
-          padding: const EdgeInsets.only(left: 30),
-          child: Text(
-            "Change Password",
-            style: TextStyle(
-              fontSize: 26,
-              color: black2,
-              fontFamily: "NunitoBold",
-              fontWeight: FontWeight.w700,
-            ),
+        centerTitle: true,
+        title: Text(
+          "Change Password",
+          style: TextStyle(
+            fontSize: 25,
+            color: black2,
+            fontFamily: "NunitoBold",
+            fontWeight: FontWeight.w700,
           ),
         ),
       ),
@@ -111,7 +109,7 @@ class ChangePasswordSecurity extends StatelessWidget {
                               ),
                             ),
                             child: Text(
-                              "Submit",
+                              "Change Password",
                               style: TextStyle(
                                 color: gray,
                                 fontSize: 19,

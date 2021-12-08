@@ -32,7 +32,7 @@ class SecurityScreen extends StatelessWidget {
         title: Text(
           "Security",
           style: TextStyle(
-            fontSize: 26,
+            fontSize: 25,
             color: black2,
             fontFamily: "NunitoBold",
             fontWeight: FontWeight.w700,

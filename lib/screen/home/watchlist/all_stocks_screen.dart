@@ -13,7 +13,7 @@ class AllStockScreen extends StatelessWidget {
       appBar: appBarDesign(),
       backgroundColor: pageBackGroundC,
       body: Padding(
-        padding: const EdgeInsets.only(top: 50),
+        padding: const EdgeInsets.only(top: 20),
         child: Container(
           height: Get.height,
           width: Get.width,

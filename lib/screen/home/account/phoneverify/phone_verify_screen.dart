@@ -35,7 +35,7 @@ class PhoneVerifyScreen extends StatelessWidget {
         title: Text(
           "Verify Number",
           style: TextStyle(
-            fontSize: 26,
+            fontSize: 25,
             color: black2,
             fontFamily: "NunitoBold",
             fontWeight: FontWeight.w700,
@@ -115,7 +115,7 @@ class PhoneVerifyScreen extends StatelessWidget {
                 ),
               ),
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 35),
+                padding: EdgeInsets.symmetric(horizontal: Get.width / 11.75),
                 child: SingleChildScrollView(
                   child: Column(
                     children: [

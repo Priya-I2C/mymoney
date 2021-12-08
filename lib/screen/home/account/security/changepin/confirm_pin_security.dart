@@ -23,16 +23,14 @@ class EnterNewPinConfirmScreen extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: pageBackGroundC,
-        title: Padding(
-          padding: EdgeInsets.only(left: 30),
-          child: Text(
-            "Confirm PIN",
-            style: TextStyle(
-              fontSize: 26,
-              color: black2,
-              fontFamily: "NunitoBold",
-              fontWeight: FontWeight.w700,
-            ),
+        centerTitle: true,
+        title: Text(
+          "Confirm PIN",
+          style: TextStyle(
+            fontSize: 25,
+            color: black2,
+            fontFamily: "NunitoBold",
+            fontWeight: FontWeight.w700,
           ),
         ),
         leading: IconButton(
@@ -59,7 +57,7 @@ class EnterNewPinConfirmScreen extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 76,
+              height: Get.height / 11.72,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -68,7 +66,7 @@ class EnterNewPinConfirmScreen extends StatelessWidget {
                   textNum: "5",
                   colorBox: green,
                   colorBorder: green,
-                  textColor: transPrent,
+                  textColor: white,
                 ),
                 /* SizedBox(
                   width: 16,
@@ -91,15 +89,15 @@ class EnterNewPinConfirmScreen extends StatelessWidget {
               ],
             ),
             SizedBox(
-              height: 37,
+              height: Get.height / 24.09,
             ),
             InkWell(
               onTap: () {
                 Get.off(SecurityScreen());
               },
               child: Container(
-                height: 50,
-                width: 50,
+                height: Get.height / 17.82,
+                width: Get.width / 8.22,
                 decoration: BoxDecoration(
                   color: green,
                   shape: BoxShape.circle,
@@ -107,16 +105,14 @@ class EnterNewPinConfirmScreen extends StatelessWidget {
                 child: Icon(
                   Icons.arrow_forward,
                   color: white,
-                  size: 30,
+                  size: Get.height / 29.71,
                 ),
               ),
             ),
             SizedBox(
-              height: 34,
+              height: Get.height / 29.714,
             ),
-            SizedBox(
-              height: 30,
-            ),
+
             /* Padding(
               padding: EdgeInsets.symmetric(horizontal: 54, vertical: 17.5),
               child: Row(
@@ -332,7 +328,8 @@ class EnterNewPinConfirmScreen extends StatelessWidget {
               ),
             ),*/
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 54, vertical: 17.5),
+              padding: EdgeInsets.symmetric(
+                  horizontal: Get.width / 7.61, vertical: Get.height / 50.93),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -383,7 +380,8 @@ class EnterNewPinConfirmScreen extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 54, vertical: 17.5),
+              padding: EdgeInsets.symmetric(
+                  horizontal: Get.width / 7.61, vertical: Get.height / 50.93),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -433,7 +431,8 @@ class EnterNewPinConfirmScreen extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 54, vertical: 17.5),
+              padding: EdgeInsets.symmetric(
+                  horizontal: Get.width / 7.61, vertical: Get.height / 50.93),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -483,7 +482,8 @@ class EnterNewPinConfirmScreen extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 54, vertical: 17.5),
+              padding: EdgeInsets.symmetric(
+                  horizontal: Get.width / 7.61, vertical: Get.height / 50.93),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -495,8 +495,8 @@ class EnterNewPinConfirmScreen extends StatelessWidget {
                         insertText(".");
                       },
                       child: Container(
-                        height: 62,
-                        width: 62,
+                        height: Get.height / 14.37,
+                        width: Get.width / 6.63,
                         decoration: BoxDecoration(
                           color: colorChangeController.isChange9.isTrue
                               ? white
@@ -539,8 +539,8 @@ class EnterNewPinConfirmScreen extends StatelessWidget {
                         backspace();
                       },
                       child: Container(
-                        height: 62,
-                        width: 62,
+                        height: Get.height / 14.37,
+                        width: Get.width / 6.63,
                         decoration: BoxDecoration(
                           color: colorChangeController.isChange11.isTrue
                               ? white

@@ -51,7 +51,9 @@ class PortFolioScreen extends StatelessWidget {
             ),
           ),
           Container(
-            height: Get.height > 891 ? Get.height / 1.312 : 601,
+            height: Get.height > 891
+                ? Get.height / 1.312
+                : Get.height / 1.394 /* tablet:Get.height / 1.34*/,
             color: white,
             child: TabBarView(
               controller: myTabController.controller2,

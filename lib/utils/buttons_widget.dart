@@ -254,7 +254,7 @@ addFundButton({String textLabel, onTapButton}) {
     ),
     child: MaterialButton(
       height: Get.height / 18.19,
-      minWidth: Get.width / 2.68,
+      minWidth: 153,
       onPressed: onTapButton,
       color: green219653,
       elevation: 0,
@@ -304,7 +304,7 @@ withFundButton({String textLabel, onTapButton}) {
     ),
     child: MaterialButton(
       height: Get.height / 18.19,
-      minWidth: Get.width / 2.68,
+      minWidth: 153,
       onPressed: onTapButton,
       color: appColor,
       elevation: 0,

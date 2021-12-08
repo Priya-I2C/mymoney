@@ -26,7 +26,7 @@ class EmailVerificationForgetScreen extends StatelessWidget {
         title: Text(
           "Email Verification",
           style: TextStyle(
-            fontSize: 26,
+            fontSize: 25,
             color: black,
             fontFamily: "NunitoBold",
             fontWeight: FontWeight.w700,

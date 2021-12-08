@@ -23,16 +23,14 @@ class EmailVerificationSecurityScreen extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: pageBackGroundC,
-        title: Padding(
-          padding: EdgeInsets.only(left: 30),
-          child: Text(
-            "Email Verification",
-            style: TextStyle(
-              fontSize: 26,
-              color: black,
-              fontFamily: "NunitoBold",
-              fontWeight: FontWeight.w700,
-            ),
+        centerTitle: true,
+        title: Text(
+          "Email Verification",
+          style: TextStyle(
+            fontSize: 25,
+            color: black,
+            fontFamily: "NunitoBold",
+            fontWeight: FontWeight.w700,
           ),
         ),
         leading: IconButton(
