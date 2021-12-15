@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:mymoney/utils/buttons_widget.dart';
 import 'package:mymoney/utils/color.dart';
-import 'package:mymoney/utils/imagenames.dart';
+
 
 class FundScreen extends StatelessWidget {
   @override

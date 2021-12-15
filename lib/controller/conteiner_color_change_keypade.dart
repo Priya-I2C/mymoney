@@ -1,10 +1,8 @@
 import 'package:get/get.dart';
-import 'package:mymoney/utils/textformfild.dart';
 
 class ColorChangeController extends GetxController {
   @override
   void onInit() {
-    // toggle();
     // TODO: implement onInit
     super.onInit();
   }

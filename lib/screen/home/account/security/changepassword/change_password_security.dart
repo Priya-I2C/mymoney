@@ -2,14 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mymoney/controller/checkbox_controller.dart';
-import 'package:mymoney/screen/home/account/security/security_screen.dart';
 import 'package:mymoney/utils/buttons_widget.dart';
 import 'package:mymoney/utils/color.dart';
 import 'package:mymoney/utils/textformfild.dart';
-
-import '../changepin/enter_old.dart';
 import 'well_done_changepassword_screen.dart';
 
+// ignore: must_be_immutable
 class ChangePasswordSecurity extends StatelessWidget {
   CheckBoxController checkBoxController = Get.find();
 

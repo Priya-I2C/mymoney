@@ -10,6 +10,7 @@ import 'package:mymoney/utils/textformfild.dart';
 
 import 'confirm_pin_security.dart';
 
+// ignore: must_be_immutable
 class EnterNewPin extends StatelessWidget {
   ColorChangeController colorChangeController =
       Get.put(ColorChangeController());

@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:mymoney/controller/conteiner_color_change_keypade.dart';
-import 'package:mymoney/screen/auth/forgetpassword/change_password_screen.dart';
-import 'package:mymoney/screen/auth/signup/creatpin_screen.dart';
 import 'package:mymoney/screen/home/account/security/changepin/enter_old.dart';
 import 'package:mymoney/utils/color.dart';
 import 'package:mymoney/utils/imagenames.dart';

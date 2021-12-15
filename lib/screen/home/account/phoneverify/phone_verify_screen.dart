@@ -10,6 +10,7 @@ import 'package:percent_indicator/linear_percent_indicator.dart';
 
 import 'verify_pin_screen_account.dart';
 
+// ignore: must_be_immutable
 class PhoneVerifyScreen extends StatelessWidget {
   FocusNode _focusNode = new FocusNode();
   CheckBoxController checkBoxController = Get.find();

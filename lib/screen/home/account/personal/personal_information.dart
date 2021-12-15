@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mymoney/utils/buttons_widget.dart';
 import 'package:mymoney/utils/color.dart';
-import 'package:percent_indicator/percent_indicator.dart';
 
 class PersonalInformation extends StatelessWidget {
   @override

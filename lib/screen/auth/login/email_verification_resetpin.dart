@@ -9,7 +9,6 @@ import 'package:mymoney/utils/imagenames.dart';
 import 'package:mymoney/utils/round_container.dart';
 import 'package:mymoney/utils/textformfild.dart';
 
-import '../forgetpassword/change_password_screen.dart';
 
 class EmailVerificationScreen extends StatelessWidget {
   @override

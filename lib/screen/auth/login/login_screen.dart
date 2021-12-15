@@ -11,6 +11,7 @@ import 'package:mymoney/utils/color.dart';
 import 'package:mymoney/utils/imagenames.dart';
 import 'package:mymoney/utils/textformfild.dart';
 
+// ignore: must_be_immutable
 class LogInScreen extends StatelessWidget {
   CheckBoxController checkBoxController = Get.put(CheckBoxController());
 

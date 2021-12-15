@@ -6,8 +6,6 @@ import 'package:mymoney/utils/buttons_widget.dart';
 import 'package:mymoney/utils/color.dart';
 import 'package:mymoney/utils/imagenames.dart';
 import 'package:mymoney/utils/textformfild.dart';
-
-import '../login/email_verification_resetpin.dart';
 import 'email_verification_forgetpassword.dart';
 
 class ForGetPassword extends StatelessWidget {

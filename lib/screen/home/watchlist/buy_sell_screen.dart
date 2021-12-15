@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -8,16 +6,13 @@ import 'package:get/get.dart';
 import 'package:mymoney/controller/conteiner_color_change_keypade.dart';
 import 'package:mymoney/controller/drawer_open_controller.dart';
 import 'package:mymoney/controller/tabcontroller_screen.dart';
-import 'package:mymoney/screen/home/order/order_screen.dart';
 import 'package:mymoney/screen/home/watchlist/candel_chart.dart';
 import 'package:mymoney/screen/home/watchlist/toggle_design_screen.dart';
 import 'package:mymoney/utils/buttons_widget.dart';
 import 'package:mymoney/utils/color.dart';
 import 'package:mymoney/utils/imagenames.dart';
-
 import '../drawer_open_.dart';
-import 'package:syncfusion_flutter_charts/charts.dart';
-import 'package:intl/intl.dart';
+
 
 final MyTabController myTabController = Get.put(MyTabController());
 ColorChangeController colorChangeController = Get.put(

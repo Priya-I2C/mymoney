@@ -1,40 +1,10 @@
-/*
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
-class NavigatorPage extends StatelessWidget {
-  final navigatorKey;
-  Widget child;
-
-  NavigatorPage({this.navigatorKey, this.child});
-
-  @override
-  Widget build(BuildContext context) {
-    return Navigator(
-      key: navigatorKey,
-      onGenerateRoute: (RouteSettings settings) {
-        // print("NAME : ${settings.name}");
-        return MaterialPageRoute(
-          settings: settings,
-          maintainState: false,
-          fullscreenDialog: false,
-          builder: (BuildContext context) {
-            return Scaffold(
-              // appBar: appBar(settings.name),
-              body: child,
-            );
-          },
-        );
-      },
-    );
-  }
-}
-*/
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mymoney/utils/color.dart';
 
+// ignore: must_be_immutable
 class ToggleScreen extends StatelessWidget {
   Color buttonColor;
 
@@ -127,6 +97,7 @@ class ToggleScreen extends StatelessWidget {
   }
 }
 
+// ignore: must_be_immutable
 class ToggleScreenBuy extends StatelessWidget {
   Color buttonColor;
 
@@ -217,6 +188,7 @@ class ToggleScreenBuy extends StatelessWidget {
   }
 }
 
+// ignore: must_be_immutable
 class ToggleScreenSell extends StatelessWidget {
   Color buttonColor;
 

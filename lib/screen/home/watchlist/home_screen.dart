@@ -5,18 +5,16 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:mymoney/controller/conteiner_color_change_keypade.dart';
 import 'package:mymoney/controller/drawer_open_controller.dart';
-import 'package:mymoney/screen/auth/login/login_screen.dart';
-import 'package:mymoney/screen/auth/signup/signup_screen.dart';
 import 'package:mymoney/screen/home/account/account_screen.dart';
 import 'package:mymoney/screen/home/fund/fund_screen.dart';
 import 'package:mymoney/screen/home/order/order_screen.dart';
 import 'package:mymoney/screen/home/portfolio/portfolio_screen.dart';
-import 'package:mymoney/screen/home/watchlist/watch_list_rout_screen.dart';
 import 'package:mymoney/screen/home/watchlist/watchlist_screen.dart';
 import 'package:mymoney/utils/color.dart';
 import 'package:mymoney/utils/data.dart';
 import 'package:mymoney/utils/imagenames.dart';
 
+// ignore: must_be_immutable
 class HomeScreen extends StatelessWidget {
   Map<int, GlobalKey<NavigatorState>> navigatorKeys = {
     0: GlobalKey(),
@@ -29,6 +27,7 @@ class HomeScreen extends StatelessWidget {
 
   DrawerOpen drawerOpen = Get.put(DrawerOpen());
 
+  // ignore: missing_return
   Future<bool> systemBackButtonPressed() {
     if (navigatorKeys[profileController.selectedIndex.value]
         .currentState
@@ -418,6 +417,7 @@ appBarDesign() {
   );
 }
 
+// ignore: must_be_immutable
 class SuperFaBottomNavigationBar extends StatelessWidget {
   ProfileController profileController = Get.find();
 
@@ -437,8 +437,9 @@ class SuperFaBottomNavigationBar extends StatelessWidget {
                     s.selectedIndex.value == 0 ? Color(0xff2F80ED) : gray9B9797,
               ),
               /* Icon(Icons.home)*/
-              title: Text(
-                'Watchlist',
+              label:
+                  'Watchlist', /* Text(
+                ,
                 style: TextStyle(
                   fontSize: 10,
                   color: s.selectedIndex.value == 0
@@ -447,15 +448,17 @@ class SuperFaBottomNavigationBar extends StatelessWidget {
                   fontFamily: "Nunito",
                   fontWeight: FontWeight.w400,
                 ),
-              ),
+              ),*/
             ),
             BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                oders,
-                color:
-                    s.selectedIndex.value == 1 ? Color(0xff2F80ED) : gray9B9797,
-              ),
-              title: Text(
+                icon: SvgPicture.asset(
+                  oders,
+                  color: s.selectedIndex.value == 1
+                      ? Color(0xff2F80ED)
+                      : gray9B9797,
+                ),
+                label:
+                    "Order" /*Text(
                 'Order',
                 style: TextStyle(
                   fontSize: 10,
@@ -465,16 +468,17 @@ class SuperFaBottomNavigationBar extends StatelessWidget {
                   fontFamily: "Nunito",
                   fontWeight: FontWeight.w400,
                 ),
-              ),
-            ),
+              ),*/
+                ),
             BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                portFolio,
-                color: s.selectedIndex.value == 2
-                    ? Color(0xff2F80ED)
-                    : black.withOpacity(0.7),
-              ),
-              title: Text(
+                icon: SvgPicture.asset(
+                  portFolio,
+                  color: s.selectedIndex.value == 2
+                      ? Color(0xff2F80ED)
+                      : black.withOpacity(0.7),
+                ),
+                label:
+                    "PortFolio" /*Text(
                 'PortFolio',
                 style: TextStyle(
                   fontSize: 10,
@@ -484,16 +488,17 @@ class SuperFaBottomNavigationBar extends StatelessWidget {
                   fontFamily: "Nunito",
                   fontWeight: FontWeight.w400,
                 ),
-              ),
-            ),
+              ),*/
+                ),
             BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                fund,
-                color: s.selectedIndex.value == 3
-                    ? Color(0xff2F80ED)
-                    : black.withOpacity(0.7),
-              ),
-              title: Text(
+                icon: SvgPicture.asset(
+                  fund,
+                  color: s.selectedIndex.value == 3
+                      ? Color(0xff2F80ED)
+                      : black.withOpacity(0.7),
+                ),
+                label:
+                    "Fund" /*Text(
                 'Fund',
                 style: TextStyle(
                   fontSize: 10,
@@ -503,15 +508,17 @@ class SuperFaBottomNavigationBar extends StatelessWidget {
                   fontFamily: "Nunito",
                   fontWeight: FontWeight.w400,
                 ),
-              ),
-            ),
+              ),*/
+                ),
             BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                user,
-                color:
-                    s.selectedIndex.value == 4 ? Color(0xff2F80ED) : gray9B9797,
-              ),
-              title: Text(
+                icon: SvgPicture.asset(
+                  user,
+                  color: s.selectedIndex.value == 4
+                      ? Color(0xff2F80ED)
+                      : gray9B9797,
+                ),
+                label:
+                    "Account" /*Text(
                 'Account',
                 style: TextStyle(
                   fontSize: 10,
@@ -521,11 +528,17 @@ class SuperFaBottomNavigationBar extends StatelessWidget {
                   fontFamily: "Nunito",
                   fontWeight: FontWeight.w400,
                 ),
-              ),
-            ),
+              ),*/
+                ),
           ],
           currentIndex: s.selectedIndex.toInt(),
           selectedItemColor: Colors.amber[800],
+          selectedLabelStyle: TextStyle(
+            fontSize: 10,
+            color: s.selectedIndex.value == 4 ? Color(0xff2F80ED) : gray9B9797,
+            fontFamily: "Nunito",
+            fontWeight: FontWeight.w400,
+          ),
           // unselectedItemColor: black.withOpacity(0.6),
           onTap: (index) => s.changeTabIndex(index),
         ),

@@ -9,6 +9,7 @@ import 'package:mymoney/utils/imagenames.dart';
 import 'package:mymoney/utils/round_container.dart';
 import 'package:mymoney/utils/textformfild.dart';
 
+// ignore: must_be_immutable
 class ResetNewPinScreen extends StatelessWidget {
   ColorChangeController colorChangeController =
       Get.put(ColorChangeController());

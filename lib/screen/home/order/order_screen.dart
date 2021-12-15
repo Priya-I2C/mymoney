@@ -6,6 +6,7 @@ import 'package:mymoney/screen/home/order/pending_screen.dart';
 import 'package:mymoney/screen/home/watchlist/home_screen.dart';
 import 'package:mymoney/utils/color.dart';
 
+// ignore: must_be_immutable
 class OrderScreen extends StatelessWidget {
   MyTabController myTabController = Get.put(MyTabController());
 
@@ -24,9 +25,6 @@ class OrderScreen extends StatelessWidget {
               elevation: 0,
               child: Center(
                 child: TabBar(
-                  // automaticIndicatorColorAdjustment: false,
-                  // labelPadding: EdgeInsets.all(15),
-                  // onTap: _onItemTapped,
                   labelColor: appColor,
                   controller: myTabController.controller1,
                   unselectedLabelColor: black,

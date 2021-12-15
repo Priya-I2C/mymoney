@@ -7,6 +7,7 @@ import 'package:mymoney/utils/color.dart';
 import 'current_screen.dart';
 import 'holding_screen.dart';
 
+// ignore: must_be_immutable
 class EquityScreen extends StatelessWidget {
   MyTabController myTabController = Get.find();
 

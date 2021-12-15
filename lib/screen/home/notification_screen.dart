@@ -1,10 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:mymoney/utils/color.dart';
 import 'package:mymoney/utils/data.dart';
-import 'package:mymoney/utils/imagenames.dart';
 import 'package:mymoney/utils/utils_text.dart';
 
 class NotificationScreen extends StatelessWidget {

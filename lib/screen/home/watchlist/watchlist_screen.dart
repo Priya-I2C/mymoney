@@ -10,7 +10,6 @@ import 'package:mymoney/screen/home/watchlist/home_screen.dart';
 import 'package:mymoney/utils/color.dart';
 import 'package:mymoney/utils/data.dart';
 import 'package:mymoney/utils/imagenames.dart';
-import 'package:mymoney/utils/utils_text.dart';
 
 import '../notification_screen.dart';
 
