@@ -532,10 +532,9 @@ class SuperFaBottomNavigationBar extends StatelessWidget {
                 ),
           ],
           currentIndex: s.selectedIndex.toInt(),
-          selectedItemColor: Colors.amber[800],
+          selectedItemColor: Color(0xff2F80ED),
           selectedLabelStyle: TextStyle(
             fontSize: 10,
-            color: s.selectedIndex.value == 4 ? Color(0xff2F80ED) : gray9B9797,
             fontFamily: "Nunito",
             fontWeight: FontWeight.w400,
           ),
