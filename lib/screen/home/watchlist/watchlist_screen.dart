@@ -334,7 +334,7 @@ lastContainerDesign(
     String richText1,
     String richText2}) {
   return Container(
-    width: 76/*tablet:80*/,
+    width: 82/*tablet:80*/,
     child: Row(
       children: [
         VerticalDivider(
