@@ -7,6 +7,7 @@ class ColorChangeController extends GetxController {
     super.onInit();
   }
 
+
   var isChange1 = false.obs;
   var isChange = false.obs;
   var isChange2 = false.obs;

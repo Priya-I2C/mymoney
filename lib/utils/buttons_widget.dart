@@ -10,22 +10,20 @@ loginButton({String textLabel, onTapButton}) {
     decoration: BoxDecoration(
       boxShadow: [
         BoxShadow(
-          color: Colors.blue.withOpacity(0.3),
-          spreadRadius: 4,
-          blurRadius: 10,
-          offset: Offset(0, 1),
-        )
+            color: Colors.blue.withOpacity(0.3),
+            blurRadius: 12,
+            spreadRadius: 2)
       ],
       borderRadius: BorderRadius.all(
         Radius.circular(25),
       ),
     ),
     child: MaterialButton(
-      height: Get.height / 19.37,
+      height: 49,
       minWidth: Get.width / 2.057,
       onPressed: onTapButton,
       color: appColor,
-      // elevation: 4,
+      elevation: 0,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadiusDirectional.circular(
           25,
@@ -126,9 +124,8 @@ signUpButton({String textLabel, onTapButton}) {
       boxShadow: [
         BoxShadow(
           color: Colors.blue.withOpacity(0.3),
-          spreadRadius: 4,
-          blurRadius: 10,
-          offset: Offset(0, 1),
+          blurRadius: 12,
+          spreadRadius: 2,
         )
       ],
       borderRadius: BorderRadius.all(
@@ -136,7 +133,7 @@ signUpButton({String textLabel, onTapButton}) {
       ),
     ),
     child: MaterialButton(
-      height: Get.height / 18.19,
+      height: 49,
       minWidth: Get.width / 2.046,
       onPressed: onTapButton,
       color: appColor,

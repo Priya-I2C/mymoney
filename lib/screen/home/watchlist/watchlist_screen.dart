@@ -1,5 +1,4 @@
 import 'package:fl_chart/fl_chart.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -43,42 +42,31 @@ class WatchListScreen extends StatelessWidget {
               controller: myTabController.controller,
               children: [
                 tabView1(),
-                Text(Get.height.toString()),
-                Text(Get.width.toString()),
-                Text("cj"),
-                Text("cj"),
+                tabView1(),
+                tabView1(),
+                tabView1(),
+                tabView1(),
               ],
             ),
           ),
           Container(
-            height: Get.height / 13.42,
+            height: 30,
             width: Get.width,
-            child: BottomAppBar(
-              // notchMargin: 0,
-              notchMargin: 5.0,
-              color: pageBackGroundC,
-              elevation: 0,
-              child: TabBar(
-                // labelPadding: EdgeInsets.all(0),
-                // onTap: _onItemTapped,
-                labelColor: appColor,
-                controller: myTabController.controller,
-                unselectedLabelColor: black,
-                indicatorColor: appColor,
-                indicatorSize: TabBarIndicatorSize.label,
-                indicatorWeight: 2,
-                isScrollable: false,
-                indicator: UnderlineTabIndicator(
-                  borderSide: BorderSide(color: appColor, width: 2),
-                  // insets: EdgeInsets.only(bottom: 52),
-                ),
-                tabs: myTabController.myTabs,
-                labelStyle: TextStyle(
-                  fontSize: 15,
-                  color: black,
-                  fontFamily: "NunitoSemiBold",
-                  fontWeight: FontWeight.w600,
-                ),
+            child: TabBar(
+              labelColor: appColor,
+              indicatorPadding: EdgeInsets.zero,
+              labelPadding: EdgeInsets.zero,
+              controller: myTabController.controller,
+              unselectedLabelColor: black,
+              indicatorColor: appColor,
+              indicatorSize: TabBarIndicatorSize.label,
+              isScrollable: false,
+              tabs: myTabController.myTabs,
+              labelStyle: TextStyle(
+                fontSize: 15,
+                color: black,
+                fontFamily: "NunitoSemiBold",
+                fontWeight: FontWeight.w600,
               ),
             ),
           ),
@@ -334,7 +322,7 @@ lastContainerDesign(
     String richText1,
     String richText2}) {
   return Container(
-    width: 82/*tablet:80*/,
+    width: 82 /*tablet:80*/,
     child: Row(
       children: [
         VerticalDivider(
@@ -583,31 +571,42 @@ listViewItemDesign(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Image(
-            image: AssetImage(image),
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                title,
-                style: TextStyle(
-                  fontSize: 15,
-                  color: black,
-                  fontFamily: "NunitoSemiBold",
-                  fontWeight: FontWeight.w600,
+          Container(
+            child: Row(
+              children: [
+                Image(
+                  image: AssetImage(image),
+                  width: 30,
+                  height: 30,
                 ),
-              ),
-              Text(
-                subTitle,
-                style: TextStyle(
-                  fontSize: 13,
-                  color: gray4,
-                  fontFamily: "Nunito",
-                  fontWeight: FontWeight.w400,
+                SizedBox(
+                  width: 15,
                 ),
-              ),
-            ],
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
+                      style: TextStyle(
+                        fontSize: 15,
+                        color: black,
+                        fontFamily: "NunitoSemiBold",
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    Text(
+                      subTitle,
+                      style: TextStyle(
+                        fontSize: 13,
+                        color: gray4,
+                        fontFamily: "Nunito",
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
           Container(
             width: 84,
@@ -757,29 +756,38 @@ listViewItemDesignMostStock(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          SvgPicture.asset(image),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                title,
-                style: TextStyle(
-                  fontSize: 15,
-                  color: black,
-                  fontFamily: "NunitoSemiBold",
-                  fontWeight: FontWeight.w600,
+          Container(
+            child: Row(
+              children: [
+                SvgPicture.asset(image,width: 30,height: 30),
+                SizedBox(
+                  width: 15,
                 ),
-              ),
-              Text(
-                subTitle,
-                style: TextStyle(
-                  fontSize: 13,
-                  color: gray4,
-                  fontFamily: "Nunito",
-                  fontWeight: FontWeight.w400,
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
+                      style: TextStyle(
+                        fontSize: 15,
+                        color: black,
+                        fontFamily: "NunitoSemiBold",
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    Text(
+                      subTitle,
+                      style: TextStyle(
+                        fontSize: 13,
+                        color: gray4,
+                        fontFamily: "Nunito",
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  ],
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
           Container(
             width: 84,

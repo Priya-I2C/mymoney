@@ -10,8 +10,8 @@ class MyTabController extends GetxController with SingleGetTickerProviderMixin {
     Tab(text: 'All'),
   ];
   final List<Tab> myTabs2 = <Tab>[
-    Tab(text: 'Pending'),
-    Tab(text: 'Executed'),
+    Tab(text: 'Pending'.toUpperCase()),
+    Tab(text: 'Executed'.toUpperCase()),
   ];
   final List<Tab> myTabs3 = <Tab>[
     Tab(text: 'EQUITY'),

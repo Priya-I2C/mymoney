@@ -1,25 +1,74 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:mymoney/utils/color.dart';
+
+Widget otpNumberWidget(int position, String text) {
+  try {
+    return Container(
+      height: 56,
+      width: 56,
+      decoration: BoxDecoration(
+        color: white,
+        borderRadius: BorderRadius.all(
+          Radius.circular(60),
+        ),
+        // shape: BoxShape.circle,
+        border: Border.all(
+          color: green,
+          width: 2,
+        ),
+      ),
+      child: Center(
+        child: Text(
+          text[position],
+          style: TextStyle(
+            fontSize: 20,
+            fontFamily: "NunitoBold",
+            color: appColor,
+          ),
+        ),
+      ),
+    );
+  } catch (e) {
+    return Container(
+      height: 56,
+      width: 56,
+      decoration: BoxDecoration(
+        color: gray3,
+        borderRadius: BorderRadius.all(
+          Radius.circular(60),
+        ),
+        // shape: BoxShape.circle,
+      ),
+    );
+  }
+}
 
 roundContainer(
     {String textNum, Color colorBox, Color colorBorder, Color textColor}) {
   return Container(
-    height: Get.height / 14.85,
-    width: Get.width / 2.05,
+    height: 56,
+    width: 56,
     decoration: BoxDecoration(
-      color: colorBox,
+      color: textNum == "" ? gray3 : white,
       borderRadius: BorderRadius.all(
         Radius.circular(60),
       ),
       // shape: BoxShape.circle,
       border: Border.all(
-        color: colorBorder == null ? transPrent : colorBorder,
+        color: textNum == "" ? transPrent : green,
         width: 2,
       ),
     ),
     child: Center(
-      child: TextFormField(
+      child: Text(
+        textNum,
+        style: TextStyle(
+          fontSize: 24,
+          color: textColor,
+        ),
+      ),
+
+      /*TextFormField(
         controller: _controller,
         validator: (value) {
           return value.length <= 4 ? null : null;
@@ -44,12 +93,11 @@ roundContainer(
           border: InputBorder.none,
           // counterText: "",
         ),
-      ),
+      ),*/
     ),
   );
 }
 
-FocusNode _focusNode = new FocusNode();
 TextEditingController _controller = TextEditingController();
 
 void insertText(String myText) {

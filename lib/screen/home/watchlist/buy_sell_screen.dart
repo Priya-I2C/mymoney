@@ -13,7 +13,6 @@ import 'package:mymoney/utils/color.dart';
 import 'package:mymoney/utils/imagenames.dart';
 import '../drawer_open_.dart';
 
-
 final MyTabController myTabController = Get.put(MyTabController());
 ColorChangeController colorChangeController = Get.put(
   ColorChangeController(),
@@ -27,6 +26,7 @@ class BuySellScreen extends StatelessWidget {
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
         backgroundColor: pageBackGroundC,
+        centerTitle: true,
         elevation: 0,
         leading: IconButton(
           icon: Icon(
@@ -37,16 +37,13 @@ class BuySellScreen extends StatelessWidget {
             Navigator.pop(context);
           },
         ),
-        title: Padding(
-          padding: const EdgeInsets.only(left: 75),
-          child: Text(
-            "AXISBANK",
-            style: TextStyle(
-              fontSize: 20,
-              color: black2,
-              fontFamily: "NunitoBold",
-              fontWeight: FontWeight.w700,
-            ),
+        title: Text(
+          "AXISBANK",
+          style: TextStyle(
+            fontSize: 20,
+            color: black2,
+            fontFamily: "NunitoBold",
+            fontWeight: FontWeight.w700,
           ),
         ),
       ),
@@ -233,9 +230,36 @@ class BuySellScreen extends StatelessWidget {
                           : MyHomePage(),
                     ),
                   ),
-                  Text("c sdnc"),
-                  Text("c sdnc"),
-                  Text("c sdnc"),
+                  Obx(
+                    () => Container(
+                      padding: EdgeInsets.all(8.0),
+                      width: Get.width,
+                      // height: 280,
+                      child: colorChangeController.graphLine.isTrue
+                          ? lineGraph()
+                          : MyHomePage(),
+                    ),
+                  ),
+                  Obx(
+                    () => Container(
+                      padding: EdgeInsets.all(8.0),
+                      width: Get.width,
+                      // height: 280,
+                      child: colorChangeController.graphLine.isTrue
+                          ? lineGraph()
+                          : MyHomePage(),
+                    ),
+                  ),
+                  Obx(
+                    () => Container(
+                      padding: EdgeInsets.all(8.0),
+                      width: Get.width,
+                      // height: 280,
+                      child: colorChangeController.graphLine.isTrue
+                          ? lineGraph()
+                          : MyHomePage(),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -278,7 +302,7 @@ class BuySellScreen extends StatelessWidget {
                   sellButton(
                     textLabel: "SELL",
                     onTapButton: () {
-                      sellDialog();
+                      sellDialog(context);
                     },
                   ),
                 ],
@@ -293,241 +317,241 @@ class BuySellScreen extends StatelessWidget {
 
 buyDialog(context) {
   ProfileController profileController = Get.find();
-  return Get.defaultDialog(
-    // barrierDismissible: true,
-    barrierDismissible: true,
-    contentPadding: EdgeInsets.all(0),
-    radius: 31,
-    title: "",
-    titlePadding: EdgeInsets.all(0),
-    content: Container(
-      width: Get.width,
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(0.0),
-            child: Align(
-              alignment: Alignment.topRight,
-              child: IconButton(
+  Dialog fancyDialog = Dialog(
+    insetPadding: EdgeInsets.zero,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(
+        32.0,
+      ),
+    ),
+    child: Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(0.0),
+          child: Align(
+            alignment: Alignment.topRight,
+            child: IconButton(
+              onPressed: () {
+                Get.back();
+              },
+              icon: Icon(CupertinoIcons.clear),
+            ),
+          ),
+        ),
+        design1Buy(color1: appColor2F80ED),
+        Divider(
+          thickness: 3,
+          color: grayF2F2F2,
+        ),
+        design2(color2: appColor),
+        design3(color2: appColor),
+        Divider(
+          thickness: 3,
+          color: grayF2F2F2,
+        ),
+        Padding(
+          padding:
+              const EdgeInsets.only(right: 17, left: 17, top: 10, bottom: 10),
+          child: Row(
+            children: [
+              Text(
+                "Set Stoploss",
+                style: TextStyle(
+                  color: black2,
+                  fontWeight: FontWeight.w700,
+                  fontFamily: "NunitoBold",
+                  fontSize: 18,
+                ),
+              ),
+              SizedBox(
+                width: 14,
+              ),
+              Obx(
+                () => CupertinoSwitch(
+                  activeColor: appColor,
+                  value: colorChangeController.lights.value,
+                  onChanged: (bool value) {
+                    colorChangeController.lights.value = value;
+                  },
+                ),
+              ),
+            ],
+          ),
+        ),
+        Divider(
+          thickness: 3,
+          color: grayF2F2F2,
+        ),
+        Padding(
+          padding:
+              const EdgeInsets.only(right: 17, left: 17, top: 10, bottom: 10),
+          child: Row(
+            children: [
+              Text(
+                "Set target",
+                style: TextStyle(
+                  color: black2,
+                  fontWeight: FontWeight.w700,
+                  fontFamily: "NunitoBold",
+                  fontSize: 18,
+                ),
+              ),
+              SizedBox(
+                width: 36,
+              ),
+              Obx(
+                () => CupertinoSwitch(
+                  activeColor: appColor,
+                  value: colorChangeController.lights1.value,
+                  onChanged: (bool value) {
+                    colorChangeController.lights1.value = value;
+                  },
+                ),
+              ),
+            ],
+          ),
+        ),
+        Divider(
+          thickness: 3,
+          color: grayF2F2F2,
+        ),
+        Padding(
+          padding: EdgeInsets.only(top: 39, bottom: 16),
+          child: buyDropDownButton(
+            textLabel: "BUY",
+            onTapButton: () {
+              profileController.selectedIndex.value = 1;
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => DrawerOpenScreen(),
+                ),
+              );
+            },
+          ),
+        ),
+      ],
+    ),
+  );
+  return showDialog(
+      context: context, builder: (BuildContext context) => fancyDialog);
+}
+
+sellDialog(context) {
+  Dialog fancyDialog = Dialog(
+    insetPadding: EdgeInsets.zero,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(
+        32.0,
+      ),
+    ),
+    child: Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(0.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              IconButton(
                 onPressed: () {
                   Get.back();
                 },
                 icon: Icon(CupertinoIcons.clear),
               ),
-            ),
+            ],
           ),
-          design1Buy(color1: appColor2F80ED),
-          Divider(
-            thickness: 3,
-            color: grayF2F2F2,
-          ),
-          design2(color2: appColor),
-          design3(color2: appColor),
-          Divider(
-            thickness: 3,
-            color: grayF2F2F2,
-          ),
-          Padding(
-            padding:
-                const EdgeInsets.only(right: 17, left: 17, top: 10, bottom: 10),
-            child: Row(
-              children: [
-                Text(
-                  "Set Stoploss",
-                  style: TextStyle(
-                    color: black2,
-                    fontWeight: FontWeight.w700,
-                    fontFamily: "NunitoBold",
-                    fontSize: 18,
-                  ),
+        ),
+        design1Sell(color1: redEB5757),
+        Divider(
+          thickness: 3,
+          color: grayF2F2F2,
+        ),
+        design2(color2: redEB5757),
+        design3Sell(color2: redEB5757),
+        Divider(
+          thickness: 3,
+          color: grayF2F2F2,
+        ),
+        Padding(
+          padding:
+              const EdgeInsets.only(right: 17, left: 17, top: 10, bottom: 10),
+          child: Row(
+            children: [
+              Text(
+                "Set Stoploss",
+                style: TextStyle(
+                  color: black2,
+                  fontWeight: FontWeight.w700,
+                  fontFamily: "NunitoBold",
+                  fontSize: 18,
                 ),
-                SizedBox(
-                  width: 14,
-                ),
-                Obx(
-                  () => CupertinoSwitch(
-                    activeColor: appColor,
-                    value: colorChangeController.lights.value,
-                    onChanged: (bool value) {
-                      colorChangeController.lights.value = value;
-                    },
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Divider(
-            thickness: 3,
-            color: grayF2F2F2,
-          ),
-          Padding(
-            padding:
-                const EdgeInsets.only(right: 17, left: 17, top: 10, bottom: 10),
-            child: Row(
-              children: [
-                Text(
-                  "Set target",
-                  style: TextStyle(
-                    color: black2,
-                    fontWeight: FontWeight.w700,
-                    fontFamily: "NunitoBold",
-                    fontSize: 18,
-                  ),
-                ),
-                SizedBox(
-                  width: 36,
-                ),
-                Obx(
-                  () => CupertinoSwitch(
-                    activeColor: appColor,
-                    value: colorChangeController.lights1.value,
-                    onChanged: (bool value) {
-                      colorChangeController.lights1.value = value;
-                    },
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Divider(
-            thickness: 3,
-            color: grayF2F2F2,
-          ),
-          Padding(
-            padding: EdgeInsets.only(top: 39, bottom: 16),
-            child: buyDropDownButton(
-              textLabel: "BUY",
-              onTapButton: () {
-                profileController.selectedIndex.value = 1;
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => DrawerOpenScreen(),
-                  ),
-                );
-              },
-            ),
-          ),
-        ],
-      ),
-    ),
-  );
-}
-
-sellDialog() {
-  return Get.defaultDialog(
-    // barrierDismissible: true,
-    barrierDismissible: true,
-    contentPadding: EdgeInsets.all(0),
-    radius: 31,
-    title: "",
-    titlePadding: EdgeInsets.all(0),
-    content: Container(
-      width: Get.width,
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(0.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                IconButton(
-                  onPressed: () {
-                    Get.back();
+              ),
+              SizedBox(
+                width: 14,
+              ),
+              Obx(
+                () => CupertinoSwitch(
+                  activeColor: redEB5757,
+                  value: colorChangeController.lights.value,
+                  onChanged: (bool value) {
+                    colorChangeController.lights.value = value;
                   },
-                  icon: Icon(CupertinoIcons.clear),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
-          design1Sell(color1: redEB5757),
-          Divider(
-            thickness: 3,
-            color: grayF2F2F2,
-          ),
-          design2(color2: redEB5757),
-          design3Sell(color2: redEB5757),
-          Divider(
-            thickness: 3,
-            color: grayF2F2F2,
-          ),
-          Padding(
-            padding:
-                const EdgeInsets.only(right: 17, left: 17, top: 10, bottom: 10),
-            child: Row(
-              children: [
-                Text(
-                  "Set Stoploss",
-                  style: TextStyle(
-                    color: black2,
-                    fontWeight: FontWeight.w700,
-                    fontFamily: "NunitoBold",
-                    fontSize: 18,
-                  ),
+        ),
+        Divider(
+          thickness: 3,
+          color: grayF2F2F2,
+        ),
+        Padding(
+          padding:
+              const EdgeInsets.only(right: 17, left: 17, top: 10, bottom: 10),
+          child: Row(
+            children: [
+              Text(
+                "Set target",
+                style: TextStyle(
+                  color: black2,
+                  fontWeight: FontWeight.w700,
+                  fontFamily: "NunitoBold",
+                  fontSize: 18,
                 ),
-                SizedBox(
-                  width: 14,
+              ),
+              SizedBox(
+                width: 36,
+              ),
+              Obx(
+                () => CupertinoSwitch(
+                  activeColor: redEB5757,
+                  value: colorChangeController.lights1.value,
+                  onChanged: (bool value) {
+                    colorChangeController.lights1.value = value;
+                  },
                 ),
-                Obx(
-                  () => CupertinoSwitch(
-                    activeColor: redEB5757,
-                    value: colorChangeController.lights.value,
-                    onChanged: (bool value) {
-                      colorChangeController.lights.value = value;
-                    },
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
-          Divider(
-            thickness: 3,
-            color: grayF2F2F2,
+        ),
+        Divider(
+          thickness: 3,
+          color: grayF2F2F2,
+        ),
+        Padding(
+          padding: EdgeInsets.only(top: 39, bottom: 16),
+          child: sellDropDownButton(
+            onTapButton: () {},
+            textLabel: "SELL",
           ),
-          Padding(
-            padding:
-                const EdgeInsets.only(right: 17, left: 17, top: 10, bottom: 10),
-            child: Row(
-              children: [
-                Text(
-                  "Set target",
-                  style: TextStyle(
-                    color: black2,
-                    fontWeight: FontWeight.w700,
-                    fontFamily: "NunitoBold",
-                    fontSize: 18,
-                  ),
-                ),
-                SizedBox(
-                  width: 36,
-                ),
-                Obx(
-                  () => CupertinoSwitch(
-                    activeColor: redEB5757,
-                    value: colorChangeController.lights1.value,
-                    onChanged: (bool value) {
-                      colorChangeController.lights1.value = value;
-                    },
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Divider(
-            thickness: 3,
-            color: grayF2F2F2,
-          ),
-          Padding(
-            padding: EdgeInsets.only(top: 39, bottom: 16),
-            child: sellDropDownButton(
-              onTapButton: () {},
-              textLabel: "SELL",
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     ),
   );
+  return showDialog(
+      context: context, builder: (BuildContext context) => fancyDialog);
 }
 
 tableView() {

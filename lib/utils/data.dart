@@ -1,3 +1,13 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:mymoney/screen/home/drawer_screen_dir/Gold/gold_screen.dart';
+import 'package:mymoney/screen/home/drawer_screen_dir/IPO/ipo_screen.dart';
+import 'package:mymoney/screen/home/drawer_screen_dir/MarginCalculator/margin_calculator_screen.dart';
+import 'package:mymoney/screen/home/drawer_screen_dir/PriceAlert/creat_price_alert_screen.dart';
+import 'package:mymoney/screen/home/drawer_screen_dir/Research/reserach_screen.dart';
+import 'package:mymoney/screen/home/drawer_screen_dir/mutualFunds/mutual_funds_screen.dart';
+import 'package:mymoney/screen/welcome/welcome_screen.dart';
 import 'package:mymoney/utils/color.dart';
 import 'package:mymoney/utils/imagenames.dart';
 
@@ -33,38 +43,60 @@ const List notificationList = [
     "time": "5.00 pm"
   },
 ];
-const List drawerList = [
+List drawerList = [
   {
     "img": homeIcon,
     "title": "Dashboard",
+    "onTap": () {},
   },
   {
     "img": matualFund,
     "title": "Matual Funds",
+    "onTap": () {
+      Get.to(MutualFundsScreen());
+    },
   },
   {
     "img": research,
     "title": "Research",
+    "onTap": () {
+      Get.to(ResearchScreen());
+    },
   },
   {
     "img": bell,
     "title": "Price alert",
+    "onTap": () {
+      Get.to(PriceAlertScreen());
+    },
   },
   {
     "img": ipo,
     "title": "IPO",
+    "onTap": () {
+      Get.to(IPOScreen());
+    },
   },
   {
     "img": calculator,
     "title": "Margin Calculator",
+    "onTap": () {
+      Get.to(MarginCalculatorScreen());
+    },
   },
   {
     "img": gold,
     "title": "Gold",
+    "onTap": () {
+      Get.to(GoldScreen());
+    },
   },
   {
     "img": logOut,
     "title": "Sign out",
+    "onTap": () {
+      logOutDialog();
+    },
   },
 ];
 const List bottomSheetListBuild = [
@@ -360,3 +392,93 @@ const List bookedListPageBuildDesign = [
     "ltp": "2126.20",
   },
 ];
+
+logOutDialog() {
+  return Get.defaultDialog(
+    barrierDismissible: true,
+    title: "",
+    contentPadding: EdgeInsets.all(0),
+    titlePadding: EdgeInsets.all(0),
+    content: Container(
+      width: Get.width,
+      child: Column(
+        children: [
+          SvgPicture.asset(
+            logOut,
+            color: redEB5757,
+            height: 43,
+          ),
+          SizedBox(
+            height: 23,
+          ),
+          Text(
+            "Are you sure you want to Logout.?",
+            style: TextStyle(
+              color: black,
+              fontFamily: "NunitoSemiBold",
+              fontWeight: FontWeight.w400,
+            ),
+          ),
+          SizedBox(
+            height: 23,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              MaterialButton(
+                height: 39,
+                minWidth: 118,
+                onPressed: () {
+                  Get.off(WelcomeScreen());
+                },
+                color: white,
+                elevation: 0,
+                shape: RoundedRectangleBorder(
+                  side: BorderSide(color: black2, width: 1),
+                  borderRadius: BorderRadiusDirectional.circular(
+                    12,
+                  ),
+                ),
+                child: Text(
+                  "Yes",
+                  style: TextStyle(
+                    color: black,
+                    fontSize: 18,
+                    fontFamily: "NunitoBold",
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+              ),
+              SizedBox(
+                width: 22,
+              ),
+              MaterialButton(
+                height: 39,
+                minWidth: 118,
+                onPressed: () {
+                  Get.back();
+                },
+                color: appColor,
+                elevation: 0,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadiusDirectional.circular(
+                    12,
+                  ),
+                ),
+                child: Text(
+                  "No",
+                  style: TextStyle(
+                    color: white,
+                    fontSize: 18,
+                    fontFamily: "NunitoBold",
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    ),
+  );
+}

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -100,32 +99,35 @@ class LogInScreen extends StatelessWidget {
                         ),
                       ),
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Obx(
-                            () => Checkbox(
-                              value: checkBoxController.isCheck.value,
-                              activeColor: appColor,
-                              onChanged: (val) {
-                                checkBoxController.isCheck.value =
-                                    !checkBoxController.isCheck.value;
-                              },
+                          Container(
+                            child: Row(
+                              children: [
+                                Obx(
+                                  () => Checkbox(
+                                    value: checkBoxController.isCheck.value,
+                                    activeColor: appColor,
+                                    onChanged: (val) {
+                                      checkBoxController.isCheck.value =
+                                          !checkBoxController.isCheck.value;
+                                    },
+                                  ),
+                                ),
+                                Text(
+                                  "Remember me",
+                                  style: TextStyle(
+                                    color: black.withOpacity(0.6),
+                                    fontSize: 13,
+                                    fontWeight: FontWeight.w400,
+                                    fontFamily: "MontserratRegular",
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
-                          Text(
-                            "Remember me",
-                            style: TextStyle(
-                              color: black.withOpacity(0.6),
-                              fontSize: 13,
-                              fontWeight: FontWeight.w400,
-                              fontFamily: "MontserratRegular",
-                            ),
-                          ),
-                          SizedBox(
-                            width:30/*tablet:110*/,
-                          ),
-                          TextButton(
-                            onPressed: () {
+                          InkWell(
+                            onTap: () {
                               Get.to(
                                 ForGetPassword(),
                               );

@@ -166,7 +166,7 @@ class SignUpScreen extends StatelessWidget {
                               print("Sign Up");
                             },
                             child: Text(
-                              "Login",
+                              " Login",
                               style: TextStyle(
                                 fontSize: 15,
                                 color: appColor,
